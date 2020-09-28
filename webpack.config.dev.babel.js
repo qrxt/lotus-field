@@ -47,7 +47,15 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-            options: { sourceMap: true },
+            options: {
+              sourceMap: true,
+              modules: {
+                localIdentName: '[name]__[local]__[hash:base64:5]',
+                auto: (resourcePath) => (
+                  !resourcePath.endsWith('bootstrap.min.css')
+                ),
+              },
+            },
           },
           {
             loader: 'postcss-loader',
