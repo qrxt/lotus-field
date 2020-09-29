@@ -98,7 +98,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'src/img', to: 'img' },
+        { from: 'public/img', to: 'img' },
       ],
     }),
     new webpack.SourceMapDevToolPlugin({

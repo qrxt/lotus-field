@@ -1,6 +1,7 @@
 import React from 'react';
-import { faHome, faHeart, faSearch } from '@fortawesome/free-solid-svg-icons';
 import cn from 'classnames';
+import { useTranslation } from 'react-i18next';
+import { faHome, faHeart, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './nav-bar.css';
 
@@ -11,6 +12,8 @@ const NavBar = () => {
     'navbar navbar-expand-lg navbar-light bg-light',
     styles.navbar,
   );
+
+  const { t } = useTranslation();
 
   return (
     <nav className={ navBarClasses }>
@@ -39,7 +42,7 @@ const NavBar = () => {
         <ul className="navbar-nav">
           <li className="nav-item active">
             <NavLink icon={ faHome } href="#" isCurrent>
-              Home
+              { t('nav-menu.home') }
             </NavLink>
           </li>
           <li className="nav-item">
