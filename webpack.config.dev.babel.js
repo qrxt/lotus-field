@@ -1,5 +1,6 @@
 import '@babel/polyfill';
 
+import path from 'path';
 import webpack from 'webpack';
 
 import CopyWebpackPlugin from 'copy-webpack-plugin';
@@ -111,4 +112,14 @@ module.exports = {
       template: './src/index.html',
     }),
   ],
+  resolve: {
+    alias: {
+      '@components': path.resolve(__dirname, 'src', 'app', 'components'),
+      '@containers': path.resolve(__dirname, 'src', 'app', 'containers'),
+      '@reducers': path.resolve(__dirname, 'src', 'app', 'reducers'),
+      '@services': path.resolve(__dirname, 'src', 'app', 'services'),
+      '@images': path.resolve(__dirname, 'public', 'img'),
+      '@locales': path.resolve(__dirname, 'public', 'locales'),
+    },
+  },
 };

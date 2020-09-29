@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 
 import './app.css';
 
-import Header from '../header/header.jsx';
+import Header from '@components/header/header.jsx';
+import CardsService from '@services/cards-service';
 
 const loading = <div>loading...</div>;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 
 import styles from './nav-link.css';
 
@@ -15,7 +15,7 @@ const NavLink = (props) => {
 
   return (
     <a className="nav-link" href={ href }>
-      <FontAwesomeIcon icon={ faIcon } className={ styles.icon } />
+      <Icon icon={ faIcon } className={ styles.icon } />
       { isCurrent ? srCurrent : null }
       { props.children }
     </a>

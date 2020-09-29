@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavBar from '../nav-bar/nav-bar.jsx';
+import NavBar from '@components/nav-bar/nav-bar.jsx';
 
 const Header = () => (
   <header className="main-header">

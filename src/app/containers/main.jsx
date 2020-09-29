@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Main from '../components/main/main.jsx';
+import Main from '@components/main/main.jsx';
 
 const mapStateToProps = (state) => ({ value: state });
 

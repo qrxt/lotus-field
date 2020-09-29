@@ -1,11 +1,16 @@
 import React from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { faHome, faHeart, faSearch } from '@fortawesome/free-solid-svg-icons';
+import {
+  faHome,
+  faHeart,
+  faSearch,
+  faCog
+} from '@fortawesome/free-solid-svg-icons';
+
+import NavLink from '@components/nav-link/nav-link.jsx';
 
 import styles from './nav-bar.css';
-
-import NavLink from '../nav-link/nav-link.jsx';
 
 const NavBar = () => {
   const navBarClasses = cn(
@@ -47,12 +52,17 @@ const NavBar = () => {
           </li>
           <li className="nav-item">
             <NavLink icon={ faHeart } href="#">
-              Wishlist
+              { t('nav-menu.wishlist') }
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink icon={ faSearch } href="#">
-              Search
+              { t('nav-menu.search') }
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink icon={ faCog } href="#">
+              { t('nav-menu.settings') }
             </NavLink>
           </li>
         </ul>
