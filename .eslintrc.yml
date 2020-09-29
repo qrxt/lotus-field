@@ -22,8 +22,3 @@ settings:
   import/resolver:
     webpack:
       config: 'webpack.config.dev.babel.js'
-
-rules:
-  "import/no-extraneous-dependencies":
-    error:
-      devDependencies: true

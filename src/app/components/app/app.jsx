@@ -7,6 +7,14 @@ import './app.css';
 import Header from '@components/header/header.jsx';
 import CardsService from '@services/cards-service';
 
+/***/
+const cardsService = new CardsService();
+
+cardsService.getRandom()
+  .then((randomCard) => console.log(randomCard))
+  .catch(console.error);
+/***/
+
 const loading = <div>loading...</div>;
 
 const App = (props) => (
