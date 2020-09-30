@@ -5,7 +5,7 @@ import {
   faHome,
   faHeart,
   faSearch,
-  faCog
+  faCog,
 } from '@fortawesome/free-solid-svg-icons';
 
 import NavLink from '@components/nav-link/nav-link.jsx';

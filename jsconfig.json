@@ -2,10 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./src/app/components/*"],
-      "@containers/*": ["./src/app/containers/*"],
-      "@services/*": ["./src/app/services/*"],
-      "@reducers/*": ["./src/app/reducers/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@components/*": ["./src/components/*"],
+      "@containers/*": ["./src/containers/*"],
+      "@services/*": ["src/services/*"],
+      "@reducers/*": ["./src/reducers/*"],
       "@images/*": ["./public/img/*"],
       "@locales/*": ["./public/locales/*"],
     }

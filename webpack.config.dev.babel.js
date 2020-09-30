@@ -13,7 +13,7 @@ module.exports = {
   entry: {
     main: [
       '@babel/polyfill',
-      './src/app/index.js',
+      './src/index.js',
       'bootstrap/dist/css/bootstrap.min.css',
     ],
     bundle: ['jquery', 'popper.js', 'bootstrap'],
@@ -114,10 +114,11 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '@components': path.resolve(__dirname, 'src', 'app', 'components'),
-      '@containers': path.resolve(__dirname, 'src', 'app', 'containers'),
-      '@reducers': path.resolve(__dirname, 'src', 'app', 'reducers'),
-      '@services': path.resolve(__dirname, 'src', 'app', 'services'),
+      '@utils': path.resolve(__dirname, 'src', 'utils'),
+      '@components': path.resolve(__dirname, 'src', 'components'),
+      '@containers': path.resolve(__dirname, 'src', 'containers'),
+      '@reducers': path.resolve(__dirname, 'src', 'reducers'),
+      '@services': path.resolve(__dirname, 'src', 'services'),
       '@images': path.resolve(__dirname, 'public', 'img'),
       '@locales': path.resolve(__dirname, 'public', 'locales'),
     },

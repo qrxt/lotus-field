@@ -7,6 +7,10 @@ import './app.css';
 import Header from '@components/header/header.jsx';
 import CardsService from '@services/cards-service';
 
+//
+import Card from '@components/card/card.jsx';
+//
+
 /***/
 const cardsService = new CardsService();
 
