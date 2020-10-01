@@ -1,0 +1,89 @@
+@keyframes petals-spinner-animation {
+  0% { opacity: 1 }
+  100% { opacity: 0 }
+}
+
+.petals-spinner-container div {
+  left: 93px;
+  top: 50px;
+  position: absolute;
+  animation: petals-spinner-animation linear 2.0833333333333335s infinite;
+  background: #292664;
+  width: 14px;
+  height: 24px;
+  border-radius: 7px / 12px;
+  transform-origin: 7px 50px;
+}
+
+.petals-spinner-container div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.8518518518518516s;
+  background: #292664;
+}
+
+.petals-spinner-container div:nth-child(2) {
+  transform: rotate(40deg);
+  animation-delay: -1.6203703703703702s;
+  background: #292664;
+}
+
+.petals-spinner-container div:nth-child(3) {
+  transform: rotate(80deg);
+  animation-delay: -1.3888888888888888s;
+  background: #292664;
+}
+
+.petals-spinner-container div:nth-child(4) {
+  transform: rotate(120deg);
+  animation-delay: -1.1574074074074074s;
+  background: #292664;
+}
+
+.petals-spinner-container div:nth-child(5) {
+  transform: rotate(160deg);
+  animation-delay: -0.9259259259259258s;
+  background: #292664;
+}
+
+.petals-spinner-container div:nth-child(6) {
+  transform: rotate(200deg);
+  animation-delay: -0.6944444444444444s;
+  background: #292664;
+}
+
+.petals-spinner-container div:nth-child(7) {
+  transform: rotate(240deg);
+  animation-delay: -0.4629629629629629s;
+  background: #292664;
+}
+
+.petals-spinner-container div:nth-child(8) {
+  transform: rotate(280deg);
+  animation-delay: -0.23148148148148145s;
+  background: #292664;
+}
+
+.petals-spinner-container div:nth-child(9) {
+  transform: rotate(320deg);
+  animation-delay: 0s;
+  background: #292664;
+}
+
+.petals-spinner {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+}
+
+.petals-spinner-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+
+.petals-spinner-container div { box-sizing: content-box; }

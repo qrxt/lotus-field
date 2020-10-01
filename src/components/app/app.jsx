@@ -1,35 +1,25 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-
+import ScryfallService from '@services/scryfall-service';
+import { ScryfallServiceProvider } from '@components/scryfall-service-context';
+import Header from '@components/header';
+import FeaturesNav from '@components/features-nav';
 import './app.css';
 
-import Header from '@components/header/header.jsx';
-import CardsService from '@services/cards-service';
+// const loading = <div>loading...</div>;
+// <Suspense fallback={loading}></Suspense>
 
-//
-import Card from '@components/card/card.jsx';
-//
-
-/***/
-const cardsService = new CardsService();
-
-cardsService.getRandom()
-  .then((randomCard) => console.log(randomCard))
-  .catch(console.error);
-/***/
-
-const loading = <div>loading...</div>;
+const scryfallService = new ScryfallService();
 
 const App = (props) => (
   <React.StrictMode>
     <Provider store={props.store}>
-      <Suspense fallback={loading}>
+      <ScryfallServiceProvider value={scryfallService}>
         <Header />
-        <div className="wrapper">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </div>
-      </Suspense>
+
+        <FeaturesNav />
+      </ScryfallServiceProvider>
     </Provider>
   </React.StrictMode>
 );

@@ -4,5 +4,9 @@
     "wishlist": "Wishlist",
     "search": "Search",
     "settings": "Settings"
+  },
+
+  "features-nav": {
+    "random-card": "Random card"
   }
 }

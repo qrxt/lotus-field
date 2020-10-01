@@ -4,5 +4,9 @@
     "wishlist": "Список желаемого",
     "search": "Поиск карт",
     "settings": "Настройки"
+  },
+
+  "features-nav": {
+    "random-card": "Случайная карта"
   }
 }
