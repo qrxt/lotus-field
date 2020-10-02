@@ -16,9 +16,9 @@ const FeatureLink = (props) => {
   );
 
   return (
-    <Link className={linkClasses} to={to}>
+    <Link className={ linkClasses } to={ to }>
       <Icon icon={ faIcon } className="fa-lg" />
-      <span className={styles['link-text']}>
+      <span className={ styles['link-text'] }>
         {
           props.children
         }

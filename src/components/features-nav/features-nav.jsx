@@ -20,7 +20,7 @@ const FeaturesNav = () => {
     <div className="wrapper">
       <ul className={listClasses}>
         <li>
-          <FeatureLink icon={ faRandom } to="/random">
+          <FeatureLink icon={ faRandom } to="/card/random">
             { t('features-nav.random-card') }
           </FeatureLink>
         </li>

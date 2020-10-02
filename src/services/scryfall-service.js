@@ -19,9 +19,11 @@ class CardsService {
     return response.json();
   }
 
-  async getRandom() {
+  async getRandomCard() {
     const card = await this.getResource('/cards/random');
-    return transformCardData(card);
+    // return transformCardData(card);
+
+    return card;
   }
 }
 

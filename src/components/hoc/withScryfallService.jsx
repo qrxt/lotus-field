@@ -6,7 +6,7 @@ const withScryfallService = () => (Wrapped) => {
     <ScryfallServiceConsumer>
       {
         (scryfallService) => (
-          <Wrapped {...props} scryfallService={scryfallService} />
+          <Wrapped { ...props } scryfallService={ scryfallService } />
         )
       }
     </ScryfallServiceConsumer>

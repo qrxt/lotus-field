@@ -8,6 +8,9 @@ extends:
   - "plugin:jest/recommended"
   - "plugin:react/recommended"
 
+rules:
+  "react/jsx-curly-spacing": ["error", "always"]
+
 parser: babel-eslint
 
 env:

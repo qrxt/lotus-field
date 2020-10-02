@@ -1,14 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
 import './i18n';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import ScryfallService from '@services/scryfall-service';
+import { ScryfallServiceProvider } from '@components/scryfall-service-context';
 
-import reducer from '@reducers/reducer';
 import App from '@components/app/app.jsx';
+import store from './store';
 
-const store = createStore(reducer);
+const scryfallService = new ScryfallService();
 
 render(
-  <App store={store} />,
+  <React.StrictMode>
+    <Provider store={ store }>
+      <ScryfallServiceProvider value={ scryfallService }>
+        <Router>
+          <App />
+        </Router>
+      </ScryfallServiceProvider>
+    </Provider>
+  </React.StrictMode>,
   document.querySelector('.root'),
 );

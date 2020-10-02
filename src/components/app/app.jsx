@@ -1,54 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { Route } from 'react-router-dom';
 
-import ScryfallService from '@services/scryfall-service';
-import { ScryfallServiceProvider } from '@components/scryfall-service-context';
 import Header from '@components/header';
-import { RandomCardPage, MainPage } from '@components/pages';
+import { MainPage } from '@pages';
+import { withScryfallService } from '@hoc';
 import './app.css';
 
 // const loading = <div>loading...</div>;
 // <Suspense fallback={loading}></Suspense>
 
-const scryfallService = new ScryfallService();
-
-const App = (props) => {
+const App = ({ scryfallService }) => {
   const { t } = useTranslation();
 
+  const randomCard = scryfallService.getRandomCard();
+
+  console.log(randomCard);
+
   return (
-    <React.StrictMode>
-      <Provider store={ props.store }>
-        <ScryfallServiceProvider value={ scryfallService }>
-          <Router>
-            <Header />
-            <main>
-              <h1 className="visually-hidden">
-                { t('pages.all.h1') }
-              </h1>
+    <React.Fragment>
+      <Header />
+      <main>
+        <h1 className="visually-hidden">
+          { t('pages.all.h1') }
+        </h1>
 
-              <Route
-                path="/"
-                exact
-                component={ MainPage }
-              />
+        <Route
+          path="/"
+          exact
+          component={ MainPage }
+        />
 
-              <Route
-                path="/random"
-                component={ RandomCardPage }
-              />
-            </main>
-          </Router>
-        </ScryfallServiceProvider>
-      </Provider>
-    </React.StrictMode>
+        {/* <Route
+          path="/card/random"
+          exact
+          component={ RandomCardPage }
+        /> */}
+      </main>
+    </React.Fragment>
   );
 };
 
 App.propTypes = {
-  store: PropTypes.object.isRequired,
+  scryfallService: PropTypes.object.isRequired,
 };
 
-export default App;
+export default withScryfallService()(App);

@@ -114,13 +114,23 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '@utils': path.resolve(__dirname, 'src', 'utils'),
+      '@src': path.resolve(__dirname, 'src'),
+      '@public': path.resolve(__dirname, 'public'),
+
       '@components': path.resolve(__dirname, 'src', 'components'),
+      '@pages': path.resolve(__dirname, 'src', 'components', 'pages'),
+      '@hoc': path.resolve(__dirname, 'src', 'components', 'hoc'),
+
       '@containers': path.resolve(__dirname, 'src', 'containers'),
+
       '@reducers': path.resolve(__dirname, 'src', 'reducers'),
+
       '@services': path.resolve(__dirname, 'src', 'services'),
+
       '@images': path.resolve(__dirname, 'public', 'img'),
       '@locales': path.resolve(__dirname, 'public', 'locales'),
+
+      '@utils': path.resolve(__dirname, 'src', 'utils'),
     },
   },
 };
