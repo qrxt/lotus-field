@@ -46,22 +46,22 @@ const NavBar = () => {
       <div className="collapse navbar-collapse justify-content-md-end" id="navbarNavDropdown">
         <ul className="navbar-nav">
           <li className="nav-item active">
-            <NavLink icon={ faHome } href="#" isCurrent>
+            <NavLink icon={ faHome } to="#" isCurrent>
               { t('nav-menu.home') }
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink icon={ faHeart } href="#">
+            <NavLink icon={ faHeart } to="#">
               { t('nav-menu.wishlist') }
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink icon={ faSearch } href="#">
+            <NavLink icon={ faSearch } to="#">
               { t('nav-menu.search') }
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink icon={ faCog } href="#">
+            <NavLink icon={ faCog } to="#">
               { t('nav-menu.settings') }
             </NavLink>
           </li>

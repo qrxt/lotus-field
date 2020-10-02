@@ -1,3 +1,14 @@
 :global(.wrapper) {
   padding: 0 10px;
 }
+
+:global(.visually-hidden) {
+  position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}

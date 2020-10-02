@@ -6,6 +6,20 @@
     "settings": "Settings"
   },
 
+  "pages": {
+    "all": {
+      "h1": "Lotus Field - MTG Wishlist Application"
+    },
+
+    "main": {
+      "h2": "Additional Features"
+    },
+
+    "random": {
+      "h2": "Random card from MTG"
+    }
+  },
+
   "features-nav": {
     "random-card": "Random card"
   }

@@ -20,13 +20,13 @@ const FeaturesNav = () => {
     <div className="wrapper">
       <ul className={listClasses}>
         <li>
-          <FeatureLink icon={ faRandom }>
+          <FeatureLink icon={ faRandom } to="/random">
             { t('features-nav.random-card') }
           </FeatureLink>
         </li>
       </ul>
     </div>
   );
-}
+};
 
 export default FeaturesNav;
