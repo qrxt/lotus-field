@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Header from '@components/header';
-import { MainPage } from '@pages';
+import { MainPage, CardPage } from '@pages';
 import { withScryfallService } from '@hoc';
 import './app.css';
 
@@ -14,9 +14,7 @@ import './app.css';
 const App = ({ scryfallService }) => {
   const { t } = useTranslation();
 
-  const randomCard = scryfallService.getRandomCard();
-
-  console.log(randomCard);
+  // const randomCard = scryfallService.getRandomCard();
 
   return (
     <React.Fragment>
@@ -26,11 +24,18 @@ const App = ({ scryfallService }) => {
           { t('pages.all.h1') }
         </h1>
 
-        <Route
-          path="/"
-          exact
-          component={ MainPage }
-        />
+        <Switch>
+          <Route
+            path="/"
+            exact
+            component={ MainPage }
+          />
+
+          <Route
+            path="/card/:id"
+            component={ CardPage }
+          />
+        </Switch>
 
         {/* <Route
           path="/card/random"

@@ -124,6 +124,7 @@ module.exports = {
       '@containers': path.resolve(__dirname, 'src', 'containers'),
 
       '@reducers': path.resolve(__dirname, 'src', 'reducers'),
+      '@actions': path.resolve(__dirname, 'src', 'actions'),
 
       '@services': path.resolve(__dirname, 'src', 'services'),
 
