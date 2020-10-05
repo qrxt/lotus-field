@@ -12,7 +12,7 @@ const transform = (data) => {
       const current = data[key];
       const camelCaseKey = toCamelCase(key);
 
-      if (current.constructor === Object) {
+      if (current && current.constructor === Object) {
         return [camelCaseKey, transform(current)];
       }
 

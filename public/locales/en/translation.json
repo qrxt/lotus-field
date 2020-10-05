@@ -15,8 +15,8 @@
       "h2": "Additional Features"
     },
 
-    "random": {
-      "h2": "Random card from MTG"
+    "card": {
+      "h2": "Single card page"
     }
   },
 

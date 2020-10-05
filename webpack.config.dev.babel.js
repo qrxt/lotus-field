@@ -20,6 +20,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
+    publicPath: '/',
   },
   devServer: {
     historyApiFallback: true,
@@ -72,7 +73,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|gif|jpe?g)$/,
+        test: /\.(png|gif|jpe?g|eot|woff|ttf)$/,
         use: [
           {
             loader: 'file-loader',
@@ -81,6 +82,20 @@ module.exports = {
             },
           },
           'img-loader',
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: 'react-svg-loader',
+            options: {
+              jsx: true,
+            },
+          },
         ],
       },
     ],

@@ -10,6 +10,7 @@ import {
 
 import NavLink from '@components/nav-link/nav-link.jsx';
 
+import logo from '@images/lotus.png';
 import styles from './nav-bar.css';
 
 const NavBar = () => {
@@ -24,8 +25,8 @@ const NavBar = () => {
     <nav className={ navBarClasses }>
       <a className="navbar-brand" href="#">
         <img
-          src="./img/lotus.png"
-          className={styles.logo}
+          src={ logo }
+          className={ styles.logo }
           width="48"
           height="48"
           alt="Logo"

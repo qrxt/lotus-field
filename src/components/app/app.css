@@ -2,6 +2,37 @@
   padding: 0 10px;
 }
 
+:global(*,
+*::before,
+*::after) {
+  box-sizing: inherit;
+}
+
+:global(body) {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  word-wrap: break-word;
+
+  /* font-family: $font-primary;
+  font-size: $font-size;
+  line-height: 24px; */
+
+  /* color: $primary-color; */
+}
+
+:global(img) {
+  max-width: 100%;
+  height: auto;
+}
+
+:global(a) {
+  text-decoration: none;
+}
+
 :global(.visually-hidden) {
   position: absolute;
 	clip: rect(1px 1px 1px 1px);
@@ -11,4 +42,17 @@
 	height: 1px !important;
 	width: 1px !important;
 	overflow: hidden;
+}
+
+/* Beleren */
+/* beleren-bold - latin */
+@font-face {
+  font-family: "Beleren";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("~@public/fonts/beleren-bold.woff") format("woff"); /* Modern Browsers */
+  src: local(""),
+    url("~@public/fonts/beleren-bold.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("~@public/fonts/beleren-bold.svg#Beleren") format("svg"); /* Legacy iOS */
 }

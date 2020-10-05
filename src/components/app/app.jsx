@@ -11,7 +11,7 @@ import './app.css';
 // const loading = <div>loading...</div>;
 // <Suspense fallback={loading}></Suspense>
 
-const App = ({ scryfallService }) => {
+const App = () => {
   const { t } = useTranslation();
 
   // const randomCard = scryfallService.getRandomCard();
@@ -32,8 +32,17 @@ const App = ({ scryfallService }) => {
           />
 
           <Route
-            path="/card/:id"
+            path="/card"
+            exact
             component={ CardPage }
+          />
+          <Route
+            path="/card/:id"
+            render={ ({ match }) => {
+              const { id } = match.params;
+
+              return <CardPage cardId={ id } />;
+            } }
           />
         </Switch>
 

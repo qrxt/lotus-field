@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FeaturesNav from '@components/features-nav';
 import { useTranslation } from 'react-i18next';
 
-const RandomCardPage = (props) => {
-  const { card } = props;
+import CardFullContainer from '@containers/card-full/card-full.jsx';
+
+const CardPage = ({ cardId }) => {
   const { t } = useTranslation();
 
   return (
     <section>
-      {/* <h2 className="visually-hidden">
-        { t('pages.main.h2') }
-      </h2> */}
-      <p>some card info</p>
+      <h2 className="visually-hidden">
+        { t('pages.card.h2') }
+      </h2>
+      <CardFullContainer cardId={ cardId } />
     </section>
   );
 };
 
-RandomCardPage.propTypes = {
-  props: PropTypes.object,
+CardPage.propTypes = {
+  cardId: PropTypes.string.isRequired,
 };
 
-export default RandomCardPage;
+export default CardPage;

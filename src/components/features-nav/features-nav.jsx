@@ -18,7 +18,7 @@ const FeaturesNav = () => {
 
   return (
     <div className="wrapper">
-      <ul className={listClasses}>
+      <ul className={ listClasses }>
         <li>
           <FeatureLink icon={ faRandom } to="/card/random">
             { t('features-nav.random-card') }
