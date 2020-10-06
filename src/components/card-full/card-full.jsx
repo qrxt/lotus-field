@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+//
+import ManaCost from '@src/components/mana-cost';
+//
+
 import styles from './card-full.css';
 
 const CardFull = ({ card }) => {
@@ -24,13 +28,17 @@ const CardFull = ({ card }) => {
         <h3 className={ styles.title }>
           { name }
         </h3>
-        <p>
+        <p className={ styles.type }>
           { type }
         </p>
-        <p>
+      </div>
+      <div className="wrapper bg-light p-2">
+        <p className={ styles.text }>
           { text }
         </p>
       </div>
+
+      <ManaCost symbolCode="g" />
     </article>
   );
 };

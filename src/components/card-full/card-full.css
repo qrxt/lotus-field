@@ -4,6 +4,26 @@
 }
 
 .title {
-  margin: 0 0 10px;
+  margin: 0;
+
   font-family: Beleren, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.type {
+  font-family: Beleren, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.text {
+  margin: 0;
+  border-radius: 5px;
+  white-space: pre-line;
+
+  font-family: Plantin, 'Times New Roman', serif;
+  line-height: 22px;
 }
