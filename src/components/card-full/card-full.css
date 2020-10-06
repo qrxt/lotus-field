@@ -4,7 +4,7 @@
 }
 
 .title {
-  margin: 0;
+  margin: 0 10px 0 0;
 
   font-family: Beleren, 'Times New Roman', serif;
   font-weight: 700;
@@ -20,10 +20,42 @@
 }
 
 .text {
-  margin: 0;
+  margin: 0 0 15px;
   border-radius: 5px;
   white-space: pre-line;
 
   font-family: Plantin, 'Times New Roman', serif;
+  font-size: 18px;
   line-height: 22px;
+}
+
+.mana-cost {
+  font-size: 0.7em;
+}
+
+.mana-cost:not(:last-child) {
+  margin-right: 2px;
+}
+
+.card-cost {
+  margin: 0;
+  line-height: 12px;
+}
+
+.flavor {
+  margin: 0 0 15px;
+  font-family: Plantin, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.card-texts {
+  margin-bottom: 20px;
+}
+
+.legalities-caption {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
 }

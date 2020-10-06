@@ -1,19 +1,29 @@
 import React from 'react';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
+import reactReplace from 'react-string-replace';
+import { useTranslation } from 'react-i18next';
 
-//
-import ManaCost from '@src/components/mana-cost';
-//
-
+import ManaCost from '@components/mana-cost';
+import Legalities from '@components/legalities';
 import styles from './card-full.css';
+
+const manaCostCode = /\{(.*?)\}/gm;
+const manaCostReplacer = (match) => (
+  <ManaCost className={ styles['mana-cost'] } symbolCode={ match } />
+);
 
 const CardFull = ({ card }) => {
   const {
     name,
     typeLine: type,
     oracleText: text,
+    flavorText,
+    manaCost: cardCost,
+    legalities: legalitiesList,
   } = card;
   const { artCrop: coverImage } = card.imageUris;
+  const { t } = useTranslation();
 
   return (
     <article>
@@ -25,20 +35,35 @@ const CardFull = ({ card }) => {
         alt={ `Art for "${name}" card` }
       />
       <div className="wrapper">
-        <h3 className={ styles.title }>
-          { name }
-        </h3>
+        <header className="d-flex align-items-center">
+          <h3 className={ styles.title }>
+            { name }
+          </h3>
+          <p className={ styles['card-cost'] }>
+            { reactReplace(cardCost, manaCostCode, manaCostReplacer) }
+          </p>
+        </header>
         <p className={ styles.type }>
           { type }
         </p>
       </div>
-      <div className="wrapper bg-light p-2">
+      <div className={ cn('wrapper bg-light py-2', styles['card-texts']) }>
         <p className={ styles.text }>
-          { text }
+          { reactReplace(text, manaCostCode, manaCostReplacer) }
+        </p>
+
+        <p className={ styles.flavor }>
+          { flavorText }
         </p>
       </div>
 
-      <ManaCost symbolCode="g" />
+      <div className="wrapper ">
+        <p className={ styles['legalities-caption'] }>
+          { t('pages.card.legalities') }
+        </p>
+
+        <Legalities legalitiesList={ legalitiesList } />
+      </div>
     </article>
   );
 };

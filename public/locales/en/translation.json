@@ -16,11 +16,35 @@
     },
 
     "card": {
-      "h2": "Single card page"
+      "h2": "Single card page",
+      "legalities": "Legalities"
     }
   },
 
   "features-nav": {
     "random-card": "Random card"
+  },
+
+  "formats": {
+    "standard": "Standard",
+    "future": "Future",
+    "historic": "Historic",
+    "pioneer": "Pioneer",
+    "modern": "Modern",
+    "legacy": "Legacy",
+    "pauper": "Pauper",
+    "vintage": "Vintage",
+    "penny": "Penny",
+    "commander": "Commander",
+    "brawl": "Brawl",
+    "duel": "Duel",
+    "oldschool": "Oldschool"
+  },
+
+  "legalities": {
+    "legal": "Legal",
+    "restricted": "Restricted",
+    "not_legal": "Not Legal",
+    "banned": "Banned"
   }
 }
