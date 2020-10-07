@@ -2,7 +2,7 @@ install:
 	npm i
 
 build:
-  npm run build --if-present
+	npm run build --if-present
 
 ci:
 	npm ci
