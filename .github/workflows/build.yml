@@ -22,8 +22,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
-    - run: make ci
+      run: make ci
     - name: Run build
-    - run: make build
+      run: make build
     - name: Lint JS
-    - run: make lint-js
+      run: make lint-js
