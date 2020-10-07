@@ -14,8 +14,6 @@ const transformManaCost = (symbolCode) => {
 };
 
 const ManaSymbol = ({ symbolCode = '0', className }) => {
-  console.log(symbolCode);
-
   const classes = cn(
     styles.ms,
     styles['ms-cost'],

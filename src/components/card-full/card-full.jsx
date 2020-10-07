@@ -9,8 +9,8 @@ import Legalities from '@components/legalities';
 import styles from './card-full.css';
 
 const manaCostCode = /\{(.*?)\}/gm;
-const manaCostReplacer = (match) => (
-  <ManaCost className={ styles['mana-cost'] } symbolCode={ match } />
+const manaCostReplacer = (match, index) => (
+  <ManaCost className={ styles['mana-cost'] } symbolCode={ match } key={ index } />
 );
 
 const CardFull = ({ card }) => {

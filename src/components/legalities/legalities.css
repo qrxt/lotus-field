@@ -1,5 +1,5 @@
 .legality-group:not(:last-child) {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .legality {
@@ -22,7 +22,7 @@
 }
 
 .restricted {
-  background-color: #fab132;
+  background-color: #fdc055;
 }
 
 .banned {
@@ -30,5 +30,5 @@
 }
 
 .format {
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
