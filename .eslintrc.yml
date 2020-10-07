@@ -23,5 +23,6 @@ settings:
   react:
     version: "16.6"
   import/resolver:
+    node: {}
     webpack:
       config: 'webpack.config.dev.babel.js'

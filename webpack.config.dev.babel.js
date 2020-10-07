@@ -14,9 +14,7 @@ module.exports = {
     main: [
       '@babel/polyfill',
       './src/index.js',
-      'bootstrap/dist/css/bootstrap.min.css',
     ],
-    bundle: ['jquery', 'popper.js', 'bootstrap'],
   },
   output: {
     filename: '[name].js',
@@ -106,19 +104,13 @@ module.exports = {
         devServer: true,
       },
     }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'],
-    }),
     new CopyWebpackPlugin({
       patterns: [
         { from: 'public/img', to: 'img' },
       ],
     }),
     new webpack.SourceMapDevToolPlugin({
-      filename: '[name].js.map',
+      filename: '[name].js.map[query]',
       exclude: ['bundle.js'],
     }),
     new webpack.HotModuleReplacementPlugin(),
