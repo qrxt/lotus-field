@@ -9,8 +9,9 @@
       "targets": {
         "node": "current"
       },
-      "useBuiltIns": "entry"
+      "useBuiltIns": "entry",
+      "corejs": "3.6.5"
     }],
     "@babel/react"
-  ],
+  ]
 }
