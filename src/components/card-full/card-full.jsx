@@ -3,9 +3,14 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import reactReplace from 'react-string-replace';
 import { useTranslation } from 'react-i18next';
+import ModalImage from 'react-modal-image';
 
+import Accordion from 'react-bootstrap/Accordion';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import ManaCost from '@components/mana-cost';
 import Legalities from '@components/legalities';
+import Rulings from '@components/rulings';
 import styles from './card-full.css';
 
 const manaCostCode = /\{(.*?)\}/gm;
@@ -19,19 +24,19 @@ const CardFull = ({ card }) => {
     typeLine: type,
     oracleText: text,
     flavorText,
-    manaCost: cardCost,
-    legalities: legalitiesList,
+    manaCost,
+    legalities,
+    rulings,
   } = card;
-  const { artCrop: coverImage } = card.imageUris;
+  const { artCrop, normal: artNormal } = card.imageUris;
   const { t } = useTranslation();
 
   return (
     <article>
-      <img
-        width="320"
-        height="180"
+      <ModalImage
         className={ styles.art }
-        src={ coverImage }
+        small={ artCrop }
+        large={ artNormal }
         alt={ `Art for "${name}" card` }
       />
       <div className="wrapper">
@@ -40,7 +45,7 @@ const CardFull = ({ card }) => {
             { name }
           </h3>
           <p className={ styles['card-cost'] }>
-            { reactReplace(cardCost, manaCostCode, manaCostReplacer) }
+            { reactReplace(manaCost, manaCostCode, manaCostReplacer) }
           </p>
         </header>
         <p className={ styles.type }>
@@ -57,13 +62,37 @@ const CardFull = ({ card }) => {
         </p>
       </div>
 
-      <div className="wrapper ">
-        <p className={ styles['legalities-caption'] }>
-          { t('pages.card.legalities') }
-        </p>
+      <Accordion>
+        <Card className="rounded-0">
+          <Card.Header>
+            <Accordion.Toggle as={ Button } variant="link" eventKey="0">
+              <p className={ styles['additional-caption'] }>
+                { t('pages.card.legalities') }
+              </p>
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="0">
+            <Card.Body>
+              <Legalities legalitiesList={ legalities } />
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
 
-        <Legalities legalitiesList={ legalitiesList } />
-      </div>
+        <Card className="rounded-0">
+          <Card.Header>
+            <Accordion.Toggle as={ Button } variant="link" eventKey="1">
+              <p className={ styles['additional-caption'] }>
+                { t('pages.card.rulings') }
+              </p>
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="1">
+            <Card.Body>
+              <Rulings rulings={ rulings } />
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
     </article>
   );
 };

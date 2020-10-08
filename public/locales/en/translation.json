@@ -17,7 +17,8 @@
 
     "card": {
       "h2": "Single card page",
-      "legalities": "Legalities"
+      "legalities": "Legalities",
+      "rulings": "Rulings"
     }
   },
 

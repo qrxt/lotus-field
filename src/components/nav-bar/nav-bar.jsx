@@ -33,7 +33,7 @@ const MyNavbar = () => {
           {/* <Nav.Link href="#link">Link</Nav.Link> */}
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <NavLink icon={ faHome } to="#" isCurrent>
+              <NavLink icon={ faHome } to="/" isCurrent>
                 { t('nav-menu.home') }
               </NavLink>
             </li>

@@ -13,14 +13,12 @@ import store from './store';
 const scryfallService = new ScryfallService();
 
 render(
-  <React.StrictMode>
-    <Provider store={ store }>
-      <ScryfallServiceProvider value={ scryfallService }>
-        <Router>
-          <App />
-        </Router>
-      </ScryfallServiceProvider>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={ store }>
+    <ScryfallServiceProvider value={ scryfallService }>
+      <Router>
+        <App />
+      </Router>
+    </ScryfallServiceProvider>
+  </Provider>,
   document.querySelector('.root'),
 );

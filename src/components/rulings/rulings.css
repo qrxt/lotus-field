@@ -1,0 +1,13 @@
+.rulings {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.ruling {
+  margin: 0 0 10px;
+}
+
+.ruling-date {
+  font-weight: 700;
+}

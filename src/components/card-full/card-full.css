@@ -30,7 +30,7 @@
 }
 
 .mana-cost {
-  font-size: 0.7em;
+  font-size: 0.75em;
 }
 
 .mana-cost:not(:last-child) {
@@ -50,12 +50,10 @@
   line-height: 18px;
 }
 
-.card-texts {
-  margin-bottom: 20px;
-}
-
-.legalities-caption {
+.additional-caption {
   font-weight: 700;
   font-size: 18px;
   line-height: 20px;
+
+  margin: 0;
 }
