@@ -45,6 +45,10 @@
 	overflow: hidden;
 }
 
+:global(.carousel-indicators li) {
+  background-color: #000000;
+}
+
 /* Beleren */
 @font-face {
   font-family: "Beleren";

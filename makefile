@@ -4,6 +4,9 @@ install:
 build:
 	npm run build --if-present
 
+analyze:
+	npm run bundle-report
+
 ci:
 	npm ci
 

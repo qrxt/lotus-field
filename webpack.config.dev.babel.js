@@ -5,6 +5,7 @@ import webpack from 'webpack';
 
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import autoprefixer from 'autoprefixer';
 

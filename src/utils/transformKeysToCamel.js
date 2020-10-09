@@ -16,6 +16,10 @@ const transform = (data) => {
         return [camelCaseKey, transform(current)];
       }
 
+      if (current && current instanceof Array) {
+        return [camelCaseKey, current.map(transform)];
+      }
+
       return [camelCaseKey, value];
     });
 

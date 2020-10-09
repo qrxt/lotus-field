@@ -2,6 +2,46 @@ import transformKeysToCamelCase from '@utils/transformKeysToCamel';
 
 const transformData = (data) => transformKeysToCamelCase(data);
 
+const transformCardData = (cardData) => {
+  const transformed = transformKeysToCamelCase(cardData);
+  const {
+    name,
+    typeLine,
+    oracleText,
+    flavorText,
+    manaCost,
+    imageUris,
+    cardFaces,
+  } = transformed;
+
+  if (!cardFaces) {
+    return {
+      ...transformed,
+      cardFaces: [
+        {
+          name,
+          typeLine,
+          oracleText,
+          flavorText,
+          manaCost,
+          imageUris,
+        },
+      ],
+    };
+  }
+
+  if (imageUris) {
+    return {
+      ...transformed,
+      cardFaces: transformed.cardFaces.map((face) => (
+        { ...face, imageUris }
+      )),
+    };
+  }
+
+  return transformed;
+};
+
 class CardsService {
   constructor(client = window.fetch.bind(window)) {
     this.client = client;
@@ -21,12 +61,12 @@ class CardsService {
 
   async getRandomCard() {
     const card = await this.getResource('/cards/random');
-    return transformData(card);
+    return transformCardData(card);
   }
 
   async getCardById(id) {
     const card = await this.getResource(`/cards/${id}`);
-    return transformData(card);
+    return transformCardData(card);
   }
 
   async getRulingsByCard(cardId) {
