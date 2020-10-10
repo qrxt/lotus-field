@@ -1,45 +1,32 @@
 import transformKeysToCamelCase from '@utils/transformKeysToCamel';
+import CardSingleFaced from './card-single';
+import CardSplitFaced from './card-split';
 
 const transformData = (data) => transformKeysToCamelCase(data);
-
-const transformCardData = (cardData) => {
-  const transformed = transformKeysToCamelCase(cardData);
-  const {
-    name,
-    typeLine,
-    oracleText,
-    flavorText,
-    manaCost,
-    imageUris,
-    cardFaces,
-  } = transformed;
+const defineCardType = (card) => {
+  const { cardFaces, imageUris } = card;
 
   if (!cardFaces) {
-    return {
-      ...transformed,
-      cardFaces: [
-        {
-          name,
-          typeLine,
-          oracleText,
-          flavorText,
-          manaCost,
-          imageUris,
-        },
-      ],
-    };
+    return 'single-faced';
   }
 
   if (imageUris) {
-    return {
-      ...transformed,
-      cardFaces: transformed.cardFaces.map((face) => (
-        { ...face, imageUris }
-      )),
-    };
+    return 'split';
   }
 
-  return transformed;
+  return 'double-faced';
+};
+
+const transformCardData = (cardData) => {
+  const cardWrappersMapping = {
+    'double-faced': (card) => card,
+    'single-faced': CardSingleFaced,
+    split: CardSplitFaced,
+  };
+  const transformed = transformKeysToCamelCase(cardData);
+  const fittingWrapper = cardWrappersMapping[defineCardType(transformed)];
+
+  return fittingWrapper(transformed);
 };
 
 class CardsService {

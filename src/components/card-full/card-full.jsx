@@ -18,8 +18,6 @@ const CardFull = ({ card }) => {
     cardFaces,
   } = card;
 
-  console.log(card);
-
   const { t } = useTranslation();
 
   const additionalEntries = [
@@ -49,19 +47,19 @@ const CardFull = ({ card }) => {
 
   const multifaced = (
     <Carousel
-        interval={ null }
-        wrap={ false }
-        nextIcon={ null }
-        prevIcon={ null }
-      >
-        {
-          cardFaces.map((face, index) => (
-            <Carousel.Item key={ index }>
-              <CardBody card={ face } />
-            </Carousel.Item>
-          ))
-        }
-      </Carousel>
+      interval={ null }
+      wrap={ false }
+      nextIcon={ null }
+      prevIcon={ null }
+    >
+      {
+        cardFaces.map((face, index) => (
+          <Carousel.Item key={ index }>
+            <CardBody card={ face } />
+          </Carousel.Item>
+        ))
+      }
+    </Carousel>
   );
 
   return (
