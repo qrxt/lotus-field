@@ -9,6 +9,7 @@ import {
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavLink from '@components/nav-link/nav-link.jsx';
+import { Link } from 'react-router-dom';
 
 import logo from '@images/lotus.png';
 import styles from './nav-bar.css';
@@ -18,14 +19,16 @@ const MyNavbar = () => {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">
-        <img
-          src={ logo }
-          className={ styles.logo }
-          width="48"
-          height="48"
-          alt="Logo"
-        />
+      <Navbar.Brand>
+        <Link to="/">
+          <img
+            src={ logo }
+            className={ styles.logo }
+            width="48"
+            height="48"
+            alt="Logo"
+          />
+        </Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

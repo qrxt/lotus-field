@@ -1,5 +1,7 @@
-import cardReducer from './card.reducer';
+import updateSingleCard from './single-card';
+import updateRecentCards from './recent-cards';
 
-export {
-  cardReducer,
-};
+export default (state, action) => ({
+  singleCard: updateSingleCard(state, action),
+  recentCards: updateRecentCards(state, action),
+});

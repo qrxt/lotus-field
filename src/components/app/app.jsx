@@ -14,8 +14,6 @@ import './app.css';
 const App = () => {
   const { t } = useTranslation();
 
-  // const randomCard = scryfallService.getRandomCard();
-
   return (
     <React.Fragment>
       <Header />
@@ -45,12 +43,6 @@ const App = () => {
             } }
           />
         </Switch>
-
-        {/* <Route
-          path="/card/random"
-          exact
-          component={ RandomCardPage }
-        /> */}
       </main>
     </React.Fragment>
   );

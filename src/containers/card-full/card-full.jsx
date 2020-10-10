@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import LoadingSpinner from '@components/loading-spinner';
 import ErrorIndicator from '@components/error-indicator';
 
-import { cardFetch } from '@actions';
+import { cardFetch, cardAddedToRecent } from '@actions';
 import withScryfallService from '@hoc/withScryfallService.jsx';
 import CardFull from '@components/card-full';
 
@@ -13,10 +13,15 @@ class CardFullContainer extends Component {
   componentDidMount() {
     const { cardId } = this.props;
     this.props.cardFetch(cardId);
+    // this.props.cardAddedToRecent(cardId);
   }
 
   render() {
-    const { card, loading, failure } = this.props;
+    const {
+      card,
+      loading,
+      failure,
+    } = this.props;
 
     if (loading) {
       return (
@@ -44,9 +49,10 @@ CardFullContainer.propTypes = {
   loading: PropTypes.bool.isRequired,
   failure: PropTypes.bool.isRequired,
   cardFetch: PropTypes.func.isRequired,
+  cardAddedToRecent: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ card, loading, failure }) => ({
+const mapStateToProps = ({ singleCard: { card, loading, failure } }) => ({
   card,
   loading,
   failure,
@@ -54,6 +60,7 @@ const mapStateToProps = ({ card, loading, failure }) => ({
 
 const mapDispatchToProps = (dispatch, { scryfallService }) => ({
   cardFetch: cardFetch(dispatch, scryfallService),
+  cardAddedToRecent: (cardId) => dispatch(cardAddedToRecent(cardId)),
 });
 
 export default withScryfallService()(

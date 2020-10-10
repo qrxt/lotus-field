@@ -15,7 +15,7 @@ const NavLink = (props) => {
   );
 
   return (
-    <Link className="nav-link" to={to}>
+    <Link className="nav-link" to={ to }>
       <Icon icon={ faIcon } className={ styles.icon } />
       { isCurrent ? srCurrent : null }
       { props.children }

@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
-import { cardReducer } from '@reducers';
+import reducer from '@reducers';
 
-const store = createStore(cardReducer);
+const store = createStore(reducer);
 
 export default store;

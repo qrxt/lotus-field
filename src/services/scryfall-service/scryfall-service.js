@@ -63,12 +63,11 @@ class CardsService {
     return Object.values(prepared);
   }
 
-  async getPrints(printsUri) {
-    const queryString = `/cards/search?order=released&q=oracleid%${printsUri}&unique=prints`;
-    const prints = await this.getResource(queryString);
-    const prepared = transformData(prints.data);
-
-    return Object.values(prepared);
+  async getCardsByIdList(idList) {
+    return idList.map(async (id) => {
+      const card = await this.getCardById(id);
+      return transformCardData(card);
+    });
   }
 }
 
