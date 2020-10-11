@@ -9,7 +9,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
 module.exports = {
-  devtool: false,
+  devtool: 'source-map',
   entry: {
     main: [
       '@babel/polyfill',
@@ -24,6 +24,9 @@ module.exports = {
     historyApiFallback: true,
     port: 3000,
     hot: true,
+    watchOptions: {
+      ignored: /node_modules/,
+    },
   },
   module: {
     rules: [
@@ -109,10 +112,10 @@ module.exports = {
         { from: 'public/img', to: 'img' },
       ],
     }),
-    new webpack.SourceMapDevToolPlugin({
-      filename: '[name].js.map[query]',
-      exclude: ['bundle.js'],
-    }),
+    // new webpack.SourceMapDevToolPlugin({
+    //   filename: '[name].js.map[query]',
+    //   exclude: ['bundle.js'],
+    // }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       filename: './index.html',

@@ -64,10 +64,10 @@ class CardsService {
   }
 
   async getCardsByIdList(idList) {
-    return idList.map(async (id) => {
-      const card = await this.getCardById(id);
-      return transformCardData(card);
-    });
+    const result = idList.map((id) => this.getCardById(id));
+
+    console.log('result:', result);
+    return result;
   }
 }
 

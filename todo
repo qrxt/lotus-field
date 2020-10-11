@@ -9,3 +9,6 @@
 - hot reload медленный
 - map assets
 - reducers alias
+
+- hocs loading & failure
+- indexjs for containers
