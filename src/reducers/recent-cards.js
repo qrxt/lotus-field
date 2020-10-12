@@ -34,9 +34,7 @@ export default (state, action) => {
     FETCH_RECENT_CARDS_SUCCESS: {
       ...state.recentCards,
 
-      cardsLoaded: [
-        action.payload,
-      ],
+      cardsLoaded: action.payload || [],
       loading: false,
       error: false,
     },

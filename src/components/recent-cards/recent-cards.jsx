@@ -4,20 +4,24 @@ import PropTypes from 'prop-types';
 
 // import styles from './recent-cards.css';
 
-const RecentCards = ({ cards }) => (
-  <ul>
-  {
-    cards.map((card, idx) => (
-      <li key={ idx }>
-        { card.name }
-      </li>
-    ))
-  }
-  </ul>
-);
+const RecentCards = ({ cards }) => {
+  console.log(cards);
+
+  return (
+    <ul>
+    {
+      cards.map((card, idx) => (
+        <li key={ idx }>
+          { card.name }
+        </li>
+      ))
+    }
+    </ul>
+  );
+}
 
 RecentCards.propTypes = {
-  cards: PropTypes.object.isRequired,
+  cards: PropTypes.array.isRequired,
 };
 
 export default RecentCards;

@@ -66,8 +66,7 @@ class CardsService {
   async getCardsByIdList(idList) {
     const result = idList.map((id) => this.getCardById(id));
 
-    console.log('result:', result);
-    return result;
+    return Promise.all(result);
   }
 }
 
