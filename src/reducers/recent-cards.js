@@ -1,10 +1,25 @@
 const initialState = {
   cardIds: [
     'c2089ec9-0665-448f-bfe9-d181de127814',
+    'e9d5aee0-5963-41db-a22b-cfea40a967a3',
+    'f03c5d53-4b23-47fa-850b-04e82fe173d9',
   ],
   cardsLoaded: [],
   loading: true,
   error: false,
+};
+
+const addRecent = (state, recent) => {
+  const nextRecent = [
+    recent,
+    ...state.recentCards.cardIds,
+  ];
+
+  return {
+    ...state.recentCards,
+
+    cardIds: Array.from(new Set(nextRecent)),
+  };
 };
 
 export default (state, action) => {
@@ -12,16 +27,8 @@ export default (state, action) => {
     return initialState;
   }
 
-  console.log(state, action);
-
   const actionTypesMapping = {
-    CARD_ADDED_TO_RECENT: {
-      ...state.recentCards,
-
-      cardIds: [
-        ...state.recentCards.cardIds, action.payload,
-      ],
-    },
+    CARD_ADDED_TO_RECENT: addRecent(state, action.payload),
 
     FETCH_RECENT_CARDS_REQUEST: {
       ...state.recentCards,
@@ -34,7 +41,7 @@ export default (state, action) => {
     FETCH_RECENT_CARDS_SUCCESS: {
       ...state.recentCards,
 
-      cardsLoaded: action.payload || [],
+      cardsLoaded: action.payload,
       loading: false,
       error: false,
     },

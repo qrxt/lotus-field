@@ -13,7 +13,7 @@ class CardFullContainer extends Component {
   componentDidMount() {
     const { cardId } = this.props;
     this.props.cardFetch(cardId);
-    // this.props.cardAddedToRecent(cardId);
+    this.props.cardAddedToRecent(cardId);
   }
 
   render() {

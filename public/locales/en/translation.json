@@ -12,7 +12,10 @@
     },
 
     "main": {
-      "h2": "Additional Features"
+      "h2": "Additional Features",
+      "recent": {
+        "title": "Recent Cards"
+      }
     },
 
     "card": {

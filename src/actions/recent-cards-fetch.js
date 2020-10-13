@@ -6,8 +6,6 @@ export default (dispatch, scryfallService) => (idList) => {
   dispatch(recentCardsLoadRequest());
   scryfallService.getCardsByIdList(idList)
     .then((cards) => {
-      console.log('CARDS:', cards);
-
       dispatch(recentCardsLoadSuccess(cards));
     })
     .catch(() => dispatch(recentCardsLoadFailure()));

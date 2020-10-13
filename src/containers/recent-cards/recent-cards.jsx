@@ -42,13 +42,13 @@ class RecentCardsContainer extends Component {
   }
 }
 
-// RecentCardsContainer.propTypes = {
-//   cardIdList: PropTypes.array.isRequired,
-//   recentCardsFetch: PropTypes.function.isRequired,
-//   cards: PropTypes.array.isRequired,
-//   loading: PropTypes.bool.isRequired,
-//   failure: PropTypes.bool.isRequired,
-// };
+RecentCardsContainer.propTypes = {
+  cardIdList: PropTypes.array.isRequired,
+  recentCardsFetch: PropTypes.func.isRequired,
+  cards: PropTypes.array,
+  loading: PropTypes.bool,
+  failure: PropTypes.bool,
+};
 
 const mapStateToProps = ({
   recentCards: {
