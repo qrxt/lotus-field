@@ -3,7 +3,7 @@ import FeaturesNav from '@components/features-nav';
 import RecentCards from '@containers/recent-cards/recent-cards.jsx';
 import { useTranslation } from 'react-i18next';
 
-const RandomCardPage = () => {
+const MainPage = () => {
   const { t } = useTranslation();
 
   return (
@@ -17,4 +17,4 @@ const RandomCardPage = () => {
   );
 };
 
-export default RandomCardPage;
+export default MainPage;

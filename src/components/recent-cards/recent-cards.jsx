@@ -22,6 +22,8 @@ const RecentCards = ({ cards }) => {
       <Carousel
         interval={ null }
         wrap={ false }
+        nextIcon={ null }
+        prevIcon={ null }
       >
         {
           cards.slice(0, 5).map((card, idx) => (

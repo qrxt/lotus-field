@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import LoadingSpinner from '@components/loading-spinner';
 import ErrorIndicator from '@components/error-indicator';
@@ -11,9 +12,15 @@ import CardFull from '@components/card-full';
 
 class CardFullContainer extends Component {
   componentDidMount() {
-    const { cardId } = this.props;
-    this.props.cardFetch(cardId);
-    this.props.cardAddedToRecent(cardId);
+    const { cardId, history } = this.props;
+
+    this.props.cardFetch(cardId)
+      .then(() => {
+        const { card } = this.props;
+
+        this.props.cardAddedToRecent(card.id);
+        history.push(`/card/${card.id}`);
+      });
   }
 
   render() {
@@ -50,6 +57,7 @@ CardFullContainer.propTypes = {
   failure: PropTypes.bool.isRequired,
   cardFetch: PropTypes.func.isRequired,
   cardAddedToRecent: PropTypes.func.isRequired,
+  history: PropTypes.object,
 };
 
 const mapStateToProps = ({ singleCard: { card, loading, failure } }) => ({
@@ -64,5 +72,7 @@ const mapDispatchToProps = (dispatch, { scryfallService }) => ({
 });
 
 export default withScryfallService()(
-  connect(mapStateToProps, mapDispatchToProps)(CardFullContainer),
+  connect(mapStateToProps, mapDispatchToProps)(
+    withRouter(CardFullContainer),
+  ),
 );
