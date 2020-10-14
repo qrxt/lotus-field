@@ -8,16 +8,18 @@ const transformManaCost = (symbolCode) => {
     t: 'tap',
   };
 
-  const fittingCode = transformMapping[symbolCode];
+  const transformed = transformMapping[symbolCode] || symbolCode;
 
-  return fittingCode || symbolCode;
+  return transformed
+    .toLowerCase()
+    .replace(/\//g, '');
 };
 
 const ManaSymbol = ({ symbolCode = '0', className }) => {
   const classes = cn(
     styles.ms,
     styles['ms-cost'],
-    styles[`ms-${transformManaCost(symbolCode.toLowerCase())}`],
+    styles[`ms-${transformManaCost(symbolCode)}`],
     className,
   );
 

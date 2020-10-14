@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Route, Switch } from 'react-router-dom';
 
 import Header from '@components/header';
-import { MainPage, CardPage } from '@pages';
+import Footer from '@components/footer';
+import { MainPage, CardPage, SettingsPage } from '@pages';
 import { withScryfallService } from '@hoc';
 import './app.css';
 
@@ -30,6 +31,12 @@ const App = () => {
           />
 
           <Route
+            path="/settings"
+            exact
+            component={ SettingsPage }
+          />
+
+          <Route
             path="/card"
             exact
             component={ CardPage }
@@ -44,6 +51,7 @@ const App = () => {
           />
         </Switch>
       </main>
+      <Footer />
     </React.Fragment>
   );
 };

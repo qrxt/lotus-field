@@ -1,0 +1,16 @@
+.footer {
+  padding: 10px 0;
+}
+
+.rights-title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  margin: 0 0 15px;
+}
+
+.rights {
+  font-size: 12px;
+  line-height: 14px;
+  margin: 0;
+}

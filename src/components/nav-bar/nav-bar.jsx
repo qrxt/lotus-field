@@ -51,7 +51,7 @@ const MyNavbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink icon={ faCog } to="#">
+              <NavLink icon={ faCog } to="/settings">
                 { t('nav-menu.settings') }
               </NavLink>
             </li>

@@ -11,7 +11,20 @@
   line-height: 24px;
 }
 
+.type-line {
+  display: flex;
+}
+
 .type {
+  font-family: Beleren, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+
+  margin-right: 10px;
+}
+
+.creature-characteristics {
   font-family: Beleren, 'Times New Roman', serif;
   font-weight: 700;
   font-size: 16px;

@@ -8,6 +8,8 @@ export default (card) => ({
       flavorText: card.flavorText,
       manaCost: card.manaCost,
       imageUris: card.imageUris,
+      toughness: card.toughness,
+      power: card.power,
     },
   ],
 });

@@ -1,6 +1,8 @@
 import transformKeysToCamelCase from '@utils/transformKeysToCamel';
-import CardSingleFaced from './card-single';
-import CardSplitFaced from './card-split';
+
+// Card Frame Types
+import CardSingleFaced from './frame-type-wrappers/card-single';
+import CardSplitFaced from './frame-type-wrappers/card-split';
 
 const transformData = (data) => transformKeysToCamelCase(data);
 const defineCardType = (card) => {

@@ -2,16 +2,17 @@
 - тесты
 - интернационализация
 
-+\- двусторонние карты
++ двусторонние карты
 + условный рендеринг для правил карт
 + добавление лицевой стороны в односторонние карты
 
 - hot reload медленный
-- map assets
-- reducers alias
++ map assets
++ reducers alias
 
 - hocs loading & failure
 - indexjs for containers
 
 - split mana cost
-- recent
++ recent
+- toughness / power

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 import reactReplace from 'react-string-replace';
+import { useImage } from 'react-image';
 import cn from 'classnames';
 import ModalImage from 'react-modal-image';
 
+import LoadingSpinner from '@components/loading-spinner';
 import ManaCost from '@components/mana-cost';
 
 import styles from './card-body.css';
@@ -13,6 +15,24 @@ const manaCostReplacer = (match, index) => (
   <ManaCost className={ styles['mana-cost'] } symbolCode={ match } key={ index } />
 );
 
+const ArtImage = ({ card }) => {
+  const { name } = card;
+  const { artCrop: artCropSrc, normal: artNormalSrc } = card.imageUris;
+
+  const { src: artCrop } = useImage({
+    srcList: artCropSrc,
+  });
+
+  return (
+    <ModalImage
+      className={ styles.art }
+      small={ artCrop }
+      large={ artNormalSrc }
+      alt={ `Art for "${name}" card` }
+    />
+  );
+};
+
 const CardBody = ({ card }) => {
   const {
     name,
@@ -20,18 +40,19 @@ const CardBody = ({ card }) => {
     oracleText: text,
     flavorText,
     manaCost,
-    imageUris,
   } = card;
-  const { artCrop, normal: artNormal } = imageUris;
+
+  const loadingComponent = (
+    <div className="wrapper d-flex justify-content-center">
+      <LoadingSpinner />
+    </div>
+  );
 
   return (
     <div className={ styles.body }>
-      <ModalImage
-        className={ styles.art }
-        small={ artCrop }
-        large={ artNormal }
-        alt={ `Art for "${name}" card` }
-      />
+      <Suspense fallback={ loadingComponent }>
+      <ArtImage card={ card } />
+      </Suspense>
       <div className="wrapper">
         <header className="d-flex flex-wrap align-items-center">
 
@@ -44,9 +65,16 @@ const CardBody = ({ card }) => {
             </p>
           }
         </header>
-        <p className={ styles.type }>
-          { type }
-        </p>
+        <div className={ styles['type-line'] }>
+          <p className={ styles.type }>
+            { type }
+          </p>
+          {
+            card.power && <p className={ styles['creature-characteristics'] }>
+              { card.power }/{ card.toughness }
+            </p>
+          }
+        </div>
       </div>
       <div className={ cn('wrapper bg-light py-2', styles['card-texts']) }>
         <p className={ styles.text }>
@@ -63,6 +91,14 @@ const CardBody = ({ card }) => {
 
 CardBody.propTypes = {
   card: PropTypes.object.isRequired,
+};
+
+ArtImage.propTypes = {
+  card: PropTypes.object,
+  name: PropTypes.string,
+  artCrop: PropTypes.string,
+  normal: PropTypes.string,
+  imageUris: PropTypes.array,
 };
 
 export default CardBody;

@@ -2,11 +2,68 @@
   "nav-menu": {
     "home": "Домашняя страница",
     "wishlist": "Список желаемого",
-    "search": "Поиск карт",
+    "search": "Поиск",
     "settings": "Настройки"
+  },
+
+  "footer": {
+    "rights": {
+      "title": "Права",
+      "text": "Текстовая и графическая информация, представленная на этом сайте о Magic: The Gathering, включая изображения карт, символы маны, тексты карт принадлежат Wizards of the Coast, LLC, филиалу Hasbro, Inc"
+    }
+  },
+
+  "pages": {
+    "all": {
+      "h1": "Lotus Field - Список желаемых карт для MTG"
+    },
+
+    "main": {
+      "h2": "Дополнительные возможности",
+      "recent": {
+        "title": "Недавние карты"
+      }
+    },
+
+    "card": {
+      "h2": "Страница отдельной карты",
+      "legalities": "Легальность",
+      "rulings": "Правила"
+    },
+
+    "settings": {
+      "h2": "Настройки",
+
+      "language": {
+        "title": "Выберите язык"
+      }
+    }
   },
 
   "features-nav": {
     "random-card": "Случайная карта"
+  },
+
+  "formats": {
+    "standard": "Standard",
+    "future": "Future",
+    "historic": "Historic",
+    "pioneer": "Pioneer",
+    "modern": "Modern",
+    "legacy": "Legacy",
+    "pauper": "Pauper",
+    "vintage": "Vintage",
+    "penny": "Penny",
+    "commander": "Commander",
+    "brawl": "Brawl",
+    "duel": "Duel",
+    "oldschool": "Oldschool"
+  },
+
+  "legalities": {
+    "legal": "Разрешена",
+    "restricted": "Ограничена",
+    "not_legal": "Не разрешена",
+    "banned": "Забанена"
   }
 }

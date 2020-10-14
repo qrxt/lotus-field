@@ -63,7 +63,7 @@ const CardFull = ({ card }) => {
   );
 
   return (
-    <article>
+    <article className={ styles.card }>
       {
         cardFaces.length > 1
           ? multifaced
