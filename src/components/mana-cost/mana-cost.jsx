@@ -4,15 +4,17 @@ import cn from 'classnames';
 import styles from './mana-cost.css';
 
 const transformManaCost = (symbolCode) => {
+  const prepared = symbolCode
+    .toLowerCase()
+    .replace(/\//g, '');
+
   const transformMapping = {
     t: 'tap',
   };
 
-  const transformed = transformMapping[symbolCode] || symbolCode;
+  const transformed = transformMapping[prepared] || prepared;
 
-  return transformed
-    .toLowerCase()
-    .replace(/\//g, '');
+  return transformed;
 };
 
 const ManaSymbol = ({ symbolCode = '0', className }) => {

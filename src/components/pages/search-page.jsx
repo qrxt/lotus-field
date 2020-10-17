@@ -2,22 +2,22 @@ import React from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import SettingsForm from '@components/settings-form';
+import { SearchForm as SearchFormContainer } from '@containers';
 
 import styles from './pages.css';
 
-const SettingsPage = () => {
+const SearchPage = () => {
   const { t } = useTranslation();
 
   return (
     <section className={ cn('wrapper', styles['page-wrapper']) }>
-      <h2>
-        { t('pages.settings.h2') }
+      <h2 className="visually-hidden">
+        { t('pages.search.h2') }
       </h2>
 
-      <SettingsForm />
+      <SearchFormContainer />
     </section>
   );
 };
 
-export default SettingsPage;
+export default SearchPage;

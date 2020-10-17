@@ -20,7 +20,7 @@ i18n.use(initReactI18next).use(LanguageDetector).init({
     order: ['navigator', 'htmlTag', 'cookie'],
   },
   // lng: 'en',
-  // fallbackLng: 'en',
+  fallbackLng: 'en',
   debug: true,
   interpolation: {
     escapeValue: false,

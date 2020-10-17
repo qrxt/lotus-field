@@ -7,8 +7,8 @@ export default (dispatch, scryfallService) => (cardId) => {
     ? scryfallService.getRandomCard()
     : scryfallService.getCardById(cardId);
 
-  const fetchRulings = fetchCard.then((fetchedCard) => scryfallService
-    .getRulingsByCard(fetchedCard.id));
+  const fetchRulings = fetchCard
+    .then((fetchedCard) => scryfallService.getRulingsByCard(fetchedCard.id));
 
   dispatch(cardLoadRequest());
   return Promise.all([fetchCard, fetchRulings])

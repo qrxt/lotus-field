@@ -37,7 +37,40 @@
       "language": {
         "title": "Select Language"
       }
+    },
+
+    "search": {
+      "h2": "Search page"
+    },
+
+    "found-cards": {
+      "h2": "Found Cards",
+      "cards-found-quantity": "cards found"
     }
+  },
+
+  "search-form": {
+    "name-input": {
+      "title": "Search Cards",
+      "placeholder": "Enter the card name"
+    },
+
+    "type-input": {
+      "title": "Card type",
+      "placeholder": "Creature"
+    },
+
+    "rarity-select": {
+      "title": "Rarity",
+      "placeholder": "Choose rarity"
+    },
+
+    "artist-input": {
+      "title": "Artist",
+      "placeholder": "Enter the artist name"
+    },
+
+    "submit": "Search"
   },
 
   "features-nav": {
@@ -58,6 +91,14 @@
     "brawl": "Brawl",
     "duel": "Duel",
     "oldschool": "Oldschool"
+  },
+
+  "rarities": {
+    "any": "Any",
+    "common": "Common",
+    "uncommon": "Uncommon",
+    "rare": "Rare",
+    "mythic": "Mythic"
   },
 
   "legalities": {

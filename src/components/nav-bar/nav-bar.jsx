@@ -46,7 +46,7 @@ const MyNavbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink icon={ faSearch } to="#">
+              <NavLink icon={ faSearch } to="/search">
                 { t('nav-menu.search') }
               </NavLink>
             </li>

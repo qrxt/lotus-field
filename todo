@@ -13,6 +13,9 @@
 - hocs loading & failure
 - indexjs for containers
 
-- split mana cost
++ split mana cost
 + recent
-- toughness / power
++ toughness / power
+
+- localstorage for recent cards
+- wrap actions

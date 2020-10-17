@@ -70,6 +70,16 @@ class CardsService {
 
     return Promise.all(result);
   }
+
+  async searchCards(queryString) {
+    const cardsObjectList = await this.getResource(`/cards/search${queryString}`);
+
+    // pages logic
+
+    const result = cardsObjectList.data.map((card) => transformCardData(card));
+
+    return result;
+  }
 }
 
 export default CardsService;

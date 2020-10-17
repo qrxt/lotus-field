@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import LoadingSpinner from '@components/loading-spinner';
 import ErrorIndicator from '@components/error-indicator';
 
-import { recentCardsFetch } from '@actions';
+import { findCards } from '@actions';
 import withScryfallService from '@hoc/withScryfallService.jsx';
-import RecentCards from '@components/recent-cards';
+import FoundCards from '@components/found-cards';
 
-class RecentCardsContainer extends Component {
+class FoundCardsContainer extends Component {
   componentDidMount() {
-    const { cardIdList } = this.props;
-    this.props.recentCardsFetch(cardIdList);
+    const { location } = this.props;
+
+    this.props.findCards(location.search);
   }
 
   render() {
@@ -38,36 +40,30 @@ class RecentCardsContainer extends Component {
       );
     }
 
-    return <RecentCards cards={ cards } />;
+    return <FoundCards cards={ cards } />;
   }
 }
 
-RecentCardsContainer.propTypes = {
-  cardIdList: PropTypes.array.isRequired,
-  recentCardsFetch: PropTypes.func.isRequired,
+FoundCardsContainer.propTypes = {
   cards: PropTypes.array,
   loading: PropTypes.bool,
   failure: PropTypes.bool,
+  findCards: PropTypes.func.isRequired,
+  location: PropTypes.object,
 };
 
-const mapStateToProps = ({
-  recentCards: {
-    cardsLoaded,
-    cardIds,
-    loading,
-    failure,
-  },
-}) => ({
-  cardIdList: cardIds,
-  cards: cardsLoaded,
+const mapStateToProps = ({ foundCards: { cards, loading, failure } }) => ({
+  cards,
   loading,
   failure,
 });
 
 const mapDispatchToProps = (dispatch, { scryfallService }) => ({
-  recentCardsFetch: recentCardsFetch(dispatch, scryfallService),
+  findCards: findCards(dispatch, scryfallService),
 });
 
 export default withScryfallService()(
-  connect(mapStateToProps, mapDispatchToProps)(RecentCardsContainer),
+  connect(mapStateToProps, mapDispatchToProps)(
+    withRouter(FoundCardsContainer),
+  ),
 );

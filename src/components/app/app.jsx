@@ -5,7 +5,13 @@ import { Route, Switch } from 'react-router-dom';
 
 import Header from '@components/header';
 import Footer from '@components/footer';
-import { MainPage, CardPage, SettingsPage } from '@pages';
+import {
+  MainPage,
+  CardPage,
+  CardsPage,
+  SettingsPage,
+  SearchPage,
+} from '@pages';
 import { withScryfallService } from '@hoc';
 import './app.css';
 
@@ -37,10 +43,21 @@ const App = () => {
           />
 
           <Route
-            path="/card"
+            path="/search"
             exact
-            component={ CardPage }
+            component={ SearchPage }
           />
+
+          <Route
+            path="/cards"
+            exact
+            render={ ({ location }) => {
+              const { search: queryString } = location;
+
+              return <CardsPage queryString={ queryString } />;
+            } }
+          />
+
           <Route
             path="/card/:id"
             render={ ({ match }) => {

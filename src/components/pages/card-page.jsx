@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import CardFullContainer from '@containers/card-full/card-full.jsx';
+import { CardFull as CardFullContainer } from '@containers';
 
 const CardPage = ({ cardId }) => {
   const { t } = useTranslation();
