@@ -21,7 +21,8 @@
     "main": {
       "h2": "Additional Features",
       "recent": {
-        "title": "Recent Cards"
+        "title": "Recent Cards",
+        "no-cards": "Recent cards will be displayed here"
       }
     },
 

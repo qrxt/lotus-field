@@ -13,8 +13,6 @@ class WishlistContainer extends Component {
   componentDidMount() {
     const { cardIdList } = this.props;
 
-    console.log(cardIdList);
-
     this.props.wishlistFetch(cardIdList);
   }
 

@@ -15,6 +15,16 @@ const RecentCards = ({ cards }) => {
     styles.wrapper,
   );
 
+  if (!cards.length) {
+    return (
+      <div className="d-flex justify-content-center">
+        <p className={ styles['no-cards'] }>
+          { t('pages.main.recent.no-cards') }
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className={ wrapperClasses }>
       <h3 className={ styles.title }>
@@ -46,4 +56,4 @@ RecentCards.propTypes = {
   cards: PropTypes.array.isRequired,
 };
 
-export default withCollection('cards', null)(RecentCards);
+export default RecentCards;

@@ -1,7 +1,7 @@
 const initialState = {
   cardIds: [],
   cardsLoaded: [],
-  loading: true,
+  loading: false,
   error: false,
 };
 
