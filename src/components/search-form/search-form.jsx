@@ -66,7 +66,7 @@ const SearchForm = ({ searchFilters, onFiltersRefresh, history }) => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" disabled={ !searchFilters.queryString.length }>
         { t('search-form.submit') }
       </Button>
     </Form>

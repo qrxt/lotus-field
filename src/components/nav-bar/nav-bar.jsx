@@ -33,7 +33,6 @@ const MyNavbar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          {/* <Nav.Link href="#link">Link</Nav.Link> */}
           <ul className="navbar-nav">
             <li className="nav-item active">
               <NavLink icon={ faHome } to="/" isCurrent>

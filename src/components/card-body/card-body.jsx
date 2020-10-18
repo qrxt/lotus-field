@@ -24,12 +24,14 @@ const ArtImage = ({ card }) => {
   });
 
   return (
-    <ModalImage
-      className={ styles.art }
-      small={ artCrop }
-      large={ artNormalSrc }
-      alt={ `Art for "${name}" card` }
-    />
+    <div aria-hidden tabIndex="0">
+      <ModalImage
+        className={ styles.art }
+        small={ artCrop }
+        large={ artNormalSrc }
+        alt={ `Art for "${name}" card` }
+      />
+    </div>
   );
 };
 
@@ -51,8 +53,9 @@ const CardBody = ({ card }) => {
   return (
     <div className={ styles.body }>
       <Suspense fallback={ loadingComponent }>
-      <ArtImage card={ card } />
+        <ArtImage card={ card } />
       </Suspense>
+
       <div className="wrapper">
         <header className="d-flex flex-wrap align-items-center">
 

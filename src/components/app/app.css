@@ -46,6 +46,10 @@
 	overflow: hidden;
 }
 
+:global(.carousel-indicators) {
+  margin-bottom: 0;
+}
+
 :global(.carousel-indicators li) {
   background-color: #000000;
 }
