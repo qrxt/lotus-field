@@ -11,6 +11,7 @@ import {
   CardsPage,
   SettingsPage,
   SearchPage,
+  WishlistPage,
 } from '@pages';
 import { withScryfallService } from '@hoc';
 import './app.css';
@@ -56,6 +57,12 @@ const App = () => {
 
               return <CardsPage queryString={ queryString } />;
             } }
+          />
+
+          <Route
+            path="/wishlist"
+            exact
+            component={ WishlistPage }
           />
 
           <Route

@@ -46,6 +46,10 @@
     "found-cards": {
       "h2": "Found Cards",
       "cards-found-quantity": "cards found"
+    },
+
+    "wishlist": {
+      "h2": "Wishlist"
     }
   },
 

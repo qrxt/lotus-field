@@ -24,7 +24,7 @@ const ArtImage = ({ card }) => {
   });
 
   return (
-    <div aria-hidden tabIndex="0">
+    <div aria-hidden>
       <ModalImage
         className={ styles.art }
         small={ artCrop }

@@ -1,21 +1,24 @@
 + camelcase в api
 - тесты
-- интернационализация
++\- интернационализация
 
 + двусторонние карты
 + условный рендеринг для правил карт
 + добавление лицевой стороны в односторонние карты
 
-- hot reload медленный
++\- hot reload медленный
 + map assets
 + reducers alias
 
-- hocs loading & failure
-- indexjs for containers
++ indexjs for containers
 
 + split mana cost
 + recent
 + toughness / power
 
-- localstorage for recent cards
-- wrap actions
++ localstorage for recent cards
++ wrap actions
+- replace recent component if no recent cards
+- pagination
+- submit filters button rework
+- кнопки навигации имеют ширину на весь блок

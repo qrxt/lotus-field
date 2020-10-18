@@ -5,15 +5,17 @@ import { connect } from 'react-redux';
 import LoadingSpinner from '@components/loading-spinner';
 import ErrorIndicator from '@components/error-indicator';
 
-import { recentCardsFetch } from '@actions';
+import { wishlistFetch } from '@actions';
 import { withScryfallService } from '@hoc';
-import RecentCards from '@components/recent-cards';
+import Wishlist from '@components/wishlist';
 
-class RecentCardsContainer extends Component {
+class WishlistContainer extends Component {
   componentDidMount() {
     const { cardIdList } = this.props;
 
-    this.props.recentCardsFetch(cardIdList);
+    console.log(cardIdList);
+
+    this.props.wishlistFetch(cardIdList);
   }
 
   render() {
@@ -39,20 +41,20 @@ class RecentCardsContainer extends Component {
       );
     }
 
-    return <RecentCards cards={ cards } />;
+    return <Wishlist cards={ cards } />;
   }
 }
 
-RecentCardsContainer.propTypes = {
+WishlistContainer.propTypes = {
   cardIdList: PropTypes.array.isRequired,
-  recentCardsFetch: PropTypes.func.isRequired,
+  wishlistFetch: PropTypes.func.isRequired,
   cards: PropTypes.array,
   loading: PropTypes.bool,
   failure: PropTypes.bool,
 };
 
 const mapStateToProps = ({
-  recentCards: {
+  wishlist: {
     cardsLoaded,
     cardIds,
     loading,
@@ -66,11 +68,11 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = (dispatch, { scryfallService }) => ({
-  recentCardsFetch: recentCardsFetch(dispatch, scryfallService),
+  wishlistFetch: wishlistFetch(dispatch, scryfallService),
 });
 
 export default withScryfallService()(
   connect(mapStateToProps, mapDispatchToProps)(
-    RecentCardsContainer,
+    WishlistContainer,
   ),
 );

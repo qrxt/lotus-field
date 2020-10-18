@@ -20,7 +20,7 @@ const FoundCards = ({ cards }) => {
         {
           cards.map((card, index) => (
             <li className={ styles['card-item'] } key={ index }>
-              <CardPreview card={ card }/>
+              <CardPreview card={ card } />
             </li>
           ))
         }

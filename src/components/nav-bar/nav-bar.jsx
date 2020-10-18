@@ -40,7 +40,7 @@ const MyNavbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink icon={ faHeart } to="#">
+              <NavLink icon={ faHeart } to="/wishlist">
                 { t('nav-menu.wishlist') }
               </NavLink>
             </li>

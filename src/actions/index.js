@@ -1,6 +1,14 @@
 import searchFiltersRefreshed from './search-filters-refreshed';
 
 import {
+  cardAddedToWishlist,
+  wishlistLoadFailure,
+  wishlistLoadRequest,
+  wishlistLoadSuccess,
+  wishlistFetch,
+} from './wishlist';
+
+import {
   foundCardsLoadFailure,
   foundCardsLoadRequest,
   foundCardsLoadSuccess,
@@ -44,4 +52,12 @@ export {
   foundCardsLoadFailure,
   foundCardsLoadRequest,
   foundCardsLoadSuccess,
+
+  // Wishlist
+
+  cardAddedToWishlist,
+  wishlistLoadFailure,
+  wishlistLoadRequest,
+  wishlistLoadSuccess,
+  wishlistFetch,
 };

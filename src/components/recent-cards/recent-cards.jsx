@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { withCollection } from '@hoc';
 import Carousel from 'react-bootstrap/Carousel';
 
 import CardPreview from '@components/card-preview';
@@ -45,4 +46,4 @@ RecentCards.propTypes = {
   cards: PropTypes.array.isRequired,
 };
 
-export default RecentCards;
+export default withCollection('cards', null)(RecentCards);

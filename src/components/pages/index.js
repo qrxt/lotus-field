@@ -4,6 +4,7 @@ import CardPage from './card-page.jsx';
 import SettingsPage from './settings-page.jsx';
 import SearchPage from './search-page.jsx';
 import CardsPage from './cards-page.jsx';
+import WishlistPage from './wishlist-page.jsx';
 
 export {
   MainPage,
@@ -12,4 +13,5 @@ export {
   SettingsPage,
   SearchPage,
   CardsPage,
+  WishlistPage,
 };

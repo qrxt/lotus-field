@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { ScryfallService } from '@src/services';
+import ScryfallService from '@src/services';
 import { ScryfallServiceProvider } from '@components/scryfall-service-context';
 import App from '@components/app/app.jsx';
 import store from './store';
