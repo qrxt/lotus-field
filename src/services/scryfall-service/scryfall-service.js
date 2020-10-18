@@ -1,4 +1,4 @@
-import transformKeysToCamelCase from '@utils/transformKeysToCamel';
+import transformKeysToCamelCase from '@utils/transform-keys-to-camel';
 
 // Card Frame Types
 import CardSingleFaced from './frame-type-wrappers/card-single';

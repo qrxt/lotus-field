@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import flipObject from '@utils/flipObject';
+import flipObject from '@utils/flip-object';
 
 import Form from 'react-bootstrap/Form';
 

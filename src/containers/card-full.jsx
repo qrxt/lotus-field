@@ -7,7 +7,7 @@ import LoadingSpinner from '@components/loading-spinner';
 import ErrorIndicator from '@components/error-indicator';
 
 import { cardFetch, cardAddedToRecent } from '@actions';
-import withScryfallService from '@hoc/withScryfallService.jsx';
+import { withScryfallService } from '@hoc';
 import CardFull from '@components/card-full';
 
 class CardFullContainer extends Component {

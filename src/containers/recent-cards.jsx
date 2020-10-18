@@ -6,7 +6,7 @@ import LoadingSpinner from '@components/loading-spinner';
 import ErrorIndicator from '@components/error-indicator';
 
 import { recentCardsFetch } from '@actions';
-import withScryfallService from '@hoc/withScryfallService.jsx';
+import { withScryfallService, withCollection } from '@hoc';
 import RecentCards from '@components/recent-cards';
 
 class RecentCardsContainer extends Component {
@@ -70,5 +70,8 @@ const mapDispatchToProps = (dispatch, { scryfallService }) => ({
 });
 
 export default withScryfallService()(
-  connect(mapStateToProps, mapDispatchToProps)(RecentCardsContainer),
+  connect(mapStateToProps, mapDispatchToProps)(
+    // withCollection('cardIdList', 'boo')(RecentCardsContainer),
+    RecentCardsContainer,
+  ),
 );
