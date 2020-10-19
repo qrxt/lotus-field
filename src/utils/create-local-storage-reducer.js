@@ -22,15 +22,22 @@ const createLocalStorageReducer = (
 
       // try load from local storage
       const stored = storage.getItem(key);
-      const storedData = typeof stored === 'string' ? deserialize(stored) : {};
+
+      console.log(storage);
+
+      const storedData = typeof stored === 'string'
+        ? deserialize(stored)
+        : {};
 
       localState = merge(reducerDefaults, storedData);
     }
 
     const newState = initialReducer(localState, action);
 
+    console.log(key, newState);
+
     if (localState !== newState) {
-      storage.setItem(key, serialize(newState));
+      storage.setItem(key, serialize({ [key]: newState[key] }));
     }
 
     return newState;
