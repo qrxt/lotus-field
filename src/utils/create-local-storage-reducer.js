@@ -31,35 +31,35 @@ const createLocalStorageReducer = (
         ? deserialize(stored)
         : {};
 
-      paths.forEach(() => {
-        const storedPartsByPaths = paths.map((innerPath) => {
-          console.log(innerPath);
+      if (Object.keys(storedData).length > 0) {
+        const newLocalState = paths.reduce((acc, path) => {
+          return { ...acc, ...setPropByPath(acc, path, getPropByPath(storedData, path)) };
+        }, reducerDefaults);
 
-          return getPropByPath(storedData, innerPath);
-        });
-
-        localState = { ...reducerDefaults, ...storedPartsByPaths };
-      });
+        localState = newLocalState;
+      } else {
+        localState = { ...reducerDefaults, ...storedData };
+      }
     }
 
     const newState = initialReducer(localState, action);
 
-    if (localState !== newState) {
+    if (JSON.stringify(localState) !== JSON.stringify(newState)) {
       // console.log('localstate: ', JSON.stringify(localState));
       // console.log('newstate: ', JSON.stringify(newState));
 
       const resultStorage = paths.reduce((acc, path) => {
         const keyName = path.split('.')[0];
-        const fromKeyPath = path.split('.').slice(1).join('.'); // !!!
+        const fromKeyPath = path.split('.').slice(1).join('.');
         const currentProp = getPropByPath(newState, path);
 
-        // [keyName]: currentProp
         return { ...acc, [keyName]: setPropByPath({}, fromKeyPath, currentProp) };
       }, {});
 
       storage.setItem('saved', serialize(resultStorage));
     }
 
+    // console.log(newState);
     return newState;
   };
 };
