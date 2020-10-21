@@ -3,6 +3,11 @@ export const cardAddedToWishlist = (cardId) => ({
   payload: cardId,
 });
 
+export const cardRemovedFromWishlist = (cardId) => ({
+  type: 'CARD_REMOVED_FROM_WISHLIST',
+  payload: cardId,
+});
+
 export const wishlistLoadFailure = () => ({
   type: 'FETCH_WISHLIST_CARDS_FAILURE',
 });

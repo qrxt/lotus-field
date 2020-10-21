@@ -14,7 +14,7 @@ const setPropByPath = (obj, path, value) => {
     };
 
     if (!currentPath.includes('.')) {
-      return nextResult;
+      return { ...obj, ...nextResult };
     }
 
     return iter(nextPath, nextResult);

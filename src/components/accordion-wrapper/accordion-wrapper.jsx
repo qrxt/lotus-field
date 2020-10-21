@@ -5,8 +5,10 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-const AccordionWrapper = ({ entries }) => (
-  <Accordion>
+import styles from './accordion-wrapper.css';
+
+const AccordionWrapper = ({ entries, className }) => (
+  <Accordion className={ className }>
     {
       entries.map(({ caption, body }, index) => (
         <Card className="rounded-0" key={ index }>
@@ -28,6 +30,7 @@ const AccordionWrapper = ({ entries }) => (
 
 AccordionWrapper.propTypes = {
   entries: PropTypes.array.isRequired,
+  className: PropTypes.string,
 };
 
 export default AccordionWrapper;

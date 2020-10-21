@@ -9,3 +9,7 @@
 
   margin: 0;
 }
+
+.something {
+  outline: 15px solid;
+}

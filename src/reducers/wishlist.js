@@ -18,6 +18,17 @@ const addToWishlist = (state, card) => {
   };
 };
 
+const removeFromWishlist = (state, cardId) => {
+  const nextWishlist = state.wishlist.cardIds
+    .filter((currentCardId) => currentCardId !== cardId);
+
+  return {
+    ...state.wishlist,
+
+    cardIds: nextWishlist,
+  };
+};
+
 export default (state, action) => {
   if (!state) {
     return initialState;
@@ -25,6 +36,7 @@ export default (state, action) => {
 
   const actionTypesMapping = {
     CARD_ADDED_TO_WISHLIST: addToWishlist(state, action.payload),
+    CARD_REMOVED_FROM_WISHLIST: removeFromWishlist(state, action.payload),
 
     FETCH_WISHLIST_CARDS_REQUEST: {
       ...state.wishlist,

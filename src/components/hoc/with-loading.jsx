@@ -8,10 +8,7 @@ const withLoading = () => (Wrapped) => {
   const WrappedWithLoading = (props) => {
     const { loading, failure } = props;
 
-    console.log(props);
-
     if (loading) {
-      console.log('yep');
       return (
         <div className="d-flex justify-content-center">
           <LoadingSpinner />
@@ -20,7 +17,6 @@ const withLoading = () => (Wrapped) => {
     }
 
     if (failure) {
-      console.log('oh no')
       return (
         <div className="d-flex justify-content-center">
           <ErrorIndicator />

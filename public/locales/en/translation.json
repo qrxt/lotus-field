@@ -111,5 +111,9 @@
     "restricted": "Restricted",
     "not_legal": "Not Legal",
     "banned": "Banned"
+  },
+
+  "buttons": {
+    "add-to-wishlist": "Add to wishlist"
   }
 }
