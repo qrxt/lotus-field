@@ -10,6 +10,7 @@ extends:
 
 rules:
   "react/jsx-curly-spacing": ["error", "always"]
+  "import/no-extraneous-dependencies": [error, { devDependencies: true }]
 
 parser: babel-eslint
 

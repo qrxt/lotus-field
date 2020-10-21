@@ -4,7 +4,8 @@
   "description": "mtg wishlist app",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode development",
+    "build": "webpack --mode production --config webpack.config.prod.babel.js",
+    "build-dev": "webpack --mode development --config webpack.config.dev.babel.js",
     "watch": "webpack-dev-server --mode development --config webpack.config.dev.babel.js",
     "bundle-report": "webpack-bundle-analyzer --port 8888 dist/stats.json"
   },

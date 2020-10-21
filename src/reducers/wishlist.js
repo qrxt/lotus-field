@@ -1,7 +1,5 @@
 const initialState = {
-  cardIds: [
-    'bd8fa327-dd41-4737-8f19-2cf5eb1f7cdd',
-  ],
+  cardIds: [],
   cardsLoaded: [],
   loading: true,
   error: false,

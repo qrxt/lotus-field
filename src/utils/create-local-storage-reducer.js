@@ -1,17 +1,17 @@
 import getPropByPath from './get-prop-by-path';
 import setPropByPath from './set-prop-by-path';
 
-const mergeData = (reducerDefaults, storedData) => ({
-  ...reducerDefaults,
-  ...storedData,
-});
+// const mergeData = (reducerDefaults, storedData) => ({
+//   ...reducerDefaults,
+//   ...storedData,
+// });
 
 const createLocalStorageReducer = (
   initialReducer,
   paths,
   serialize = JSON.stringify,
   deserialize = JSON.parse,
-  merge = mergeData,
+  // merge = mergeData,
   storage = window.localStorage,
 ) => {
   if (typeof storage !== 'object' || storage === null) {
@@ -32,9 +32,9 @@ const createLocalStorageReducer = (
         : {};
 
       if (Object.keys(storedData).length > 0) {
-        const newLocalState = paths.reduce((acc, path) => {
-          return { ...acc, ...setPropByPath(acc, path, getPropByPath(storedData, path)) };
-        }, reducerDefaults);
+        const newLocalState = paths.reduce((acc, path) => ({
+          ...acc, ...setPropByPath(acc, path, getPropByPath(storedData, path)),
+        }), reducerDefaults);
 
         localState = newLocalState;
       } else {
