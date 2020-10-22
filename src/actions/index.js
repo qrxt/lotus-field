@@ -1,4 +1,7 @@
-import searchFiltersRefreshed from './search-filters-refreshed';
+import {
+  searchFiltersRefreshed,
+  searchFiltersReset,
+} from './search-filters';
 
 import {
   cardAddedToWishlist,
@@ -47,6 +50,7 @@ export {
 
   // Search Form
   searchFiltersRefreshed,
+  searchFiltersReset,
 
   // Found Cards
   findCards,

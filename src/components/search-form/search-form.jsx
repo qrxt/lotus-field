@@ -5,13 +5,12 @@ import { useTranslation } from 'react-i18next';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-/*
-  <Form.Text className="text-muted">
-    We'll never share your email with anyone else.
-  </Form.Text>
-*/
-
-const SearchForm = ({ searchFilters, onFiltersRefresh, history }) => {
+const SearchForm = (props) => {
+  const {
+    onFiltersRefresh,
+    history,
+    searchFilters,
+  } = props;
   const { t } = useTranslation();
 
   const onFormSubmit = (evt) => {
@@ -66,7 +65,11 @@ const SearchForm = ({ searchFilters, onFiltersRefresh, history }) => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit" disabled={ !searchFilters.queryString.length }>
+      <Button
+        variant="primary"
+        type="submit"
+        disabled={ !searchFilters.queryString.length }
+      >
         { t('search-form.submit') }
       </Button>
     </Form>

@@ -18,11 +18,12 @@
 
 + localstorage for recent cards
 + wrap actions
-- replace recent component if no recent cards
++ replace recent component if no recent cards
 - pagination
-- submit filters button rework
++ submit filters button rework
 - кнопки навигации имеют ширину на весь блок
-- исправить set-by-prop
++ исправить set-by-prop
 - wishlist btn component
-- wishlist placeholder
++ wishlist placeholder
 - empty found-cards
+- wishlist page title

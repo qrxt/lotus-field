@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazyload';
 import { useTranslation } from 'react-i18next';
 
+import CardBack from '@components/card-back';
 import CardPreview from '@components/card-preview';
 
 import styles from './found-cards.css';
@@ -20,7 +22,9 @@ const FoundCards = ({ cards }) => {
         {
           cards.map((card, index) => (
             <li className={ styles['card-item'] } key={ index }>
-              <CardPreview card={ card } />
+              <LazyLoad placeholder={ <CardBack /> } offset={ 568 }>
+                <CardPreview card={ card } />
+              </LazyLoad>
             </li>
           ))
         }

@@ -119,5 +119,11 @@
       "add-to-wishlist": "Add to wishlist",
       "remove-from-wishlist": "Remove from wishlist"
     }
+  },
+
+  "cards": {
+    "placeholder": {
+      "alt": "MTG Card Back"
+    }
   }
 }

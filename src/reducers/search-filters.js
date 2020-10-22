@@ -11,6 +11,8 @@ const initialState = {
   queryString: '',
 };
 
+const resetFilters = () => initialState;
+
 const refreshFilters = (state, payload) => {
   if (!payload) {
     return state.searchFilters;
@@ -46,6 +48,8 @@ export default (state, action) => {
       state,
       action.payload,
     ),
+
+    SEARCH_FILTERS_RESET: resetFilters(),
   };
 
   return actionTypesMapping[action.type] || state.searchFilters;

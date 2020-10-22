@@ -39,13 +39,21 @@ class CardsService {
   apiBase = 'https://api.scryfall.com';
 
   async getResource(url) {
+    const statusToMapping = {
+      200: (response) => response.json(),
+      404: () => {},
+    };
+
     const response = await this.client(`${this.apiBase}${url}`);
 
-    if (!response.ok) {
-      throw new Error(`Couldn't fetch ${url}. Status: ${response.status}`);
+    const fittingHandler = statusToMapping[response.status];
+    if (fittingHandler) {
+      return fittingHandler(response);
     }
 
-    return response.json();
+    throw new Error(
+      `Couldn't fetch ${url}. Status: ${response.status}`,
+    );
   }
 
   async getRandomCard() {

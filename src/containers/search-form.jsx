@@ -5,26 +5,28 @@ import { connect } from 'react-redux';
 
 import {
   searchFiltersRefreshed,
+  searchFiltersReset,
 } from '@actions';
 import SearchForm from '@components/search-form';
 
 class SearchFormContainer extends Component {
-  // componentDidMount() {
-  //   // const { cardIdList } = this.props;
-  //   // this.props.recentCardsFetch(cardIdList);
+  componentDidMount() {
+    this.props.onFiltersReset();
 
-  //   // autocomplete logic will be here
-  // }
+    // autocomplete logic will be here
+  }
 
   render() {
     const {
       searchFilters,
+      onFiltersReset,
       onFiltersRefresh,
       history,
     } = this.props;
 
     return <SearchForm
       searchFilters={ searchFilters }
+      onFiltersReset={ onFiltersReset }
       onFiltersRefresh={ onFiltersRefresh }
       history={ history }
     />;
@@ -34,15 +36,15 @@ class SearchFormContainer extends Component {
 SearchFormContainer.propTypes = {
   searchFilters: PropTypes.object,
   onFiltersRefresh: PropTypes.func,
+  onFiltersReset: PropTypes.func,
   history: PropTypes.object,
 };
 
 const mapStateToProps = ({ searchFilters }) => ({ searchFilters });
 
 const mapDispatchToProps = (dispatch) => ({
-  onFiltersRefresh: (field, value) => (
-    dispatch(searchFiltersRefreshed(field, value))
-  ),
+  onFiltersRefresh: (field, value) => dispatch(searchFiltersRefreshed(field, value)),
+  onFiltersReset: () => dispatch(searchFiltersReset()),
 });
 
 export default connect(
