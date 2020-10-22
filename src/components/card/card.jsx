@@ -6,8 +6,8 @@ const Card = (props) => {
   const { imgUrl, name, href } = props;
 
   return (
-    <a href={href} className={styles.link}>
-      <img src={imgUrl} width="146" height="204" alt={name} />
+    <a href={ href } className={ styles.link }>
+      <img src={ imgUrl } width="146" height="204" alt={ name } />
     </a>
   );
 };

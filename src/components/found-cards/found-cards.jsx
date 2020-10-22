@@ -31,6 +31,7 @@ const FoundCards = ({ cards }) => {
 
 FoundCards.propTypes = {
   cards: PropTypes.array,
+  cardAddedToWishlist: PropTypes.func,
 };
 
 export default FoundCards;

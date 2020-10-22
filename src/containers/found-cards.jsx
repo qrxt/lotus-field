@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import LoadingSpinner from '@components/loading-spinner';
 import ErrorIndicator from '@components/error-indicator';
 
-import { findCards } from '@actions';
+import { findCards, cardAddedToWishlist } from '@actions';
 import { withScryfallService } from '@hoc';
 import FoundCards from '@components/found-cards';
 
@@ -40,7 +40,7 @@ class FoundCardsContainer extends Component {
       );
     }
 
-    return <FoundCards cards={ cards } />;
+    return <FoundCards cards={ cards } cardAddedToWishlist={ this.props.cardAddedToWishlist } />;
   }
 }
 
@@ -49,6 +49,7 @@ FoundCardsContainer.propTypes = {
   loading: PropTypes.bool,
   failure: PropTypes.bool,
   findCards: PropTypes.func.isRequired,
+  cardAddedToWishlist: PropTypes.func.isRequired,
   location: PropTypes.object,
 };
 
@@ -60,6 +61,7 @@ const mapStateToProps = ({ foundCards: { cards, loading, failure } }) => ({
 
 const mapDispatchToProps = (dispatch, { scryfallService }) => ({
   findCards: findCards(dispatch, scryfallService),
+  cardAddedToWishlist: (cardId) => dispatch(cardAddedToWishlist(cardId)),
 });
 
 export default withScryfallService()(

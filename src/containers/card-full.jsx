@@ -6,7 +6,12 @@ import { withRouter } from 'react-router-dom';
 import LoadingSpinner from '@components/loading-spinner';
 import ErrorIndicator from '@components/error-indicator';
 
-import { cardFetch, cardAddedToRecent, cardAddedToWishlist } from '@actions';
+import {
+  cardFetch,
+  cardAddedToRecent,
+  cardAddedToWishlist,
+  cardRemovedFromWishlist,
+} from '@actions';
 import { withScryfallService } from '@hoc';
 import CardFull from '@components/card-full';
 
@@ -46,7 +51,12 @@ class CardFullContainer extends Component {
       );
     }
 
-    return <CardFull card={ card } cardAddedToWishlist={ this.props.cardAddedToWishlist } />;
+    return <CardFull
+      card={ card }
+      wishlistCardIds={ this.props.wishlistCardIds }
+      cardAddedToWishlist={ this.props.cardAddedToWishlist }
+      cardRemovedFromWishlist={ this.props.cardRemovedFromWishlist }
+    />;
   }
 }
 
@@ -58,19 +68,23 @@ CardFullContainer.propTypes = {
   cardFetch: PropTypes.func.isRequired,
   cardAddedToRecent: PropTypes.func.isRequired,
   cardAddedToWishlist: PropTypes.func.isRequired,
+  cardRemovedFromWishlist: PropTypes.func.isRequired,
   history: PropTypes.object,
+  wishlistCardIds: PropTypes.array,
 };
 
-const mapStateToProps = ({ singleCard: { card, loading, failure } }) => ({
+const mapStateToProps = ({ singleCard: { card, loading, failure }, wishlist: { cardIds } }) => ({
   card,
   loading,
   failure,
+  wishlistCardIds: cardIds,
 });
 
 const mapDispatchToProps = (dispatch, { scryfallService }) => ({
   cardFetch: cardFetch(dispatch, scryfallService),
   cardAddedToRecent: (cardId) => dispatch(cardAddedToRecent(cardId)),
   cardAddedToWishlist: (cardId) => dispatch(cardAddedToWishlist(cardId)),
+  cardRemovedFromWishlist: (cardId) => dispatch(cardRemovedFromWishlist(cardId)),
 });
 
 export default withScryfallService()(

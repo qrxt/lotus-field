@@ -1,9 +1,12 @@
 .wishlist-button {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   color: #000000;
   border-color: #f15eaf;
+}
+
+.heart-icon {
+  margin-right: 10px;
 }
 
 .button-little {

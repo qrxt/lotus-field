@@ -2,6 +2,7 @@ import searchFiltersRefreshed from './search-filters-refreshed';
 
 import {
   cardAddedToWishlist,
+  cardRemovedFromWishlist,
   wishlistLoadFailure,
   wishlistLoadRequest,
   wishlistLoadSuccess,
@@ -54,8 +55,8 @@ export {
   foundCardsLoadSuccess,
 
   // Wishlist
-
   cardAddedToWishlist,
+  cardRemovedFromWishlist,
   wishlistLoadFailure,
   wishlistLoadRequest,
   wishlistLoadSuccess,

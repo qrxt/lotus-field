@@ -9,48 +9,36 @@ import Button from 'react-bootstrap/Button';
 
 import styles from './button-wishlist.css';
 
-const ButtonWishlist = ({ className, isLittle, onClick, disabled }) => {
+const ButtonWishlist = (props) => {
+  const {
+    className,
+    onEnable,
+    onDisable,
+    disabled,
+    isToggled,
+  } = props;
   const { t } = useTranslation();
-
-  if (isLittle) {
-    return (
-      <Button
-        variant={
-          cn(
-            className,
-            'outline-primary',
-            styles['wishlist-button'],
-            styles['button-little'],
-          )
-        }
-        size="lg"
-        disabled={ disabled }
-        onClick={ onClick }
-      >
-        <Icon className={
-          styles['heart-icon'] }
-          icon={ faHeart }
-          color="#f15eaf"
-        />
-      </Button>
-    );
-  }
 
   return (
     <Button
       variant={
         cn(
-          className,
           'outline-primary',
           styles['wishlist-button'],
+          className,
         )
       }
       size="lg"
       disabled={ disabled }
-      onClick={ onClick }
+      onClick={ isToggled ? onDisable : onEnable }
+      active={ isToggled }
     >
       <Icon className={ styles['heart-icon'] } icon={ faHeart } color="#f15eaf" />
-      { t('buttons.add-to-wishlist') }
+      {
+        isToggled
+          ? t('buttons.wishlist.remove-from-wishlist')
+          : t('buttons.wishlist.add-to-wishlist')
+      }
     </Button>
   );
 };
@@ -60,6 +48,9 @@ ButtonWishlist.propTypes = {
   isLittle: PropTypes.bool,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
+  isToggled: PropTypes.bool,
+  onEnable: PropTypes.func,
+  onDisable: PropTypes.func,
 };
 
 export default ButtonWishlist;

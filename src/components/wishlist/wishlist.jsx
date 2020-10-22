@@ -4,10 +4,24 @@ import { useTranslation } from 'react-i18next';
 
 import CardPreview from '@components/card-preview';
 
+import EmptyIcon from '@images/empty.svg';
 import styles from './wishlist.css';
 
 const Wishlist = ({ cards }) => {
   const { t } = useTranslation();
+
+  if (!cards.length) {
+    return (
+      <div className={ styles['no-cards'] }>
+        <EmptyIcon />
+        <p>
+          {
+            t('pages.wishlist.no-cards')
+          }
+        </p>
+      </div>
+    );
+  }
 
   return (
     <ul className={ styles['card-list'] }>

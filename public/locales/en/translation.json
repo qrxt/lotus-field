@@ -50,7 +50,8 @@
     },
 
     "wishlist": {
-      "h2": "Wishlist"
+      "h2": "Wishlist",
+      "no-cards": "Your favorite cards will be displayed here"
     }
   },
 
@@ -114,6 +115,9 @@
   },
 
   "buttons": {
-    "add-to-wishlist": "Add to wishlist"
+    "wishlist": {
+      "add-to-wishlist": "Add to wishlist",
+      "remove-from-wishlist": "Remove from wishlist"
+    }
   }
 }

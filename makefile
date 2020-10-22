@@ -14,7 +14,7 @@ watch:
 	npm run watch
 
 lint:
-	npx eslint ./src/
+	npx eslint ./src/ --ext .js --ext .jsx
 
 lint-js:
-	npx eslint ./src/
+	npx eslint ./src/ --ext .js --ext .jsx

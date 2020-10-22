@@ -21,5 +21,13 @@
 }
 
 .no-cards {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-clock {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 10px;
 }

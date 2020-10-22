@@ -24,3 +24,5 @@
 - кнопки навигации имеют ширину на весь блок
 - исправить set-by-prop
 - wishlist btn component
+- wishlist placeholder
+- empty found-cards

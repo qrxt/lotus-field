@@ -9,12 +9,12 @@ import {
 import SearchForm from '@components/search-form';
 
 class SearchFormContainer extends Component {
-  componentDidMount() {
-    // const { cardIdList } = this.props;
-    // this.props.recentCardsFetch(cardIdList);
+  // componentDidMount() {
+  //   // const { cardIdList } = this.props;
+  //   // this.props.recentCardsFetch(cardIdList);
 
-    // autocomplete logic will be here
-  }
+  //   // autocomplete logic will be here
+  // }
 
   render() {
     const {

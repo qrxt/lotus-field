@@ -13,7 +13,13 @@ import Rulings from '@components/rulings';
 
 import styles from './card-full.css';
 
-const CardFull = ({ card, cardAddedToWishlist }) => {
+const CardFull = (props) => {
+  const {
+    card,
+    cardAddedToWishlist,
+    cardRemovedFromWishlist,
+    wishlistCardIds,
+  } = props;
   const {
     legalities,
     rulings,
@@ -64,12 +70,6 @@ const CardFull = ({ card, cardAddedToWishlist }) => {
     </Carousel>
   );
 
-  const handleWishlistButtonClick = () => {
-    cardAddedToWishlist(card.id);
-  };
-
-  console.log(styles['something']);
-
   return (
     <article className={ styles.card }>
       {
@@ -80,8 +80,10 @@ const CardFull = ({ card, cardAddedToWishlist }) => {
       <AccordionWrapper entries={ preparedEntries } className="mb-3" />
       <div className={ cn('wrapper') }>
         <ButtonWishlist
-          className={ styles['something'] }
-          onClick={ handleWishlistButtonClick }
+          isToggled={ wishlistCardIds.includes(card.id) }
+          className={ styles['button-wishlist'] }
+          onEnable={ () => { cardAddedToWishlist(card.id); } }
+          onDisable={ () => { cardRemovedFromWishlist(card.id); } }
           disabled={ !card }
         />
       </div>
@@ -92,6 +94,8 @@ const CardFull = ({ card, cardAddedToWishlist }) => {
 CardFull.propTypes = {
   card: PropTypes.object.isRequired,
   cardAddedToWishlist: PropTypes.func,
+  cardRemovedFromWishlist: PropTypes.func,
+  wishlistCardIds: PropTypes.array,
 };
 
 export default CardFull;

@@ -7,7 +7,8 @@
     "build": "webpack --mode production --config webpack.config.prod.babel.js",
     "build-dev": "webpack --mode development --config webpack.config.dev.babel.js",
     "watch": "webpack-dev-server --mode development --config webpack.config.dev.babel.js",
-    "bundle-report": "webpack-bundle-analyzer --port 8888 dist/stats.json"
+    "bundle-report": "webpack-bundle-analyzer --port 8888 dist/stats.json",
+    "lint-js": "eslint ./src/ --ext .js --ext .jsx"
   },
   "author": "qrx",
   "license": "ISC",

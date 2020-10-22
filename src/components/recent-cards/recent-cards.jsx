@@ -2,10 +2,10 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { withCollection } from '@hoc';
 import Carousel from 'react-bootstrap/Carousel';
 
 import CardPreview from '@components/card-preview';
+import ClockIcon from '@images/clock.svg';
 import styles from './recent-cards.css';
 
 const RecentCards = ({ cards }) => {
@@ -17,8 +17,9 @@ const RecentCards = ({ cards }) => {
 
   if (!cards.length) {
     return (
-      <div className="d-flex justify-content-center">
-        <p className={ styles['no-cards'] }>
+      <div className={ styles['no-cards'] }>
+        <ClockIcon className={ styles['icon-clock'] } />
+        <p>
           { t('pages.main.recent.no-cards') }
         </p>
       </div>
