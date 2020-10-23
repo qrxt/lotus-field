@@ -28,6 +28,12 @@ const SearchForm = (props) => {
           placeholder={ t('search-form.name-input.placeholder') }
           onInput={ (evt) => onFiltersRefresh('name', evt.target.value) }
         />
+        <Form.Check
+          type="checkbox"
+          id="name-exact"
+          label={ t('search-form.exact-checkbox.title') }
+          onChange={ (evt) => onFiltersRefresh('nameExact', evt.target.value) }
+        />
       </Form.Group>
 
       <Form.Group controlId="formSearchType">
@@ -53,6 +59,21 @@ const SearchForm = (props) => {
           <option>{ t('rarities.uncommon') }</option>
           <option>{ t('rarities.rare') }</option>
           <option>{ t('rarities.mythic') }</option>
+        </Form.Control>
+      </Form.Group>
+
+      <Form.Group controlId="formSearchUnique">
+        <Form.Label>{ t('search-form.unique-select.title') }</Form.Label>
+        <Form.Control
+          as="select"
+          custom
+          onChange={
+            (evt) => onFiltersRefresh('unique', evt.target.value.toLowerCase())
+          }
+        >
+          <option>{ t('unique.cards') }</option>
+          <option>{ t('unique.art') }</option>
+          <option>{ t('unique.prints') }</option>
         </Form.Control>
       </Form.Group>
 

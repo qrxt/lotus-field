@@ -62,6 +62,10 @@
       "placeholder": "Enter the card name"
     },
 
+    "exact-checkbox": {
+      "title": "Exact"
+    },
+
     "type-input": {
       "title": "Card type",
       "placeholder": "Creature"
@@ -70,6 +74,11 @@
     "rarity-select": {
       "title": "Rarity",
       "placeholder": "Choose rarity"
+    },
+
+    "unique-select": {
+      "title": "Unique",
+      "placeholder": "Choose omitting strategy"
     },
 
     "artist-input": {
@@ -106,6 +115,12 @@
     "uncommon": "Uncommon",
     "rare": "Rare",
     "mythic": "Mythic"
+  },
+
+  "unique": {
+    "cards": "Cards",
+    "art": "Arts",
+    "prints": "Prints"
   },
 
   "legalities": {
