@@ -46,6 +46,7 @@
 
     "found-cards": {
       "h2": "Found Cards",
+      "no-cards": "No cards found using these options ;(",
       "cards-found-quantity": "cards found"
     },
 

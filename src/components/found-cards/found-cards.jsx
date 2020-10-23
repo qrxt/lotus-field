@@ -6,10 +6,24 @@ import { useTranslation } from 'react-i18next';
 import CardBack from '@components/card-back';
 import CardPreview from '@components/card-preview';
 
+import IconNotFound from '@images/not-found.svg';
 import styles from './found-cards.css';
 
 const FoundCards = ({ cards }) => {
   const { t } = useTranslation();
+
+  if (!cards.length) {
+    return (
+      <div className={ styles['no-cards'] }>
+        <IconNotFound width={ 136 } height={ 148 } />
+        <p>
+          {
+            t('pages.found-cards.no-cards')
+          }
+        </p>
+      </div>
+    );
+  }
 
   return (
     <React.Fragment>

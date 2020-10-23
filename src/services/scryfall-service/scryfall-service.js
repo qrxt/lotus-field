@@ -41,19 +41,23 @@ class CardsService {
   async getResource(url) {
     const statusToMapping = {
       200: (response) => response.json(),
-      404: () => {},
+      404: () => null,
     };
 
-    const response = await this.client(`${this.apiBase}${url}`);
+    try {
+      const response = await this.client(`${this.apiBase}${url}`);
 
-    const fittingHandler = statusToMapping[response.status];
-    if (fittingHandler) {
-      return fittingHandler(response);
+      const fittingHandler = statusToMapping[response.status];
+      if (fittingHandler) {
+        return fittingHandler(response);
+      }
+    } catch (e) {
+      throw new Error(
+        `Couldn't fetch ${url}.`,
+      );
     }
 
-    throw new Error(
-      `Couldn't fetch ${url}. Status: ${response.status}`,
-    );
+    return null;
   }
 
   async getRandomCard() {
@@ -84,7 +88,8 @@ class CardsService {
 
     // pages logic
 
-    const result = cardsObjectList.data.map((card) => transformCardData(card));
+    const normalizedCardsObjectList = cardsObjectList || { data: [] };
+    const result = normalizedCardsObjectList.data.map((card) => transformCardData(card));
 
     return result;
   }
