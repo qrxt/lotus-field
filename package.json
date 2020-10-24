@@ -8,20 +8,22 @@
     "build-dev": "webpack --mode development --config webpack.config.dev.babel.js",
     "watch": "webpack-dev-server --mode development --config webpack.config.dev.babel.js",
     "bundle-report": "webpack-bundle-analyzer --port 8888 dist/stats.json",
-    "lint-js": "eslint ./src/ --ext .js --ext .jsx"
+    "lint-js": "eslint ./src/ --ext .js --ext .jsx",
+    "lint-css": "stylelint ./src/**/*.css --config .stylelintrc.json"
   },
   "author": "qrx",
   "license": "ISC",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint-js",
-      "pre-push": "npm run lint-js"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
+    "./src/**/*.css": [
+      "npm run lint-css"
+    ],
     "./src/**/*.{js,jsx}": [
-      "npm run lint-js",
-      "git add"
+      "npm run lint-js"
     ]
   },
   "devDependencies": {
@@ -64,6 +66,9 @@
     "react-svg-loader": "^3.0.3",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
+    "stylelint": "^13.7.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-webpack-plugin": "^2.1.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.44.2",
     "webpack-bundle-analyzer": "^3.9.0",

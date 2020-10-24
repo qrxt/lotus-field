@@ -1,6 +1,5 @@
 .title {
   margin: 0 10px 5px 0;
-
   font-family: Beleren, 'Times New Roman', serif;
   font-weight: 700;
   font-size: 24px;
@@ -16,7 +15,6 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 18px;
-
   margin-right: 10px;
 }
 
@@ -31,7 +29,6 @@
   margin: 0 0 15px;
   border-radius: 5px;
   white-space: pre-line;
-
   font-family: Plantin, 'Times New Roman', serif;
   font-size: 18px;
   line-height: 22px;

@@ -1,9 +1,15 @@
 @keyframes petals-spinner-animation {
-  0% { opacity: 1 }
-  100% { opacity: 0 }
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 .petals-spinner-container div {
+  box-sizing: content-box;
   left: 93px;
   top: 50px;
   position: absolute;
@@ -85,5 +91,3 @@
   backface-visibility: hidden;
   transform-origin: 0 0;
 }
-
-.petals-spinner-container div { box-sizing: content-box; }

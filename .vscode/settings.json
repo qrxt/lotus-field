@@ -3,6 +3,7 @@
         "DEVTOOLS",
         "fontawesome",
         "fortawesome",
-        "lazyload"
+        "lazyload",
+        "stylelint"
     ]
 }
