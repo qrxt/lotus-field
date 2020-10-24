@@ -13,8 +13,10 @@ ci:
 watch:
 	npm run watch
 
-lint:
-	npx eslint ./src/ --ext .js --ext .jsx
+lint: lint-js lint-css
 
 lint-js:
-	npx eslint ./src/ --ext .js --ext .jsx
+	npm run lint-js
+
+lint-css:
+	npm run lint-css
