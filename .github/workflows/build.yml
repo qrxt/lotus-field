@@ -25,5 +25,5 @@ jobs:
       run: make ci
     - name: Run build
       run: make build
-    - name: Lint JS
-      run: make lint-js
+    - name: Lint JS & JSX & CSS
+      run: make lint

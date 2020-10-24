@@ -3,7 +3,6 @@
   justify-content: center;
   flex-wrap: wrap;
   list-style-type: none;
-
   margin: 0;
   padding: 0;
 }
@@ -11,14 +10,12 @@
 .card-item {
   display: flex;
   justify-content: center;
-
   margin: 0 10px 20px;
 }
 
 .card-item img {
   width: 205px;
   height: 295px;
-
   border-radius: 10px;
 }
 

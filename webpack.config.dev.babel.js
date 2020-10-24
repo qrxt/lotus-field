@@ -1,20 +1,32 @@
-import '@babel/polyfill';
-
 import path from 'path';
 import webpack from 'webpack';
 
-import CopyWebpackPlugin from 'copy-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
+import HtmlPlugin from 'html-webpack-plugin';
+import StylelintPlugin from 'stylelint-webpack-plugin';
 
 import autoprefixer from 'autoprefixer';
 
 module.exports = {
-  devtool: false,
+  devtool: 'source-map',
   entry: {
     main: [
       '@babel/polyfill',
       './src/index.js',
     ],
+  },
+  output: {
+    filename: '[name].js',
+    publicPath: '/',
+  },
+  devServer: {
+    historyApiFallback: true,
+    host: '0.0.0.0',
+    port: 3000,
+    hot: true,
+    watchOptions: {
+      ignored: /node_modules/,
+    },
   },
   module: {
     rules: [
@@ -95,14 +107,18 @@ module.exports = {
         devServer: true,
       },
     }),
-    new CopyWebpackPlugin({
+    new CopyPlugin({
       patterns: [
         { from: 'public/img', to: 'img' },
       ],
     }),
-    new HtmlWebpackPlugin({
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlPlugin({
       filename: './index.html',
       template: './src/index.html',
+    }),
+    new StylelintPlugin({
+      configFile: '.stylelintrc',
     }),
   ],
   resolve: {
