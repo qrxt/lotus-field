@@ -1,9 +1,12 @@
 import path from 'path';
 import webpack from 'webpack';
 
-import CopyWebpackPlugin from 'copy-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
+import HtmlPlugin from 'html-webpack-plugin';
+import CompressPlugin from 'compression-webpack-plugin';
+import { CleanWebpackPlugin as CleanPlugin } from 'clean-webpack-plugin';
 
+import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
 
 module.exports = {
@@ -37,7 +40,6 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
               modules: {
                 localIdentName: '[name]__[local]__[hash:base64:5]',
                 auto: (resourcePath) => (
@@ -49,10 +51,10 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true,
               postcssOptions: {
                 plugins: [
                   autoprefixer,
+                  cssnano({ preset: 'default' }),
                 ],
               },
             },
@@ -88,20 +90,22 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         devServer: true,
       },
     }),
-    new CopyWebpackPlugin({
+    new CopyPlugin({
       patterns: [
         { from: 'public/img', to: 'img' },
       ],
     }),
-    new HtmlWebpackPlugin({
+    new HtmlPlugin({
       filename: './index.html',
       template: './src/index.html',
     }),
+    new CompressPlugin(),
   ],
   resolve: {
     alias: {
