@@ -1,15 +1,19 @@
-import getModificationsQueryString from '@utils/get-modifications-query-string';
+import buildModificationsString from '@src/utils/build-modifications-query-string';
 
 const initialState = {
   name: '',
+  nameExact: false,
   nameAutocomplete: '',
 
   type: '',
   rarity: 'any',
+  unique: 'cards',
   artist: '',
 
   queryString: '',
 };
+
+const resetFilters = () => initialState;
 
 const refreshFilters = (state, payload) => {
   if (!payload) {
@@ -21,18 +25,11 @@ const refreshFilters = (state, payload) => {
     [payload.field]: payload.value,
   });
 
-  const modifierFields = {
-    name: nextFilters.name,
-    type: nextFilters.type,
-    rarity: nextFilters.rarity,
-    artist: nextFilters.artist,
-  };
-
-  const queryString = getModificationsQueryString(modifierFields);
+  const modificationsString = buildModificationsString(nextFilters);
 
   return {
     ...nextFilters,
-    queryString,
+    queryString: modificationsString,
   };
 };
 
@@ -46,6 +43,8 @@ export default (state, action) => {
       state,
       action.payload,
     ),
+
+    SEARCH_FILTERS_RESET: resetFilters(),
   };
 
   return actionTypesMapping[action.type] || state.searchFilters;

@@ -5,13 +5,12 @@ import { useTranslation } from 'react-i18next';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-/*
-  <Form.Text className="text-muted">
-    We'll never share your email with anyone else.
-  </Form.Text>
-*/
-
-const SearchForm = ({ searchFilters, onFiltersRefresh, history }) => {
+const SearchForm = (props) => {
+  const {
+    onFiltersRefresh,
+    history,
+    searchFilters,
+  } = props;
   const { t } = useTranslation();
 
   const onFormSubmit = (evt) => {
@@ -28,6 +27,12 @@ const SearchForm = ({ searchFilters, onFiltersRefresh, history }) => {
           type="text"
           placeholder={ t('search-form.name-input.placeholder') }
           onInput={ (evt) => onFiltersRefresh('name', evt.target.value) }
+        />
+        <Form.Check
+          type="checkbox"
+          id="name-exact"
+          label={ t('search-form.exact-checkbox.title') }
+          onChange={ (evt) => onFiltersRefresh('nameExact', evt.target.value) }
         />
       </Form.Group>
 
@@ -57,6 +62,21 @@ const SearchForm = ({ searchFilters, onFiltersRefresh, history }) => {
         </Form.Control>
       </Form.Group>
 
+      <Form.Group controlId="formSearchUnique">
+        <Form.Label>{ t('search-form.unique-select.title') }</Form.Label>
+        <Form.Control
+          as="select"
+          custom
+          onChange={
+            (evt) => onFiltersRefresh('unique', evt.target.value.toLowerCase())
+          }
+        >
+          <option>{ t('unique.cards') }</option>
+          <option>{ t('unique.art') }</option>
+          <option>{ t('unique.prints') }</option>
+        </Form.Control>
+      </Form.Group>
+
       <Form.Group controlId="formSearchArtist">
         <Form.Label>{ t('search-form.artist-input.title') }</Form.Label>
         <Form.Control
@@ -66,7 +86,11 @@ const SearchForm = ({ searchFilters, onFiltersRefresh, history }) => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit" disabled={ !searchFilters.queryString.length }>
+      <Button
+        variant="primary"
+        type="submit"
+        disabled={ !searchFilters.queryString.length }
+      >
         { t('search-form.submit') }
       </Button>
     </Form>

@@ -39,13 +39,25 @@ class CardsService {
   apiBase = 'https://api.scryfall.com';
 
   async getResource(url) {
-    const response = await this.client(`${this.apiBase}${url}`);
+    const statusToMapping = {
+      200: (response) => response.json(),
+      404: () => null,
+    };
 
-    if (!response.ok) {
-      throw new Error(`Couldn't fetch ${url}. Status: ${response.status}`);
+    try {
+      const response = await this.client(`${this.apiBase}${url}`);
+
+      const fittingHandler = statusToMapping[response.status];
+      if (fittingHandler) {
+        return fittingHandler(response);
+      }
+    } catch (e) {
+      throw new Error(
+        `Couldn't fetch ${url}.`,
+      );
     }
 
-    return response.json();
+    return null;
   }
 
   async getRandomCard() {
@@ -76,7 +88,8 @@ class CardsService {
 
     // pages logic
 
-    const result = cardsObjectList.data.map((card) => transformCardData(card));
+    const normalizedCardsObjectList = cardsObjectList || { data: [] };
+    const result = normalizedCardsObjectList.data.map((card) => transformCardData(card));
 
     return result;
   }

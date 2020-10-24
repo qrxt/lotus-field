@@ -46,6 +46,7 @@
 
     "found-cards": {
       "h2": "Found Cards",
+      "no-cards": "No cards found using these options ;(",
       "cards-found-quantity": "cards found"
     },
 
@@ -61,6 +62,10 @@
       "placeholder": "Enter the card name"
     },
 
+    "exact-checkbox": {
+      "title": "Exact"
+    },
+
     "type-input": {
       "title": "Card type",
       "placeholder": "Creature"
@@ -69,6 +74,11 @@
     "rarity-select": {
       "title": "Rarity",
       "placeholder": "Choose rarity"
+    },
+
+    "unique-select": {
+      "title": "Unique",
+      "placeholder": "Choose omitting strategy"
     },
 
     "artist-input": {
@@ -107,6 +117,12 @@
     "mythic": "Mythic"
   },
 
+  "unique": {
+    "cards": "Cards",
+    "art": "Arts",
+    "prints": "Prints"
+  },
+
   "legalities": {
     "legal": "Legal",
     "restricted": "Restricted",
@@ -118,6 +134,12 @@
     "wishlist": {
       "add-to-wishlist": "Add to wishlist",
       "remove-from-wishlist": "Remove from wishlist"
+    }
+  },
+
+  "cards": {
+    "placeholder": {
+      "alt": "MTG Card Back"
     }
   }
 }

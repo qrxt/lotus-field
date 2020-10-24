@@ -17,5 +17,7 @@ export const findCards = (dispatch, scryfallService) => (queryString) => {
     .then((cards) => {
       dispatch(foundCardsLoadSuccess(cards));
     })
-    .catch(() => dispatch(foundCardsLoadFailure()));
+    .catch(() => {
+      dispatch(foundCardsLoadFailure());
+    });
 };
