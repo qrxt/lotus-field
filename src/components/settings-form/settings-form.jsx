@@ -4,8 +4,6 @@ import flipObject from '@utils/flip-object';
 
 import Form from 'react-bootstrap/Form';
 
-import styles from './settings-form.css';
-
 const languageToCodeMapping = {
   Русский: 'ru',
   English: 'en',
@@ -25,7 +23,7 @@ const SettingsForm = () => {
   };
 
   return (
-    <div className={ styles['form-wrapper'] }>
+    <div>
       <Form>
         <Form.Group controlId="exampleForm.SelectCustom">
           <Form.Label>{ t('pages.settings.language.title') }</Form.Label>
