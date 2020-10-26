@@ -52,9 +52,17 @@ const ColorIdentityInput = ({ className }) => { // outer onChange
     <ToggleButtonGroup
       type="checkbox"
       className={ cn(className, styles.bar) }
-      onChange={ (values) => {
-        console.log(values);
-        console.log(setColors);
+      onChange={ (activeColorIndexes) => {
+        setColors((prevColors) => {
+          const updatedColors = prevColors
+            .map((prevColor, prevColorIdx) => (
+              activeColorIndexes.includes(prevColorIdx)
+                ? { ...prevColor, active: !prevColor.active }
+                : prevColor
+            ));
+
+          return updatedColors;
+        });
       } }
     >
       {
@@ -70,6 +78,16 @@ const ColorIdentityInput = ({ className }) => { // outer onChange
             { active: currentColor.active },
           ) }
           aria-label={ `Color Identity Input for ${currentColor.name} color` }
+
+          onChange={ () => {
+            // const changedColorIdx = evt.target.value;
+
+            // setColors((prevColors) => prevColors.map((color, currentIdx) => (
+            //   currentIdx === Number(changedColorIdx)
+            //     ? { ...color, active: !color.active }
+            //     : color
+            // )));
+          } }
         >
           <ManaCost symbolCode={ currentColor.code } />
         </ToggleButton>
