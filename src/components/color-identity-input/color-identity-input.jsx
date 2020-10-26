@@ -45,25 +45,18 @@ const initialColors = [
   },
 ];
 
-const ColorIdentityInput = ({ className }) => { // outer onChange
+const ColorIdentityInput = ({ className, onFiltersRefresh }) => { // outer onChange
   const [colors, setColors] = useState(initialColors);
+  const identity = colors
+    .filter((color) => color.active)
+    .map((color) => color.code.toLowerCase())
+    .join('');
 
   return (
     <ToggleButtonGroup
       type="checkbox"
       className={ cn(className, styles.bar) }
-      onChange={ (activeColorIndexes) => {
-        setColors((prevColors) => {
-          const updatedColors = prevColors
-            .map((prevColor, prevColorIdx) => (
-              activeColorIndexes.includes(prevColorIdx)
-                ? { ...prevColor, active: !prevColor.active }
-                : prevColor
-            ));
-
-          return updatedColors;
-        });
-      } }
+      onInput={ () => onFiltersRefresh('colorIdentity', identity) }
     >
       {
         colors.map((currentColor, idx) => (
@@ -75,18 +68,17 @@ const ColorIdentityInput = ({ className }) => { // outer onChange
             styles.toggle,
             'flex-grow-0',
             'rounded-circle',
-            { active: currentColor.active },
           ) }
           aria-label={ `Color Identity Input for ${currentColor.name} color` }
 
-          onChange={ () => {
-            // const changedColorIdx = evt.target.value;
+          onChange={ (evt) => {
+            const changedColorIdx = evt.target.value;
 
-            // setColors((prevColors) => prevColors.map((color, currentIdx) => (
-            //   currentIdx === Number(changedColorIdx)
-            //     ? { ...color, active: !color.active }
-            //     : color
-            // )));
+            setColors((prevColors) => prevColors.map((color, currentIdx) => (
+              currentIdx === Number(changedColorIdx)
+                ? { ...color, active: !color.active }
+                : color
+            )));
           } }
         >
           <ManaCost symbolCode={ currentColor.code } />
@@ -99,6 +91,7 @@ const ColorIdentityInput = ({ className }) => { // outer onChange
 
 ColorIdentityInput.propTypes = {
   className: PropTypes.string,
+  onFiltersRefresh: PropTypes.func,
   color: PropTypes.string,
   onChange: PropTypes.func,
 };

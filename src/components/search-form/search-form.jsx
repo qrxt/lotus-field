@@ -88,7 +88,10 @@ const SearchForm = (props) => {
         />
       </Form.Group>
 
-      <ColorIdentityInput className="w-100 mb-3" />
+      <ColorIdentityInput
+        className="w-100 mb-3"
+        onFiltersRefresh={ onFiltersRefresh }
+      />
 
       <Button
         variant="primary"

@@ -5,6 +5,8 @@ const initialState = {
   nameExact: false,
   nameAutocomplete: '',
 
+  colorIdentity: '',
+
   type: '',
   rarity: 'any',
   unique: 'cards',
