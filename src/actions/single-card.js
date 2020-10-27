@@ -31,7 +31,7 @@ export const cardFetch = (dispatch, scryfallService) => (cardId) => {
     .then(([card, rulings, prints]) => ({
       ...card,
       rulings,
-      prints,
+      prints: prints.filter((print) => print.id !== card.id),
     }))
     .then((card) => dispatch(cardLoadSuccess(card)))
     .catch(() => {

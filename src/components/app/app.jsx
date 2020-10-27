@@ -70,7 +70,10 @@ const App = () => {
             render={ ({ match }) => {
               const { id } = match.params;
 
-              return <CardPage cardId={ id } />;
+              return <CardPage
+                cardId={ id }
+                key={ window.location.pathname }
+              />;
             } }
           />
         </Switch>
