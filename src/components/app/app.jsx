@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { Route, Switch } from 'react-router-dom';
 
+import ButtonUp from '@components/button-up';
 import Header from '@components/header';
 import Footer from '@components/footer';
 import {
@@ -16,14 +17,12 @@ import {
 import { withScryfallService } from '@hoc';
 import './app.css';
 
-// const loading = <div>loading...</div>;
-// <Suspense fallback={loading}></Suspense>
-
 const App = () => {
   const { t } = useTranslation();
 
   return (
     <React.Fragment>
+      <ButtonUp />
       <Header />
       <main>
         <h1 className="visually-hidden">

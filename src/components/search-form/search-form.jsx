@@ -47,6 +47,15 @@ const SearchForm = (props) => {
         />
       </Form.Group>
 
+      <Form.Group controlId="formSearchText">
+        <Form.Label>{ t('search-form.card-text-input.title') }</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder={ t('search-form.card-text-input.placeholder') }
+          onInput={ (evt) => onFiltersRefresh('cardText', evt.target.value) }
+        />
+      </Form.Group>
+
       <Form.Group controlId="formSearchRarity">
         <Form.Label>{ t('search-form.rarity-select.title') }</Form.Label>
         <Form.Control

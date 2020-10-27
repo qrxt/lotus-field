@@ -30,7 +30,15 @@
       "h2": "Single card page",
       "legalities": "Legalities",
       "rulings": "Rulings",
-      "prints": "Prints"
+      "prints": {
+        "title": "Prints",
+        "link-to-other": "To other prints"
+      },
+      "prices": {
+        "title": "Prices",
+        "currency": "Currency",
+        "cost": "Cost"
+      }
     },
 
     "settings": {
@@ -48,7 +56,7 @@
     "found-cards": {
       "h2": "Found Cards",
       "no-cards": "No cards found using these options ;(",
-      "cards-found-quantity": "cards found"
+      "cards-found-quantity": "cards displayed"
     },
 
     "wishlist": {
@@ -70,6 +78,11 @@
     "type-input": {
       "title": "Card type",
       "placeholder": "Creature"
+    },
+
+    "card-text-input": {
+      "title": "Card text",
+      "placeholder": "~ enters the battlefield tapped"
     },
 
     "rarity-select": {
@@ -135,7 +148,19 @@
     "wishlist": {
       "add-to-wishlist": "Add to wishlist",
       "remove-from-wishlist": "Remove from wishlist"
+    },
+
+    "up": {
+      "description": "Scroll back to top"
     }
+  },
+
+  "currencies": {
+    "usd": "USD",
+    "usdFoil": "USD Foil",
+    "eur": "EUR",
+    "eurFoil": "EUR Foil",
+    "tix": "TIX"
   },
 
   "cards": {

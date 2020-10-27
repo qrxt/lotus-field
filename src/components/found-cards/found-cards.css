@@ -9,13 +9,14 @@
 
 .card-item {
   display: flex;
+  width: 45%;
   justify-content: center;
-  margin: 0 10px 20px;
+  margin: 0 5px 15px;
 }
 
 .card-item img {
-  width: 205px;
-  height: 295px;
+  width: 100%;
+  height: auto;
   border-radius: 10px;
 }
 
