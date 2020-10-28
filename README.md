@@ -1,5 +1,6 @@
 # Lotus Field 
 ![alt text](https://github.com/qrxt/lotus-field/blob/master/public/img/lotus.png?raw=true)
+
 ![Node.js Build](https://github.com/qrxt/lotus-field/workflows/Node.js%20Build/badge.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/0bf1a80c9b55f49de77a/maintainability)](https://codeclimate.com/github/qrxt/lotus-field/maintainability) ![Dependencies](https://david-dm.org/qrxt/lotus-field.svg) ![Work in Progress](https://img.shields.io/badge/WIP-%20-yellow)
 
 Lotus field (WIP) - простое приложение для просмотра и формирования списка желаемых карт для Magic: The Gathering, построенное на React с использованием Redux.

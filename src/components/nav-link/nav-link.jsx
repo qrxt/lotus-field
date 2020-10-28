@@ -1,12 +1,19 @@
 import React from 'react';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
+import { Nav } from 'react-bootstrap/';
 import { Link } from 'react-router-dom';
 
 import styles from './nav-link.css';
 
 const NavLink = (props) => {
-  const { isCurrent, icon: faIcon, to } = props;
+  const {
+    isCurrent,
+    icon: faIcon,
+    to,
+    eventKey,
+  } = props;
 
   const srCurrent = (
     <span className="sr-only">
@@ -15,11 +22,19 @@ const NavLink = (props) => {
   );
 
   return (
-    <Link className="nav-link" to={ to }>
+    <Nav.Link
+      as={ Link }
+      className={ cn(
+        'nav-link',
+        styles.link,
+      ) }
+      to={ to }
+      eventKey={ eventKey }
+    >
       <Icon icon={ faIcon } className={ styles.icon } />
       { isCurrent ? srCurrent : null }
       { props.children }
-    </Link>
+    </Nav.Link>
   );
 };
 
@@ -32,6 +47,7 @@ NavLink.propTypes = {
   to: PropTypes.string,
   icon: PropTypes.object,
   isCurrent: PropTypes.bool,
+  eventKey: PropTypes.string,
 };
 
 export default NavLink;
