@@ -17,13 +17,21 @@ export const cardFetch = (dispatch, scryfallService) => (cardId) => {
     : scryfallService.getCardById(cardId);
 
   const fetchRulingsPromise = fetchCardPromise
-    .then((fetchedCard) => scryfallService.getRulingsByCard(fetchedCard.id));
+    .then(({ id }) => scryfallService.getRulingsByCard(id));
+
+  const fetchPrintsPromise = fetchCardPromise
+    .then(({ oracleId }) => {
+      const queryString = `?order=released\u0026q=oracleid%3A${oracleId}\u0026unique=prints`;
+
+      return scryfallService.searchCards(queryString);
+    });
 
   dispatch(cardLoadRequest());
-  return Promise.all([fetchCardPromise, fetchRulingsPromise])
-    .then(([card, rulings]) => ({
+  return Promise.all([fetchCardPromise, fetchRulingsPromise, fetchPrintsPromise])
+    .then(([card, rulings, prints]) => ({
       ...card,
       rulings,
+      prints: prints.filter((print) => print.id !== card.id),
     }))
     .then((card) => dispatch(cardLoadSuccess(card)))
     .catch(() => {

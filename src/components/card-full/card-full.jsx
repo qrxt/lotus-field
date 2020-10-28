@@ -10,6 +10,8 @@ import AccordionWrapper from '@components/accordion-wrapper';
 import CardBody from '@components/card-body';
 import Legalities from '@components/legalities';
 import Rulings from '@components/rulings';
+import Prices from '@components/prices';
+import Prints from '@components/prints';
 
 import styles from './card-full.css';
 
@@ -23,6 +25,8 @@ const CardFull = (props) => {
   const {
     legalities,
     rulings,
+    prints,
+    prices,
     cardFaces,
   } = card;
 
@@ -47,6 +51,26 @@ const CardFull = (props) => {
       ),
       body: <Rulings rulings={ rulings } />,
       include: rulings.length > 0,
+    },
+
+    {
+      caption: (
+        <p className={ styles['additional-caption'] }>
+          { t('pages.card.prints.title') }
+        </p>
+      ),
+      body: <Prints card={ card } prints={ prints } />,
+      include: prints.length > 0,
+    },
+
+    {
+      caption: (
+        <p className={ styles['additional-caption'] }>
+          { t('pages.card.prices.title') }
+        </p>
+      ),
+      body: <Prices prices={ prices } />,
+      include: Object.keys(prices).length > 0,
     },
   ];
 

@@ -7,6 +7,8 @@ const fieldToModifierMapping = {
   rarity: (value) => `r:"${value}"`,
   artist: (value) => `a:"${value}"`,
   unique: (value) => `unique:${value}`,
+  colorIdentity: (value) => `c:${value}`,
+  cardText: (value) => `o:"${value}"`,
 };
 
 const buildModifier = (fields, field, value) => fieldToModifierMapping[field](value, fields);

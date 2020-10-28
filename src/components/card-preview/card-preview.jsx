@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import styles from './card-preview.css';
 
@@ -26,4 +26,4 @@ CardPreview.propTypes = {
   card: PropTypes.object.isRequired,
 };
 
-export default CardPreview;
+export default withRouter(CardPreview);

@@ -1,0 +1,24 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.toggle span {
+  opacity: 0.25;
+}
+
+.toggle:global(.active) span {
+  opacity: 1;
+}

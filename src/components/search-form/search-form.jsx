@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import ColorIdentityInput from '@components/color-identity-input';
 
 const SearchForm = (props) => {
   const {
@@ -29,6 +30,7 @@ const SearchForm = (props) => {
           onInput={ (evt) => onFiltersRefresh('name', evt.target.value) }
         />
         <Form.Check
+          custom
           type="checkbox"
           id="name-exact"
           label={ t('search-form.exact-checkbox.title') }
@@ -42,6 +44,15 @@ const SearchForm = (props) => {
           type="text"
           placeholder={ t('search-form.type-input.placeholder') }
           onInput={ (evt) => onFiltersRefresh('type', evt.target.value) }
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formSearchText">
+        <Form.Label>{ t('search-form.card-text-input.title') }</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder={ t('search-form.card-text-input.placeholder') }
+          onInput={ (evt) => onFiltersRefresh('cardText', evt.target.value) }
         />
       </Form.Group>
 
@@ -85,6 +96,11 @@ const SearchForm = (props) => {
           onInput={ (evt) => onFiltersRefresh('artist', evt.target.value) }
         />
       </Form.Group>
+
+      <ColorIdentityInput
+        className="w-100 mb-3"
+        onFiltersRefresh={ onFiltersRefresh }
+      />
 
       <Button
         variant="primary"

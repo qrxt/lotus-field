@@ -4,7 +4,8 @@ const initialState = {
   name: '',
   nameExact: false,
   nameAutocomplete: '',
-
+  colorIdentity: '',
+  cardText: '',
   type: '',
   rarity: 'any',
   unique: 'cards',

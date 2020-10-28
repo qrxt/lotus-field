@@ -118,7 +118,7 @@ module.exports = {
       template: './src/index.html',
     }),
     new StylelintPlugin({
-      configFile: '.stylelintrc',
+      configFile: '.stylelintrc.json',
     }),
   ],
   resolve: {
