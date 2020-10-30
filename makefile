@@ -20,3 +20,6 @@ lint-js:
 
 lint-css:
 	npm run lint-css
+
+test:
+  npm test

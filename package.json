@@ -9,7 +9,8 @@
     "watch": "webpack-dev-server --mode development --config webpack.config.dev.babel.js",
     "bundle-report": "webpack-bundle-analyzer --port 8888 dist/stats.json",
     "lint-js": "eslint ./src/ --ext .js --ext .jsx",
-    "lint-css": "stylelint ./src/**/*.css --config .stylelintrc.json"
+    "lint-css": "stylelint ./src/**/*.css --config .stylelintrc.json",
+    "test": "jest"
   },
   "author": "qrx",
   "license": "ISC",
@@ -23,7 +24,8 @@
       "npm run lint-css"
     ],
     "./src/**/*.{js,jsx}": [
-      "npm run lint-js"
+      "npm run lint-js",
+      "npm test --bail"
     ]
   },
   "devDependencies": {
@@ -35,6 +37,8 @@
     "@babel/polyfill": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
     "autoprefixer": "^10.0.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
@@ -57,7 +61,7 @@
     "husky": "^4.3.0",
     "imagemin-webpack-plugin": "^2.4.2",
     "img-loader": "^3.0.2",
-    "jest": "^26.4.2",
+    "jest": "^26.6.1",
     "jest-cli": "^26.4.2",
     "lint-staged": "^10.4.2",
     "node-sass": "^4.14.1",
