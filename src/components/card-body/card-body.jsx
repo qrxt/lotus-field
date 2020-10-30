@@ -12,7 +12,11 @@ import styles from './card-body.css';
 
 const manaCostCode = /\{(.*?)\}/gm;
 const manaCostReplacer = (match, index) => (
-  <ManaCost className={ styles['mana-cost'] } symbolCode={ match } key={ index } />
+  <ManaCost
+    className={ cn('mana', styles['mana-cost']) }
+    symbolCode={ match }
+    key={ index }
+  />
 );
 
 export const ArtImage = ({ card }) => {

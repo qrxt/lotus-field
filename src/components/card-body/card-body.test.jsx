@@ -18,8 +18,8 @@ const cardBody = {
 };
 
 describe('Card Body', () => {
-  test('should render correctly', () => {
-    const { getByText } = render(
+  test('should display card body data correctly', () => {
+    const { getByText, queryByText } = render(
       <Suspense fallback="asdasd">
         <CardBody card={ cardBody }/>
       </Suspense>,
@@ -31,13 +31,10 @@ describe('Card Body', () => {
     expect(getByText('Legendary Creature - Elder Giant')).toBeInTheDocument();
     // check flavor text
     expect(getByText('Oh no, i have been banned')).toBeInTheDocument();
-    // check that mana cost text is replaced by images
+    // check that mana cost text is replaced
+    expect(queryByText('{1}{G}{U}')).not.toBeInTheDocument();
 
     // check toughness and power are correct
     expect(getByText('6/6')).toBeInTheDocument();
-
-    // debug();
-
-    // console.log(ArtImage);
   });
 });
