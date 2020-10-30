@@ -25,3 +25,6 @@ test:
 	npm test
 
 check-all: lint test
+
+test-coverage:
+	npx jest --coverage
