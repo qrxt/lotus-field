@@ -1,5 +1,3 @@
-// const isAny = (option) => option === 'any';
-
 const fieldToOptionMapping = {
   unique: (value) => `unique=${value}`,
 };

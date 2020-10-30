@@ -2,8 +2,12 @@ module.exports = {
   setupFilesAfterEnv: [
     '<rootDir>/__setup__/setup-tests.js',
   ],
+  collectCoverageFrom: [
+    '<rootDir>/src/**/*.(js|jsx)',
+  ],
   moduleNameMapper: {
     '\\.(css)$': '<rootDir>/__mocks__/style-mock.js',
+    '\\.(svg|jpg|png)$': '<rootDir>/__mocks__/image-mock.js',
 
     // aliases
     '^@root(.*)$': '<rootDir>$1',

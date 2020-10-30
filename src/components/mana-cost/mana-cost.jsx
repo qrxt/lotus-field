@@ -26,7 +26,11 @@ const ManaSymbol = ({ symbolCode = '0', className }) => {
   );
 
   return (
-    <span className={ classes }></span>
+    <span className={ classes }>
+      <span className="visually-hidden">
+        { `${symbolCode} mana-symbol` }
+      </span>
+    </span>
   );
 };
 
