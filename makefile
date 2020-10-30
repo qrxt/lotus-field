@@ -23,3 +23,5 @@ lint-css:
 
 test:
 	npm test
+
+check-all: lint test
