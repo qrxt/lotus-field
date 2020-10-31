@@ -2,9 +2,16 @@ module.exports = {
   setupFilesAfterEnv: [
     '<rootDir>/__setup__/setup-tests.js',
   ],
+
   collectCoverageFrom: [
     '<rootDir>/src/**/*.(js|jsx)',
   ],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/index.js',
+    '<rootDir>/src/i18n.js',
+    '<rootDir>/src/store.js',
+  ],
+
   moduleNameMapper: {
     '\\.(css)$': '<rootDir>/__mocks__/style-mock.js',
     '\\.(svg|jpg|png)$': '<rootDir>/__mocks__/image-mock.js',

@@ -18,7 +18,6 @@ const createLocalStorageReducer = (
     if (typeof localState === 'undefined') {
       const reducerDefaults = initialReducer(undefined, {});
 
-      // try load from local storage
       const stored = storage.getItem('saved');
 
       const storedData = typeof stored === 'string'
@@ -37,7 +36,6 @@ const createLocalStorageReducer = (
     }
 
     const newState = initialReducer(localState, action);
-
     if (JSON.stringify(localState) !== JSON.stringify(newState)) {
       const resultStorage = paths.reduce((acc, path) => {
         const keyName = path.split('.')[0];
