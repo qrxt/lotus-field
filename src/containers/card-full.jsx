@@ -12,7 +12,7 @@ import {
   cardAddedToWishlist,
   cardRemovedFromWishlist,
 } from '@actions';
-import { withScryfallService } from '@hoc';
+import withScryfallService from '@hoc';
 import CardFull from '@components/card-full';
 
 class CardFullContainer extends Component {

@@ -7,7 +7,7 @@ import LoadingSpinner from '@components/loading-spinner';
 import ErrorIndicator from '@components/error-indicator';
 
 import { findCards, cardAddedToWishlist } from '@actions';
-import { withScryfallService } from '@hoc';
+import withScryfallService from '@hoc';
 import FoundCards from '@components/found-cards';
 
 class FoundCardsContainer extends Component {

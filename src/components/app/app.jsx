@@ -14,7 +14,7 @@ import {
   SearchPage,
   WishlistPage,
 } from '@pages';
-import { withScryfallService } from '@hoc';
+import withScryfallService from '@hoc';
 import './app.css';
 
 const App = () => {

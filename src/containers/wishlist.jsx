@@ -6,7 +6,7 @@ import LoadingSpinner from '@components/loading-spinner';
 import ErrorIndicator from '@components/error-indicator';
 
 import { wishlistFetch } from '@actions';
-import { withScryfallService } from '@hoc';
+import withScryfallService from '@hoc';
 import Wishlist from '@components/wishlist';
 
 class WishlistContainer extends Component {

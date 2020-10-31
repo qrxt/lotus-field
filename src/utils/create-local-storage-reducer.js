@@ -25,14 +25,10 @@ const createLocalStorageReducer = (
         ? deserialize(stored)
         : {};
 
-      console.log('deserialized', storedData);
-
       if (Object.keys(storedData).length > 0) {
         const newLocalState = paths.reduce((acc, path) => ((
           setPropByPath(acc, path, getPropByPath(storedData, path))
         )), reducerDefaults);
-
-        console.log(newLocalState);
 
         localState = newLocalState;
       } else {
