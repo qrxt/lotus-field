@@ -1,3 +1,6 @@
+// stubs
+import { fetchOkStub, fetchErrStub } from '@root/__stubs__/fetch-stub';
+
 // Card Types
 import cardSingle from '@root/__fixtures__/card-single';
 import cardSplit from '@root/__fixtures__/card-split';
@@ -7,27 +10,6 @@ import cardDouble from '@root/__fixtures__/card-double';
 import rulings from '@root/__fixtures__/rulings';
 
 import ScryfallService from './scryfall-service';
-
-const fetchOkStub = (data) => () => (
-  new Promise((resolve) => {
-    resolve({
-      status: 200,
-      ok: true,
-      json: () => new Promise((innerResolve) => {
-        innerResolve(data);
-      }),
-    });
-  })
-);
-
-const fetchErrStub = (status) => () => (
-  new Promise((resolve) => {
-    resolve({
-      status,
-      ok: false,
-    });
-  })
-);
 
 describe('Scryfall Service', () => {
   test('should construct instance correctly', () => {
@@ -94,6 +76,17 @@ describe('Scryfall Service', () => {
 
     const service = new ScryfallService(fetchOkStub(before));
     const result = await service.getRulingsByCard('card');
+
+    expect(result).toEqual(after);
+  });
+
+  test('getCardsByIdList should return transformed cards', async () => {
+    const before = cardDouble.beforeTransformation;
+
+    const after = [cardDouble.afterTransformation];
+
+    const service = new ScryfallService(fetchOkStub(before));
+    const result = await service.getCardsByIdList(['card']);
 
     expect(result).toEqual(after);
   });

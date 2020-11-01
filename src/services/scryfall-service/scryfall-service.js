@@ -67,6 +67,7 @@ class CardsService {
 
   async getCardById(id) {
     const card = await this.getResource(`/cards/${id}`);
+
     return transformCardData(card);
   }
 

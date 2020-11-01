@@ -37,3 +37,5 @@ export default (state, action) => {
 
   return actionTypesMapping[action.type] || state.foundCards;
 };
+
+export { initialState };
