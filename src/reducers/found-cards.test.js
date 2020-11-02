@@ -3,7 +3,17 @@ import {
   foundCardsLoadRequest,
   foundCardsLoadSuccess,
   foundCardsLoadFailure,
+  findCards,
 } from '@actions/found-cards';
+
+// stubs
+import { fetchOkStub } from '@root/__stubs__/fetch-stub';
+
+// fixtures
+import cardSingle from '@root/__fixtures__/card-single';
+
+// service
+import ScryfallService from '@services';
 
 // reducer
 import foundCards, { initialState } from './found-cards';
@@ -40,5 +50,16 @@ describe('Found Cards Reducer', () => {
     expect(state.cards).toEqual(cards);
     expect(state.loading).toBeFalsy();
     expect(state.failure).toBeFalsy();
+  });
+
+  test('findCards should work correctly', async () => {
+    const scryfallFake = new ScryfallService(fetchOkStub({
+      data: [cardSingle.beforeTransformation],
+    }));
+
+    const result = await findCards((data) => data.payload, scryfallFake)('query string');
+
+    expect(result)
+      .toEqual([cardSingle.afterTransformation]);
   });
 });
