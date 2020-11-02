@@ -18,9 +18,8 @@ export const recentCardsLoadSuccess = (cards) => ({
 
 export const recentCardsFetch = (dispatch, scryfallService) => (idList) => {
   dispatch(recentCardsLoadRequest());
-  scryfallService.getCardsByIdList(idList)
-    .then((cards) => {
-      dispatch(recentCardsLoadSuccess(cards));
-    })
+
+  return scryfallService.getCardsByIdList(idList)
+    .then((cards) => dispatch(recentCardsLoadSuccess(cards)))
     .catch(() => dispatch(recentCardsLoadFailure()));
 };

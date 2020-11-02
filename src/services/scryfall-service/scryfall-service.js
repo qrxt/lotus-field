@@ -46,8 +46,8 @@ class CardsService {
 
     try {
       const response = await this.client(`${this.apiBase}${url}`);
-
       const fittingHandler = statusToMapping[response.status];
+
       if (fittingHandler) {
         return fittingHandler(response);
       }
@@ -67,6 +67,7 @@ class CardsService {
 
   async getCardById(id) {
     const card = await this.getResource(`/cards/${id}`);
+
     return transformCardData(card);
   }
 

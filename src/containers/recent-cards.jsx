@@ -6,7 +6,7 @@ import LoadingSpinner from '@components/loading-spinner';
 import ErrorIndicator from '@components/error-indicator';
 
 import { recentCardsFetch } from '@actions';
-import { withScryfallService } from '@hoc';
+import withScryfallService from '@hoc';
 import RecentCards from '@components/recent-cards';
 
 class RecentCardsContainer extends Component {
