@@ -16,7 +16,7 @@ import cardSingle from '@root/__fixtures__/card-single';
 import ScryfallService from '@services';
 
 // reducer
-import foundCards, { initialState } from './found-cards';
+import foundCards, { initialState } from '@reducers/found-cards';
 
 describe('Found Cards Reducer', () => {
   test('should return initial state', () => {

@@ -7,7 +7,7 @@ import {
 } from '@actions/recent-cards';
 
 // reducer
-import recentCards, { initialState } from './recent-cards';
+import recentCards, { initialState } from '@reducers/recent-cards';
 
 describe('Recent Cards Reducer', () => {
   test('should return initial state', () => {

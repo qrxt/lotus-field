@@ -5,7 +5,7 @@ import {
 } from '@actions/search-filters';
 
 // reducer
-import searchFilters, { initialState } from './search-filters';
+import searchFilters, { initialState } from '@reducers/search-filters';
 
 describe('Recent Cards Reducer', () => {
   test('should return initial state', () => {

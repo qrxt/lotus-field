@@ -1,4 +1,4 @@
-import flipObject from './flip-object';
+import flipObject from '@utils/flip-object';
 
 const regularObject = {
   a: 'b',

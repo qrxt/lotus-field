@@ -1,4 +1,4 @@
-import transformToCamelcase from './transform-keys-to-camel';
+import transformToCamelcase from '@utils/transform-keys-to-camel';
 
 const before = {
   image_uris: {

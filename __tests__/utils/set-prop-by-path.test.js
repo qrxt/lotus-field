@@ -1,4 +1,4 @@
-import setPropByPath from './set-prop-by-path';
+import setPropByPath from '@utils/set-prop-by-path';
 
 const obj = {
   a: 1,

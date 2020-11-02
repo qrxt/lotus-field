@@ -1,4 +1,4 @@
-import getPropByPath from './get-prop-by-path';
+import getPropByPath from '@utils/get-prop-by-path';
 
 // function doesn't support [key] paths
 

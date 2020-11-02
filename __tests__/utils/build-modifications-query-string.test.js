@@ -1,4 +1,4 @@
-import buildModificationsQueryString from './build-modifications-query-string';
+import buildModificationsQueryString from '@utils/build-modifications-query-string';
 
 const filters = {
   name: 'Brazen Borrower',

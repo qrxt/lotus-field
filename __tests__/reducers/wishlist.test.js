@@ -14,7 +14,7 @@ import {
 // FETCH_WISHLIST_CARDS_SUCCESS
 
 // reducer
-import wishlist, { initialState } from './wishlist';
+import wishlist, { initialState } from '@reducers/wishlist';
 
 describe('Wishlist Cards Reducer', () => {
   test('should return initial state', () => {

@@ -9,7 +9,7 @@ import cardDouble from '@root/__fixtures__/card-double';
 // Card Rulings
 import rulings from '@root/__fixtures__/rulings';
 
-import ScryfallService from './scryfall-service';
+import ScryfallService from '@services';
 
 describe('Scryfall Service', () => {
   test('should construct instance correctly', () => {
