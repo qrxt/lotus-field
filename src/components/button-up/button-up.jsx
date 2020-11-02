@@ -12,7 +12,7 @@ const scrollToTop = () => {
   });
 };
 
-const ButtonUp = () => {
+const ButtonUp = ({ noIcon, displayOn }) => {
   const { t } = useTranslation();
   const [isDisplayed, setDisplay] = useState(false);
 
@@ -27,12 +27,12 @@ const ButtonUp = () => {
       }
       aria-label={ t('buttons.up.description') }
     >
-      <UpArrow aria-hidden className={ styles['arrow-icon'] } />
+      { !noIcon && <UpArrow aria-hidden className={ styles['arrow-icon'] } /> }
     </button>
   );
 
   const toggleVisibility = () => {
-    if (window.pageYOffset > 250) {
+    if (window.pageYOffset > (displayOn || 250)) {
       setDisplay(true);
     } else setDisplay(false);
   };

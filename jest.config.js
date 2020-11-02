@@ -5,6 +5,7 @@ module.exports = {
 
   collectCoverageFrom: [
     '<rootDir>/src/**/*.(js|jsx)',
+    '!<rootDir>/src/**/index.(js|jsx)',
   ],
   coveragePathIgnorePatterns: [
     '<rootDir>/src/index.js',

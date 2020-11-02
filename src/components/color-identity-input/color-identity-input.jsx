@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
@@ -45,7 +46,34 @@ const initialColors = [
   },
 ];
 
+const generateColorButtons = (colors, setColors, t) => colors.map((currentColor, idx) => (
+  <ToggleButton
+    key={ idx }
+    value={ idx }
+    variant="light"
+    className={ cn(
+      styles.toggle,
+      'flex-grow-0',
+      'rounded-circle',
+    ) }
+    aria-label={ `${t('inputs.color-identity.disabled')} ${currentColor.name}` }
+
+    onChange={ (evt) => {
+      const changedColorIdx = evt.target.value;
+
+      setColors((prevColors) => prevColors.map((color, currentIdx) => (
+        currentIdx === Number(changedColorIdx)
+          ? { ...color, active: !color.active }
+          : color
+      )));
+    } }
+  >
+    <ManaCost symbolCode={ currentColor.code } />
+  </ToggleButton>
+));
+
 const ColorIdentityInput = ({ className, onFiltersRefresh }) => { // outer onChange
+  const { t } = useTranslation();
   const [colors, setColors] = useState(initialColors);
   const identity = colors
     .filter((color) => color.active)
@@ -59,31 +87,7 @@ const ColorIdentityInput = ({ className, onFiltersRefresh }) => { // outer onCha
       onInput={ () => onFiltersRefresh('colorIdentity', identity) }
     >
       {
-        colors.map((currentColor, idx) => (
-          <ToggleButton
-          key={ idx }
-          value={ idx }
-          variant="light"
-          className={ cn(
-            styles.toggle,
-            'flex-grow-0',
-            'rounded-circle',
-          ) }
-          aria-label={ `Color Identity Input for ${currentColor.name} color` }
-
-          onChange={ (evt) => {
-            const changedColorIdx = evt.target.value;
-
-            setColors((prevColors) => prevColors.map((color, currentIdx) => (
-              currentIdx === Number(changedColorIdx)
-                ? { ...color, active: !color.active }
-                : color
-            )));
-          } }
-        >
-          <ManaCost symbolCode={ currentColor.code } />
-        </ToggleButton>
-        ))
+        generateColorButtons(colors, setColors, t)
       }
     </ToggleButtonGroup>
   );
