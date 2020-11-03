@@ -56,7 +56,11 @@ const generateColorButtons = (colors, setColors, t) => colors.map((currentColor,
       'flex-grow-0',
       'rounded-circle',
     ) }
-    aria-label={ `${t('inputs.color-identity.disabled')} ${currentColor.name}` }
+    aria-label={
+      currentColor.active
+        ? `${t('inputs.color-identity.enabled')} ${currentColor.name}`
+        : `${t('inputs.color-identity.disabled')} ${currentColor.name}`
+    }
 
     onChange={ (evt) => {
       const changedColorIdx = evt.target.value;

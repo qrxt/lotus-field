@@ -14,8 +14,10 @@ module.exports = {
   ],
 
   moduleNameMapper: {
-    '\\.(css)$': '<rootDir>/__mocks__/style-mock.js',
-    '\\.(svg|jpg|png)$': '<rootDir>/__mocks__/image-mock.js',
+    '\\.(css)$': '<rootDir>/__mocks__/empty.js',
+    '\\.(jpg|png)$': '<rootDir>/__mocks__/empty.js',
+    '\\.(svg)$': '<rootDir>/__mocks__/svg.js',
+    '^.+\\.svg$': '<rootDir>/__mocks__/svg.js',
 
     // aliases
     '^@root(.*)$': '<rootDir>$1',
