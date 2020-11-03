@@ -13,6 +13,10 @@
     }
   },
 
+  "error-indicator": {
+    "text": "Can not load this resource"
+  },
+
   "pages": {
     "all": {
       "h1": "Lotus Field - MTG Wishlist Application"
