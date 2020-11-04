@@ -10,7 +10,7 @@ import { findCards, cardAddedToWishlist } from '@actions';
 import withScryfallService from '@hoc';
 import FoundCards from '@components/found-cards';
 
-class FoundCardsContainer extends Component {
+export class FoundCardsContainer extends Component {
   componentDidMount() {
     const { location } = this.props;
 

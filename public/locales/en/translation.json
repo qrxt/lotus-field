@@ -13,6 +13,10 @@
     }
   },
 
+  "error-indicator": {
+    "text": "Can not load this resource"
+  },
+
   "pages": {
     "all": {
       "h1": "Lotus Field - MTG Wishlist Application"
@@ -152,6 +156,13 @@
 
     "up": {
       "description": "Scroll back to top"
+    }
+  },
+
+  "inputs": {
+    "color-identity": {
+      "disabled": "Enable Color Identity Input for",
+      "enabled": "Disable Color Identity Input for"
     }
   },
 

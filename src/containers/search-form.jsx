@@ -9,7 +9,7 @@ import {
 } from '@actions';
 import SearchForm from '@components/search-form';
 
-class SearchFormContainer extends Component {
+export class SearchFormContainer extends Component {
   componentDidMount() {
     this.props.onFiltersReset();
 

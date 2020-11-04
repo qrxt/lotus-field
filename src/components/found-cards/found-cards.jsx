@@ -9,7 +9,13 @@ import CardPreview from '@components/card-preview';
 import IconNotFound from '@images/not-found.svg';
 import styles from './found-cards.css';
 
-const FoundCards = ({ cards }) => {
+const wrappedWithLazy = (card) => (
+  <LazyLoad placeholder={ <CardBack /> } offset={ 568 }>
+    <CardPreview card={ card } />
+  </LazyLoad>
+);
+
+const FoundCards = ({ cards, lazy }) => {
   const { t } = useTranslation();
 
   if (!cards.length) {
@@ -36,9 +42,11 @@ const FoundCards = ({ cards }) => {
         {
           cards.map((card, index) => (
             <li className={ styles['card-item'] } key={ index }>
-              <LazyLoad placeholder={ <CardBack /> } offset={ 568 }>
-                <CardPreview card={ card } />
-              </LazyLoad>
+              {
+                lazy
+                  ? wrappedWithLazy(card)
+                  : <CardPreview card={ card } />
+              }
             </li>
           ))
         }
@@ -47,9 +55,14 @@ const FoundCards = ({ cards }) => {
   );
 };
 
+FoundCards.defaultProps = {
+  lazy: true,
+};
+
 FoundCards.propTypes = {
   cards: PropTypes.array,
   cardAddedToWishlist: PropTypes.func,
+  lazy: PropTypes.bool,
 };
 
 export default FoundCards;

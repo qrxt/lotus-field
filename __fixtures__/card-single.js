@@ -1,5 +1,6 @@
 export default ({
   beforeTransformation: {
+    id: 'test-id',
     name: 'Uro, Titan of Nature\'s Wrath',
     type_line: 'Legendary Creature — Elder Giant',
     oracle_text: 'long card text',
@@ -14,6 +15,7 @@ export default ({
   },
 
   afterTransformation: {
+    id: 'test-id',
     name: 'Uro, Titan of Nature\'s Wrath',
     typeLine: 'Legendary Creature — Elder Giant',
     oracleText: 'long card text',
