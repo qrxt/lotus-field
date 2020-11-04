@@ -115,6 +115,10 @@ const CardFull = (props) => {
   );
 };
 
+CardFull.defaultProps = {
+  wishlistCardIds: [],
+};
+
 CardFull.propTypes = {
   card: PropTypes.object.isRequired,
   cardAddedToWishlist: PropTypes.func,

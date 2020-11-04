@@ -15,7 +15,7 @@ import {
 import withScryfallService from '@hoc';
 import CardFull from '@components/card-full';
 
-class CardFullContainer extends Component {
+export class CardFullContainer extends Component {
   componentDidMount() {
     const { cardId, history } = this.props;
 
