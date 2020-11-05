@@ -9,7 +9,7 @@ import { wishlistFetch } from '@actions';
 import withScryfallService from '@hoc';
 import Wishlist from '@components/wishlist';
 
-class WishlistContainer extends Component {
+export class WishlistContainer extends Component {
   componentDidMount() {
     const { cardIdList } = this.props;
 
