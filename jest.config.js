@@ -6,6 +6,7 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/src/**/*.(js|jsx)',
     '<rootDir>/__tests__/**/*.test.(js|jsx)',
+    '!<rootDir>/src/components/app/app.jsx',
     '!<rootDir>/src/**/index.(js|jsx)',
     '!<rootDir>/src/components/pages/*.(js|jsx)',
   ],
