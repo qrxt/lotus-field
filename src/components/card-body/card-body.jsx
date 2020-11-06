@@ -28,7 +28,7 @@ export const ArtImage = ({ card }) => {
   });
 
   return (
-    <div aria-hidden>
+    <div className={ cn('container-sm', styles['card-body']) } aria-hidden>
       <ModalImage
         className={ styles.art }
         small={ artCrop }

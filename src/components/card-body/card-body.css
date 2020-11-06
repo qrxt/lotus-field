@@ -1,3 +1,24 @@
+/* Body */
+
+.card-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (--sm) {
+  .card-body {
+    width: 80%;
+  }
+}
+
+@media (--md) {
+  .card-body {
+    width: 65%;
+  }
+}
+
+/* Inner */
+
 .title {
   margin: 0 10px 5px 0;
   font-family: Beleren, 'Times New Roman', serif;
