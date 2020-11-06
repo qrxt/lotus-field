@@ -52,6 +52,11 @@
   background-color: #000000;
 }
 
+/* breakpoints */
+
+@custom-media --sm (min-width: 576px);
+@custom-media --lg (min-width: 992px);
+
 /* Beleren */
 @font-face {
   font-family: "Beleren";

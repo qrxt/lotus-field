@@ -1,5 +1,28 @@
+/* Footer */
+
 .footer {
   padding: 10px 0;
+}
+
+@media (--lg) {
+  .inner {
+    display: flex;
+  }
+}
+
+/* Rights section */
+
+.rights {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+}
+
+@media (--lg) {
+  .rights {
+    width: 50%;
+    border-bottom: none;
+  }
 }
 
 .rights-title {
@@ -9,8 +32,63 @@
   margin: 0 0 15px;
 }
 
-.rights {
+.rights-text {
   font-size: 12px;
   line-height: 14px;
   margin: 0;
+}
+
+/* Contacts section */
+
+@media (--lg) {
+  .contacts {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+  }
+}
+
+/* List */
+
+.contacts-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+@media (--lg) {
+  .contacts-list {
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+/* List Item */
+
+.contact:not(:last-child) {
+  margin-right: 25px;
+}
+
+/* Link */
+
+.contact-link {
+  transition: opacity 0.25s ease-in;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  transition: opacity 0.25s ease-out;
+  opacity: 0.75;
+}
+
+.contact-link:active {
+  opacity: 0.5;
+}
+
+/* Social Network SVG Icon */
+
+.social-icon {
+  fill: #000000e0;
 }

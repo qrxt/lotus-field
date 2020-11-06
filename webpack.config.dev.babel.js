@@ -6,6 +6,7 @@ import HtmlPlugin from 'html-webpack-plugin';
 import StylelintPlugin from 'stylelint-webpack-plugin';
 
 import autoprefixer from 'autoprefixer';
+import customMedia from 'postcss-custom-media';
 
 module.exports = {
   devtool: 'source-map',
@@ -66,6 +67,7 @@ module.exports = {
               sourceMap: true,
               postcssOptions: {
                 plugins: [
+                  customMedia(),
                   autoprefixer,
                 ],
               },
