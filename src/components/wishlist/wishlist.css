@@ -1,3 +1,5 @@
+/* List */
+
 .card-list {
   display: flex;
   justify-content: center;
@@ -7,17 +9,40 @@
   padding: 0;
 }
 
+@media (--lg) {
+  .card-list {
+    justify-content: flex-start;
+  }
+}
+
+/* Item */
+
 .card-item {
   display: flex;
   justify-content: center;
-  margin: 0 10px 20px;
+  width: 45%;
+  margin: 0 5px 10px;
 }
 
 .card-item img {
-  width: 205px;
-  height: 295px;
+  width: 100%;
+  height: auto;
   border-radius: 10px;
 }
+
+@media (--sm) {
+  .card-item {
+    width: 22.5%;
+  }
+}
+
+@media (--lg) {
+  .card-item {
+    width: 18%;
+  }
+}
+
+/* No Cards Placeholder */
 
 .no-cards {
   display: flex;

@@ -26,11 +26,12 @@ const Wishlist = ({ cards }) => {
   return (
     <ul className={ styles['card-list'] }>
       {
-        cards.map((card, index) => (
-          <li className={ styles['card-item'] } key={ index }>
-            <CardPreview card={ card } />
-          </li>
-        ))
+        cards
+          .map((card, index) => (
+            <li className={ styles['card-item'] } key={ index }>
+              <CardPreview card={ card } />
+            </li>
+          ))
       }
     </ul>
   );
