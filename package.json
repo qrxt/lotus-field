@@ -10,7 +10,7 @@
     "bundle-report": "webpack-bundle-analyzer --port 8888 dist/stats.json",
     "lint-js": "eslint ./src/ --ext .js --ext .jsx",
     "lint-css": "stylelint ./src/**/*.css --config .stylelintrc.json",
-    "test": "jest"
+    "test": "jest --passWithNoTests --bail"
   },
   "author": "qrx",
   "license": "ISC",
@@ -25,7 +25,7 @@
     ],
     "./src/**/*.{js,jsx}": [
       "npm run lint-js",
-      "npm test --bail --passWithNoTests"
+      "npm test"
     ]
   },
   "devDependencies": {
@@ -67,6 +67,7 @@
     "lint-staged": "^10.4.2",
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss-custom-media": "^7.0.8",
     "postcss-loader": "^4.0.2",
     "react-hot-loader": "^4.13.0",
     "react-svg-loader": "^3.0.3",

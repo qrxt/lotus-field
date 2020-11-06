@@ -31,7 +31,7 @@ const NavLink = (props) => {
       to={ to }
       eventKey={ eventKey }
     >
-      <Icon icon={ faIcon } className={ styles.icon } />
+      { faIcon ? <Icon icon={ faIcon } className={ styles.icon } /> : null }
       { isCurrent ? srCurrent : null }
       { props.children }
     </Nav.Link>
