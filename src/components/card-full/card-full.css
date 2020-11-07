@@ -1,6 +1,24 @@
+/* Card */
+
 .card {
   margin-bottom: 20px;
+  padding-left: 0;
+  padding-right: 0;
 }
+
+@media (--sm) {
+  .card-body {
+    width: 80%;
+  }
+}
+
+@media (--md) {
+  .card-body {
+    width: 65%;
+  }
+}
+
+/* Caption */
 
 .additional-caption {
   font-weight: 700;
@@ -9,6 +27,16 @@
   margin: 0;
 }
 
+/* Wishlist controls */
+
 .button-wishlist {
-  width: 100%;
+  width: 95%;
+  margin: 0 10px;
+}
+
+@media (--sm) {
+  .button-wishlist {
+    width: 50%;
+    margin: 0;
+  }
 }

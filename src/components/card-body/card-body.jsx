@@ -28,7 +28,7 @@ export const ArtImage = ({ card }) => {
   });
 
   return (
-    <div className={ cn('container-sm', styles['card-body']) } aria-hidden>
+    <div aria-hidden>
       <ModalImage
         className={ styles.art }
         small={ artCrop }
@@ -55,42 +55,43 @@ const CardBody = ({ card }) => {
   );
 
   return (
-    <div className={ styles.body }>
+    <div>
       <Suspense fallback={ loadingComponent }>
         <ArtImage card={ card } />
       </Suspense>
 
-      <div className="wrapper">
-        <header className="d-flex flex-wrap align-items-center">
-
-          <h3 className={ styles.title }>
-            { name }
-          </h3>
-          {
-            manaCost && <p className={ styles['card-cost'] }>
-              { reactReplace(manaCost, manaCostCode, manaCostReplacer) }
+      <div className={ styles.info }>
+        <div className="wrapper">
+          <header className="d-flex flex-wrap align-items-center">
+            <h3 className={ styles.title }>
+              { name }
+            </h3>
+            {
+              manaCost && <p className={ styles['card-cost'] }>
+                { reactReplace(manaCost, manaCostCode, manaCostReplacer) }
+              </p>
+            }
+          </header>
+          <div className={ styles['type-line'] }>
+            <p className={ styles.type }>
+              { type }
             </p>
-          }
-        </header>
-        <div className={ styles['type-line'] }>
-          <p className={ styles.type }>
-            { type }
-          </p>
-          {
-            card.power && <p className={ styles['creature-characteristics'] }>
-              { card.power }/{ card.toughness }
-            </p>
-          }
+            {
+              card.power && <p className={ styles['creature-characteristics'] }>
+                { card.power }/{ card.toughness }
+              </p>
+            }
+          </div>
         </div>
-      </div>
-      <div className={ cn('wrapper bg-light py-2', styles['card-texts']) }>
-        <p className={ styles.text }>
-          { reactReplace(text, manaCostCode, manaCostReplacer) }
-        </p>
+        <div className={ cn('wrapper bg-light py-2', styles['card-texts']) }>
+          <p className={ styles.text }>
+            { reactReplace(text, manaCostCode, manaCostReplacer) }
+          </p>
 
-        <p className={ styles.flavor }>
-          { flavorText }
-        </p>
+          <p className={ styles.flavor }>
+            { flavorText }
+          </p>
+        </div>
       </div>
     </div>
   );

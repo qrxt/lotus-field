@@ -95,22 +95,20 @@ const CardFull = (props) => {
   );
 
   return (
-    <article className={ styles.card }>
+    <article className={ cn(styles.card, 'container-sm') }>
       {
         cardFaces.length > 1
           ? multifaced
           : <CardBody card={ card.cardFaces[0] } />
       }
-      <AccordionWrapper entries={ preparedEntries } className="mb-3" />
-      <div className={ cn('wrapper') }>
-        <ButtonWishlist
-          isToggled={ wishlistCardIds.includes(card.id) }
-          className={ styles['button-wishlist'] }
-          onEnable={ () => { cardAddedToWishlist(card.id); } }
-          onDisable={ () => { cardRemovedFromWishlist(card.id); } }
-          disabled={ !card }
-        />
-      </div>
+      <AccordionWrapper entries={ preparedEntries } className={ cn('mb-3') } />
+      <ButtonWishlist
+        isToggled={ wishlistCardIds.includes(card.id) }
+        className={ styles['button-wishlist'] }
+        onEnable={ () => { cardAddedToWishlist(card.id); } }
+        onDisable={ () => { cardRemovedFromWishlist(card.id); } }
+        disabled={ !card }
+      />
     </article>
   );
 };

@@ -1,23 +1,10 @@
-/* Body */
-
-.card-body {
-  padding-left: 0;
-  padding-right: 0;
-}
+/* Card Info */
 
 @media (--sm) {
-  .card-body {
-    width: 80%;
+  .info {
+    margin-bottom: 20px;
   }
 }
-
-@media (--md) {
-  .card-body {
-    width: 65%;
-  }
-}
-
-/* Inner */
 
 .title {
   margin: 0 10px 5px 0;
@@ -46,6 +33,8 @@
   line-height: 18px;
 }
 
+/* Card text */
+
 .text {
   margin: 0 0 15px;
   border-radius: 5px;
@@ -54,6 +43,8 @@
   font-size: 18px;
   line-height: 22px;
 }
+
+/* Cost */
 
 .card-cost {
   margin: 0 0 5px;
