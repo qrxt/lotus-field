@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
 
 import Carousel from 'react-bootstrap/Carousel';
 
@@ -16,6 +17,10 @@ import Prints from '@components/prints';
 import styles from './card-full.css';
 
 const CardFull = (props) => {
+  const isMediumDeviceOrLarger = useMediaQuery({
+    query: '(min-width: 768px)',
+  });
+
   const {
     card,
     cardAddedToWishlist,
@@ -49,7 +54,7 @@ const CardFull = (props) => {
           { t('pages.card.rulings') }
         </p>
       ),
-      body: <Rulings rulings={ rulings } />,
+      body: <Rulings rulings={ rulings } className="col-md-6" />,
       include: rulings.length > 0,
     },
 
@@ -59,7 +64,7 @@ const CardFull = (props) => {
           { t('pages.card.prints.title') }
         </p>
       ),
-      body: <Prints card={ card } prints={ prints } />,
+      body: <Prints card={ card } prints={ prints } className="col-md-7" />,
       include: prints.length > 0,
     },
 
@@ -83,6 +88,7 @@ const CardFull = (props) => {
       wrap={ false }
       nextIcon={ null }
       prevIcon={ null }
+      className="row"
     >
       {
         cardFaces.map((face, index) => (
@@ -99,9 +105,15 @@ const CardFull = (props) => {
       {
         cardFaces.length > 1
           ? multifaced
-          : <CardBody card={ card.cardFaces[0] } />
+          : <CardBody card={ card.cardFaces[0] } className="row" />
       }
-      <AccordionWrapper entries={ preparedEntries } className={ cn('mb-3') } />
+      {
+        isMediumDeviceOrLarger
+          ? preparedEntries.map((entry, idx) => (
+            <React.Fragment key={ idx }>{ entry.body }</React.Fragment>
+          ))
+          : <AccordionWrapper entries={ preparedEntries } className={ cn('mb-3 row') } />
+      }
       <ButtonWishlist
         isToggled={ wishlistCardIds.includes(card.id) }
         className={ styles['button-wishlist'] }

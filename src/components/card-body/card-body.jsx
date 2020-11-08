@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import reactReplace from 'react-string-replace';
 import { useImage } from 'react-image';
-import cn from 'classnames';
 import ModalImage from 'react-modal-image';
 
 import LoadingSpinner from '@components/loading-spinner';
@@ -28,7 +28,7 @@ export const ArtImage = ({ card }) => {
   });
 
   return (
-    <div aria-hidden>
+    <div className={ cn(styles['art-container'], 'col-md-6') } aria-hidden>
       <ModalImage
         className={ styles.art }
         small={ artCrop }
@@ -39,7 +39,7 @@ export const ArtImage = ({ card }) => {
   );
 };
 
-const CardBody = ({ card }) => {
+const CardBody = ({ card, className }) => {
   const {
     name,
     typeLine: type,
@@ -55,12 +55,12 @@ const CardBody = ({ card }) => {
   );
 
   return (
-    <div>
+    <div className={ cn(styles.body, className) } >
       <Suspense fallback={ loadingComponent }>
         <ArtImage card={ card } />
       </Suspense>
 
-      <div className={ styles.info }>
+      <div className={ cn(styles.info, 'col-md-6') }>
         <div className="wrapper">
           <header className="d-flex flex-wrap align-items-center">
             <h3 className={ styles.title }>
@@ -83,14 +83,16 @@ const CardBody = ({ card }) => {
             }
           </div>
         </div>
-        <div className={ cn('wrapper bg-light py-2', styles['card-texts']) }>
+        <div className={ cn('wrapper bg-light', styles['card-texts']) }>
           <p className={ styles.text }>
             { reactReplace(text, manaCostCode, manaCostReplacer) }
           </p>
 
-          <p className={ styles.flavor }>
-            { flavorText }
-          </p>
+          {
+            flavorText && <p className={ styles.flavor }>
+              { flavorText }
+            </p>
+          }
         </div>
       </div>
     </div>
@@ -99,6 +101,7 @@ const CardBody = ({ card }) => {
 
 CardBody.propTypes = {
   card: PropTypes.object.isRequired,
+  className: PropTypes.string,
 };
 
 ArtImage.propTypes = {

@@ -10,7 +10,7 @@ const Legalities = ({ legalitiesList }) => {
   const legalitiesEntries = Object.entries(legalitiesList);
 
   return (
-    <dl className="d-flex flex-wrap justify-content-between">
+    <dl className="d-flex flex-wrap justify-content-between p-0 col-md-5">
     {
       legalitiesEntries.map(([name, legality], index) => {
         const legalityClass = cn(

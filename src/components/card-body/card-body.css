@@ -1,10 +1,31 @@
+/* Body */
+
+@media (--md) {
+  .body {
+    display: flex;
+    margin-bottom: 20px;
+  }
+}
+
 /* Card Info */
+
+.info {
+  padding: 0;
+}
 
 @media (--sm) {
   .info {
     margin-bottom: 20px;
   }
 }
+
+@media (--md) {
+  .info {
+    margin: 0;
+  }
+}
+
+/* Card Name */
 
 .title {
   margin: 0 10px 5px 0;
@@ -13,6 +34,8 @@
   font-size: 24px;
   line-height: 24px;
 }
+
+/* Card Type */
 
 .type-line {
   display: flex;
@@ -26,6 +49,8 @@
   margin-right: 10px;
 }
 
+/* Power & Toughness */
+
 .creature-characteristics {
   font-family: Beleren, 'Times New Roman', serif;
   font-weight: 700;
@@ -36,15 +61,15 @@
 /* Card text */
 
 .text {
-  margin: 0 0 15px;
   border-radius: 5px;
   white-space: pre-line;
   font-family: Plantin, 'Times New Roman', serif;
   font-size: 18px;
   line-height: 22px;
+  margin: 0 0 15px;
 }
 
-/* Cost */
+/* Mana Symbols & Cost */
 
 .card-cost {
   margin: 0 0 5px;
@@ -59,7 +84,16 @@
   margin-right: 2px;
 }
 
+/* Card Texts */
+
+.card-texts {
+  padding: 10px 10px 5px;
+}
+
+/* Flavor Text */
+
 .flavor {
+  padding: 10px 0 0;
   margin: 0 0 18px;
   font-family: Plantin, 'Times New Roman', serif;
   font-style: italic;
@@ -67,7 +101,29 @@
   line-height: 18px;
 }
 
+@media (--md) {
+  .flavor {
+    margin-bottom: 0;
+  }
+}
+
+/* Card Cropped Art */
+.art-container {
+  padding: 0;
+}
+
 .art {
   width: 100%;
   margin-bottom: 15px;
+}
+
+@media (--md) {
+  .art-container {
+    padding: 0 10px;
+  }
+
+  .art {
+    display: block;
+    margin: 0;
+  }
 }
