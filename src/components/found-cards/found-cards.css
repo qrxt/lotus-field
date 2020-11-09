@@ -1,3 +1,5 @@
+/* List */
+
 .card-list {
   display: flex;
   justify-content: center;
@@ -7,6 +9,14 @@
   padding: 0;
 }
 
+@media (--md) {
+  .card-list {
+    justify-content: flex-start;
+  }
+}
+
+/* Item */
+
 .card-item {
   display: flex;
   width: 45%;
@@ -14,11 +24,25 @@
   margin: 0 5px 15px;
 }
 
+@media (--sm) {
+  .card-item {
+    width: 30%;
+  }
+}
+
+@media (--md) {
+  .card-item {
+    width: 18%;
+  }
+}
+
 .card-item img {
   width: 100%;
   height: auto;
   border-radius: 10px;
 }
+
+/* No Cards Placeholder */
 
 .no-cards {
   display: flex;

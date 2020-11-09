@@ -14,10 +14,21 @@
   .card {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
   }
 
   .card-body {
     width: 65%;
+  }
+}
+
+/* Inner */
+
+@media (--md) {
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 }
 
@@ -41,5 +52,33 @@
   .button-wishlist {
     width: 50%;
     margin: 0;
+  }
+}
+
+@media (--md) {
+  .button-wishlist {
+    width: 30%;
+  }
+}
+
+/* Children */
+
+@media (--md) {
+  .legalities {
+    order: 0;
+  }
+
+  .rulings {
+    order: 2;
+  }
+
+  .prints {
+    padding: 0;
+    order: 2;
+  }
+
+  .prices {
+    padding-top: 10px;
+    order: 1;
   }
 }

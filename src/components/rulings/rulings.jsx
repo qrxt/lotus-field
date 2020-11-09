@@ -8,7 +8,7 @@ const Rulings = ({ rulings, className }) => (
   <ul className={ cn(styles.rulings, className) }>
     {
       rulings.map(({ comment, publishedAt }, index) => (
-        <li key={ index }>
+        <li key={ index } className={ styles.item }>
           <p className={ styles.ruling }>
             <span className={ styles['ruling-date'] }>
               { publishedAt }

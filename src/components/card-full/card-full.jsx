@@ -44,7 +44,7 @@ const CardFull = (props) => {
           { t('pages.card.legalities') }
         </p>
       ),
-      body: <Legalities legalitiesList={ legalities } />,
+      body: <Legalities legalitiesList={ legalities } className={ styles.legalities } />,
       include: true,
     },
 
@@ -54,7 +54,7 @@ const CardFull = (props) => {
           { t('pages.card.rulings') }
         </p>
       ),
-      body: <Rulings rulings={ rulings } className="col-md-6" />,
+      body: <Rulings rulings={ rulings } className={ cn('col-md-12', styles.rulings) } />,
       include: rulings.length > 0,
     },
 
@@ -64,7 +64,11 @@ const CardFull = (props) => {
           { t('pages.card.prints.title') }
         </p>
       ),
-      body: <Prints card={ card } prints={ prints } className="col-md-7" />,
+      body: <Prints
+        card={ card }
+        prints={ prints }
+        className={ cn('col-md-12', styles.prints) }
+      />,
       include: prints.length > 0,
     },
 
@@ -74,8 +78,8 @@ const CardFull = (props) => {
           { t('pages.card.prices.title') }
         </p>
       ),
-      body: <Prices prices={ prices } />,
-      include: Object.keys(prices).length > 0,
+      body: <Prices prices={ prices } className={ cn(styles.prices, 'col-md-7') } />,
+      include: Object.values(prices).filter(Boolean).length > 0,
     },
   ];
 
@@ -102,18 +106,20 @@ const CardFull = (props) => {
 
   return (
     <article className={ cn(styles.card, 'container-sm') }>
-      {
-        cardFaces.length > 1
-          ? multifaced
-          : <CardBody card={ card.cardFaces[0] } className="row" />
-      }
-      {
-        isMediumDeviceOrLarger
-          ? preparedEntries.map((entry, idx) => (
-            <React.Fragment key={ idx }>{ entry.body }</React.Fragment>
-          ))
-          : <AccordionWrapper entries={ preparedEntries } className={ cn('mb-3 row') } />
-      }
+      <div className={ cn(styles.inner) }>
+        {
+          cardFaces.length > 1
+            ? multifaced
+            : <CardBody card={ card.cardFaces[0] } className="row" />
+        }
+        {
+          isMediumDeviceOrLarger
+            ? preparedEntries.map((entry, idx) => (
+              <React.Fragment key={ idx }>{ entry.body }</React.Fragment>
+            ))
+            : <AccordionWrapper entries={ preparedEntries } className={ cn('mb-3 row') } />
+        }
+      </div>
       <ButtonWishlist
         isToggled={ wishlistCardIds.includes(card.id) }
         className={ styles['button-wishlist'] }

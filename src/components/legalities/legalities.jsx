@@ -5,12 +5,12 @@ import { useTranslation } from 'react-i18next';
 
 import styles from './legalities.css';
 
-const Legalities = ({ legalitiesList }) => {
+const Legalities = ({ legalitiesList, className }) => {
   const { t } = useTranslation();
   const legalitiesEntries = Object.entries(legalitiesList);
 
   return (
-    <dl className="d-flex flex-wrap justify-content-between p-0 col-md-5">
+    <dl className={ cn('d-flex flex-wrap justify-content-between p-0 col-md-5', className) }>
     {
       legalitiesEntries.map(([name, legality], index) => {
         const legalityClass = cn(
@@ -40,6 +40,7 @@ const Legalities = ({ legalitiesList }) => {
 
 Legalities.propTypes = {
   legalitiesList: PropTypes.object.isRequired,
+  className: PropTypes.string,
 };
 
 export default Legalities;
