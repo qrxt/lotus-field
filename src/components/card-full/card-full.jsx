@@ -67,7 +67,7 @@ const CardFull = (props) => {
       body: <Prints
         card={ card }
         prints={ prints }
-        className={ cn('col-md-12', styles.prints) }
+        className={ cn('col-md-12 p-0', styles.prints) }
       />,
       include: prints.length > 0,
     },

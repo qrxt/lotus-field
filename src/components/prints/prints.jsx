@@ -11,7 +11,7 @@ const Prints = ({ card, prints, className }) => {
     return (
       <div className={ className }>
         <FoundCards cards={ prints.slice(0, 10) } />
-        <Link className="w-100 btn btn-primary" to={
+        <Link className="w-100 btn btn-primary mb-3" to={
           `/cards?order=released\u0026q=oracleid%3A${card.oracleId}\u0026unique=prints`
         }>
           { t('pages.card.prints.link-to-other') }
