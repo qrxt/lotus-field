@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import reactReplace from 'react-string-replace';
 import { useImage } from 'react-image';
 import ModalImage from 'react-modal-image';
+import { useMediaQuery } from 'react-responsive';
 
 import LoadingSpinner from '@components/loading-spinner';
 import ManaCost from '@components/mana-cost';
@@ -20,18 +21,33 @@ const manaCostReplacer = (match, index) => (
 );
 
 export const ArtImage = ({ card }) => {
+  const isLargeDevice = useMediaQuery({
+    query: '(min-width: 1200px)',
+  });
   const { name } = card;
-  const { artCrop: artCropSrc, normal: artNormalSrc } = card.imageUris;
+  const {
+    artCrop: artCropSrc,
+    normal: artNormalSrc,
+    large: artLargeSrc,
+  } = card.imageUris;
 
   const { src: artCrop } = useImage({
     srcList: artCropSrc,
+  });
+
+  const { src: artLarge } = useImage({
+    srcList: artLargeSrc,
   });
 
   return (
     <div className={ cn(styles['art-container'], 'col-md-6') } aria-hidden>
       <ModalImage
         className={ styles.art }
-        small={ artCrop }
+        small={
+          isLargeDevice
+            ? artLarge
+            : artCrop
+        }
         large={ artNormalSrc }
         alt={ `Art for "${name}" card` }
       />
