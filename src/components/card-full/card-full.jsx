@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
@@ -13,12 +13,23 @@ import Legalities from '@components/legalities';
 import Rulings from '@components/rulings';
 import Prices from '@components/prices';
 import Prints from '@components/prints';
+import ArtImage from '@components/art-image';
+import LoadingSpinner from '@components/loading-spinner';
 
 import styles from './card-full.css';
+
+const loadingComponent = (
+  <div className="wrapper d-flex justify-content-center">
+    <LoadingSpinner />
+  </div>
+);
 
 const CardFull = (props) => {
   const isMediumDeviceOrLarger = useMediaQuery({
     query: '(min-width: 768px)',
+  });
+  const isLargeDevice = useMediaQuery({
+    query: '(min-width: 1200px)',
   });
 
   const {
@@ -87,21 +98,35 @@ const CardFull = (props) => {
     .filter(({ include }) => include);
 
   const multifaced = (
-    <Carousel
-      interval={ null }
-      wrap={ false }
-      nextIcon={ null }
-      prevIcon={ null }
-      className="row"
-    >
-      {
-        cardFaces.map((face, index) => (
-          <Carousel.Item key={ index }>
-            <CardBody card={ face } />
-          </Carousel.Item>
-        ))
-      }
-    </Carousel>
+    isLargeDevice
+      ? (
+        <div className={ cn('d-flex', styles['bodies-wrapper']) }>
+          <Suspense fallback={ loadingComponent }>
+            <ArtImage card={ cardFaces[0] } />
+          </Suspense>
+          <div className={ styles.bodies }>
+            <CardBody card={ cardFaces[0] } displayArt={ false } />
+            { cardFaces[1] && <CardBody card={ cardFaces[1] } displayArt={ false } /> }
+          </div>
+        </div>
+      )
+      : (
+        <Carousel
+          interval={ null }
+          wrap={ false }
+          nextIcon={ null }
+          prevIcon={ null }
+          className="row"
+        >
+          {
+            cardFaces.map((face, index) => (
+              <Carousel.Item key={ index }>
+                <CardBody card={ face } />
+              </Carousel.Item>
+            ))
+          }
+        </Carousel>
+      )
   );
 
   return (
@@ -121,8 +146,8 @@ const CardFull = (props) => {
         }
       </div>
       <ButtonWishlist
-        isToggled={ wishlistCardIds.includes(card.id) }
         className={ styles['button-wishlist'] }
+        isToggled={ wishlistCardIds.includes(card.id) }
         onEnable={ () => { cardAddedToWishlist(card.id); } }
         onDisable={ () => { cardRemovedFromWishlist(card.id); } }
         disabled={ !card }

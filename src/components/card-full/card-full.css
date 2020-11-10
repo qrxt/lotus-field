@@ -82,3 +82,14 @@
     order: 1;
   }
 }
+
+/* Bodies Wrapper */
+
+.bodies {
+  position: relative;
+  z-index: -1;
+}
+
+.bodies-wrapper {
+  margin-bottom: 20px;
+}

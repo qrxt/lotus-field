@@ -1,0 +1,11 @@
+/* More Prints Link Button */
+
+.more-button {
+  width: 100%;
+}
+
+@media (--md) {
+  .more-button {
+    width: 25%;
+  }
+}
