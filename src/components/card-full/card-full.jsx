@@ -102,7 +102,7 @@ const CardFull = (props) => {
       ? (
         <div className={ cn('d-flex', styles['bodies-wrapper']) }>
           <Suspense fallback={ loadingComponent }>
-            <ArtImage card={ cardFaces[0] } />
+            <ArtImage card={ cardFaces[0] } back={ cardFaces[1] } />
           </Suspense>
           <div className={ styles.bodies }>
             <CardBody card={ cardFaces[0] } displayArt={ false } />
@@ -116,7 +116,7 @@ const CardFull = (props) => {
           wrap={ false }
           nextIcon={ null }
           prevIcon={ null }
-          className="row"
+          className="row col-12 m-0 p-0"
         >
           {
             cardFaces.map((face, index) => (
@@ -131,18 +131,22 @@ const CardFull = (props) => {
 
   return (
     <article className={ cn(styles.card, 'container-sm') }>
-      <div className={ cn(styles.inner) }>
+      <div className={ cn(styles.inner, 'col-12') }>
         {
           cardFaces.length > 1
             ? multifaced
-            : <CardBody card={ card.cardFaces[0] } className="row" />
+            : (
+              <div className={ cn(styles['bodies-wrapper'], 'row col-xl-12') }>
+                <CardBody card={ card.cardFaces[0] } className={ cn('col-xl-12') } />
+              </div>
+            )
         }
         {
           isMediumDeviceOrLarger
             ? preparedEntries.map((entry, idx) => (
               <React.Fragment key={ idx }>{ entry.body }</React.Fragment>
             ))
-            : <AccordionWrapper entries={ preparedEntries } className={ cn('mb-3 row') } />
+            : <AccordionWrapper entries={ preparedEntries } className={ cn('mb-3 row col-12 m-0 p-0') } />
         }
       </div>
       <ButtonWishlist

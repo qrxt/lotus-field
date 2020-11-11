@@ -24,9 +24,21 @@
   .art-container {
     padding: 0;
   }
+}
 
+@media (--xl) {
   .art {
-    border-radius: 15px;
+    border-radius: 17px;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
   }
+}
+
+/* Card Flip Button */
+
+.btn-flip {
+  margin-top: 5px;
+}
+
+.icon-flip {
+  margin-right: 5px;
 }

@@ -1,5 +1,9 @@
 /* Body */
 
+.body {
+  padding: 0;
+}
+
 @media (--md) {
   .body {
     display: flex;
@@ -7,9 +11,9 @@
   }
 }
 
-@media (--lg) {
+@media (--xl) {
   .body {
-    padding-top: 15px;
+    padding: 0;
   }
 }
 
@@ -33,6 +37,7 @@
 
 @media (--lg) {
   .info {
+    padding-top: 15px;
     position: relative;
     z-index: -1;
   }

@@ -160,6 +160,10 @@
 
     "up": {
       "description": "Scroll back to top"
+    },
+
+    "flip": {
+      "description": "Click to flip"
     }
   },
 
