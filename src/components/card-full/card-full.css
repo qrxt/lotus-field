@@ -1,6 +1,43 @@
+/* Card */
+
 .card {
+  padding: 0;
   margin-bottom: 20px;
 }
+
+@media (--sm) {
+  .card-body {
+    width: 80%;
+  }
+}
+
+@media (--md) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .card-body {
+    width: 65%;
+  }
+}
+
+/* Inner */
+
+.inner {
+  padding: 0;
+}
+
+@media (--md) {
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}
+
+/* Caption */
 
 .additional-caption {
   font-weight: 700;
@@ -9,6 +46,56 @@
   margin: 0;
 }
 
+/* Wishlist controls */
+
 .button-wishlist {
-  width: 100%;
+  width: 95%;
+  margin: 0 10px;
+}
+
+@media (--sm) {
+  .button-wishlist {
+    width: 50%;
+    margin: 0;
+  }
+}
+
+@media (--md) {
+  .button-wishlist {
+    width: 30%;
+  }
+}
+
+/* Children */
+
+@media (--md) {
+  .legalities {
+    order: 0;
+  }
+
+  .rulings {
+    order: 2;
+  }
+
+  .prints {
+    padding: 0;
+    order: 2;
+  }
+
+  .prices {
+    padding-top: 10px;
+    order: 1;
+  }
+}
+
+/* Bodies Wrapper */
+
+.bodies {
+  position: relative;
+  z-index: -1;
+}
+
+.bodies-wrapper {
+  padding: 0;
+  margin: 0 0 20px 0;
 }

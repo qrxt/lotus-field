@@ -1,12 +1,11 @@
 import React, { Suspense } from 'react';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import reactReplace from 'react-string-replace';
-import { useImage } from 'react-image';
-import cn from 'classnames';
-import ModalImage from 'react-modal-image';
 
 import LoadingSpinner from '@components/loading-spinner';
 import ManaCost from '@components/mana-cost';
+import ArtImage from '@components/art-image';
 
 import styles from './card-body.css';
 
@@ -19,27 +18,7 @@ const manaCostReplacer = (match, index) => (
   />
 );
 
-export const ArtImage = ({ card }) => {
-  const { name } = card;
-  const { artCrop: artCropSrc, normal: artNormalSrc } = card.imageUris;
-
-  const { src: artCrop } = useImage({
-    srcList: artCropSrc,
-  });
-
-  return (
-    <div aria-hidden>
-      <ModalImage
-        className={ styles.art }
-        small={ artCrop }
-        large={ artNormalSrc }
-        alt={ `Art for "${name}" card` }
-      />
-    </div>
-  );
-};
-
-const CardBody = ({ card }) => {
+const CardBody = ({ card, className, displayArt }) => {
   const {
     name,
     typeLine: type,
@@ -55,42 +34,47 @@ const CardBody = ({ card }) => {
   );
 
   return (
-    <div className={ styles.body }>
-      <Suspense fallback={ loadingComponent }>
-        <ArtImage card={ card } />
-      </Suspense>
+    <div className={ cn(styles.body, className) } >
+      {
+        displayArt && <Suspense fallback={ loadingComponent }>
+          <ArtImage card={ card } />
+        </Suspense>
+      }
 
-      <div className="wrapper">
-        <header className="d-flex flex-wrap align-items-center">
-
-          <h3 className={ styles.title }>
-            { name }
-          </h3>
-          {
-            manaCost && <p className={ styles['card-cost'] }>
-              { reactReplace(manaCost, manaCostCode, manaCostReplacer) }
+      <div className={ cn(styles.info, 'col-md-6') }>
+        <div className="wrapper">
+          <header className="d-flex flex-wrap align-items-center">
+            <h3 className={ styles.title }>
+              { name }
+            </h3>
+            {
+              manaCost && <p className={ styles['card-cost'] }>
+                { reactReplace(manaCost, manaCostCode, manaCostReplacer) }
+              </p>
+            }
+          </header>
+          <div className={ styles['type-line'] }>
+            <p className={ styles.type }>
+              { type }
             </p>
-          }
-        </header>
-        <div className={ styles['type-line'] }>
-          <p className={ styles.type }>
-            { type }
+            {
+              card.power && <p className={ styles['creature-characteristics'] }>
+                { card.power }/{ card.toughness }
+              </p>
+            }
+          </div>
+        </div>
+        <div className={ cn('wrapper bg-light', styles['card-texts']) }>
+          <p className={ styles.text }>
+            { reactReplace(text, manaCostCode, manaCostReplacer) }
           </p>
+
           {
-            card.power && <p className={ styles['creature-characteristics'] }>
-              { card.power }/{ card.toughness }
+            flavorText && <p className={ styles.flavor }>
+              { flavorText }
             </p>
           }
         </div>
-      </div>
-      <div className={ cn('wrapper bg-light py-2', styles['card-texts']) }>
-        <p className={ styles.text }>
-          { reactReplace(text, manaCostCode, manaCostReplacer) }
-        </p>
-
-        <p className={ styles.flavor }>
-          { flavorText }
-        </p>
       </div>
     </div>
   );
@@ -98,14 +82,12 @@ const CardBody = ({ card }) => {
 
 CardBody.propTypes = {
   card: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  displayArt: PropTypes.bool,
 };
 
-ArtImage.propTypes = {
-  card: PropTypes.object,
-  name: PropTypes.string,
-  artCrop: PropTypes.string,
-  normal: PropTypes.string,
-  imageUris: PropTypes.array,
+CardBody.defaultProps = {
+  displayArt: true,
 };
 
 export default CardBody;

@@ -1,0 +1,7 @@
+/* Header */
+
+@media (--sm) {
+  .header {
+    margin-bottom: 30px;
+  }
+}

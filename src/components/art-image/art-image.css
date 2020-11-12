@@ -1,0 +1,44 @@
+
+/* Card Cropped Art */
+.art-container {
+  padding: 0;
+}
+
+.art {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+@media (--md) {
+  .art-container {
+    padding: 0 10px;
+  }
+
+  .art {
+    display: block;
+    margin: 0;
+  }
+}
+
+@media (--lg) {
+  .art-container {
+    padding: 0;
+  }
+}
+
+@media (--xl) {
+  .art {
+    border-radius: 17px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Card Flip Button */
+
+.btn-flip {
+  margin-top: 5px;
+}
+
+.icon-flip {
+  margin-right: 5px;
+}

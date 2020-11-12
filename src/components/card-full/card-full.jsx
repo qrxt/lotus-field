@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
 
 import Carousel from 'react-bootstrap/Carousel';
 
@@ -12,10 +13,25 @@ import Legalities from '@components/legalities';
 import Rulings from '@components/rulings';
 import Prices from '@components/prices';
 import Prints from '@components/prints';
+import ArtImage from '@components/art-image';
+import LoadingSpinner from '@components/loading-spinner';
 
 import styles from './card-full.css';
 
+const loadingComponent = (
+  <div className="wrapper d-flex justify-content-center">
+    <LoadingSpinner />
+  </div>
+);
+
 const CardFull = (props) => {
+  const isMediumDeviceOrLarger = useMediaQuery({
+    query: '(min-width: 768px)',
+  });
+  const isLargeDevice = useMediaQuery({
+    query: '(min-width: 1200px)',
+  });
+
   const {
     card,
     cardAddedToWishlist,
@@ -39,7 +55,7 @@ const CardFull = (props) => {
           { t('pages.card.legalities') }
         </p>
       ),
-      body: <Legalities legalitiesList={ legalities } />,
+      body: <Legalities legalitiesList={ legalities } className={ styles.legalities } />,
       include: true,
     },
 
@@ -49,7 +65,7 @@ const CardFull = (props) => {
           { t('pages.card.rulings') }
         </p>
       ),
-      body: <Rulings rulings={ rulings } />,
+      body: <Rulings rulings={ rulings } className={ cn('col-md-12', styles.rulings) } />,
       include: rulings.length > 0,
     },
 
@@ -59,7 +75,11 @@ const CardFull = (props) => {
           { t('pages.card.prints.title') }
         </p>
       ),
-      body: <Prints card={ card } prints={ prints } />,
+      body: <Prints
+        card={ card }
+        prints={ prints }
+        className={ cn('col-md-12 p-0', styles.prints) }
+      />,
       include: prints.length > 0,
     },
 
@@ -69,8 +89,8 @@ const CardFull = (props) => {
           { t('pages.card.prices.title') }
         </p>
       ),
-      body: <Prices prices={ prices } />,
-      include: Object.keys(prices).length > 0,
+      body: <Prices prices={ prices } className={ cn(styles.prices, 'col-md-7') } />,
+      include: Object.values(prices).filter(Boolean).length > 0,
     },
   ];
 
@@ -78,39 +98,64 @@ const CardFull = (props) => {
     .filter(({ include }) => include);
 
   const multifaced = (
-    <Carousel
-      interval={ null }
-      wrap={ false }
-      nextIcon={ null }
-      prevIcon={ null }
-    >
-      {
-        cardFaces.map((face, index) => (
-          <Carousel.Item key={ index }>
-            <CardBody card={ face } />
-          </Carousel.Item>
-        ))
-      }
-    </Carousel>
+    isLargeDevice
+      ? (
+        <div className={ cn('d-flex', styles['bodies-wrapper']) }>
+          <Suspense fallback={ loadingComponent }>
+            <ArtImage card={ cardFaces[0] } back={ cardFaces[1] } />
+          </Suspense>
+          <div className={ styles.bodies }>
+            <CardBody card={ cardFaces[0] } displayArt={ false } />
+            { cardFaces[1] && <CardBody card={ cardFaces[1] } displayArt={ false } /> }
+          </div>
+        </div>
+      )
+      : (
+        <Carousel
+          interval={ null }
+          wrap={ false }
+          nextIcon={ null }
+          prevIcon={ null }
+          className="row col-12 m-0 p-0"
+        >
+          {
+            cardFaces.map((face, index) => (
+              <Carousel.Item key={ index }>
+                <CardBody card={ face } />
+              </Carousel.Item>
+            ))
+          }
+        </Carousel>
+      )
   );
 
   return (
-    <article className={ styles.card }>
-      {
-        cardFaces.length > 1
-          ? multifaced
-          : <CardBody card={ card.cardFaces[0] } />
-      }
-      <AccordionWrapper entries={ preparedEntries } className="mb-3" />
-      <div className={ cn('wrapper') }>
-        <ButtonWishlist
-          isToggled={ wishlistCardIds.includes(card.id) }
-          className={ styles['button-wishlist'] }
-          onEnable={ () => { cardAddedToWishlist(card.id); } }
-          onDisable={ () => { cardRemovedFromWishlist(card.id); } }
-          disabled={ !card }
-        />
+    <article className={ cn(styles.card, 'container-sm') }>
+      <div className={ cn(styles.inner, 'col-12') }>
+        {
+          cardFaces.length > 1
+            ? multifaced
+            : (
+              <div className={ cn(styles['bodies-wrapper'], 'row col-xl-12') }>
+                <CardBody card={ card.cardFaces[0] } className={ cn('col-xl-12') } />
+              </div>
+            )
+        }
+        {
+          isMediumDeviceOrLarger
+            ? preparedEntries.map((entry, idx) => (
+              <React.Fragment key={ idx }>{ entry.body }</React.Fragment>
+            ))
+            : <AccordionWrapper entries={ preparedEntries } className={ cn('mb-3 row col-12 m-0 p-0') } />
+        }
       </div>
+      <ButtonWishlist
+        className={ styles['button-wishlist'] }
+        isToggled={ wishlistCardIds.includes(card.id) }
+        onEnable={ () => { cardAddedToWishlist(card.id); } }
+        onDisable={ () => { cardRemovedFromWishlist(card.id); } }
+        disabled={ !card }
+      />
     </article>
   );
 };

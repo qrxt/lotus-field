@@ -4,8 +4,24 @@
   list-style-type: none;
 }
 
+@media (--md) {
+  .rulings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+/* Item */
+
 .ruling {
   margin: 0 0 10px;
+}
+
+@media (--md) {
+  .item {
+    width: 45%;
+  }
 }
 
 .ruling-date {

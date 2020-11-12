@@ -9,7 +9,7 @@ const AccordionWrapper = ({ entries, className }) => (
   <Accordion className={ className }>
     {
       entries.map(({ caption, body }, index) => (
-        <Card className="rounded-0" key={ index }>
+        <Card className="rounded-0 w-100" key={ index }>
           <Card.Header>
             <Accordion.Toggle as={ Button } variant="link" eventKey={ String(index) }>
               { caption }
