@@ -1,5 +1,21 @@
+/* Preview Image */
+
 .card {
   width: 137px;
   height: 197px;
   border-radius: 7px;
+}
+
+@media (--sm) {
+  .card {
+    width: 164px;
+    height: 236px;
+  }
+}
+
+@media (--md) {
+  .card {
+    width: 213px;
+    height: 306px;
+  }
 }

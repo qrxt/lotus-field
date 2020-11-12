@@ -36,10 +36,11 @@ const RecentCards = ({ cards }) => {
         wrap={ false }
         nextIcon={ null }
         prevIcon={ null }
+        className={ styles.carousel }
       >
         {
           cards.slice(0, 5).map((card, idx) => (
-              <Carousel.Item key={ idx }>
+              <Carousel.Item key={ idx } className={ styles['carousel-item'] } >
                 <div className={ styles['cards-wrapper'] }>
                   {
                     <CardPreview card={ card } />

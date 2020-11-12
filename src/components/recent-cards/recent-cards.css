@@ -2,6 +2,15 @@
   padding: 10px 0 0;
 }
 
+@media (--md) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .recent-cards {
   margin: 0;
   padding: 0;
@@ -29,4 +38,18 @@
   width: 64px;
   height: 64px;
   margin-bottom: 10px;
+}
+
+/* Carousel */
+
+@media (--md) {
+  .carousel {
+    width: 50%;
+  }
+}
+
+@media (--xl) {
+  .carousel {
+    width: 25%;
+  }
 }
