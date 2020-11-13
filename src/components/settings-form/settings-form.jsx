@@ -23,7 +23,7 @@ const SettingsForm = () => {
   };
 
   return (
-    <div>
+    <div className="col-12 col-lg-6 col-xl-4 p-0">
       <Form>
         <Form.Group controlId="exampleForm.SelectCustom">
           <Form.Label>{ t('pages.settings.language.title') }</Form.Label>

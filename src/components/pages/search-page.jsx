@@ -10,7 +10,7 @@ const SearchPage = () => {
   const { t } = useTranslation();
 
   return (
-    <section className={ cn('wrapper', styles['page-wrapper']) }>
+    <section className={ cn('wrapper container', styles['page-wrapper']) }>
       <h2 className="visually-hidden">
         { t('pages.search.h2') }
       </h2>

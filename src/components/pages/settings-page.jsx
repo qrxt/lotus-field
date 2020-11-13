@@ -10,7 +10,7 @@ const SettingsPage = () => {
   const { t } = useTranslation();
 
   return (
-    <section className={ cn('wrapper', styles['page-wrapper']) }>
+    <section className={ cn('wrapper container', styles['page-wrapper']) }>
       <h2>
         { t('pages.settings.h2') }
       </h2>
