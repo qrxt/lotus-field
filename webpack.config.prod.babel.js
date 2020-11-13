@@ -102,6 +102,7 @@ module.exports = {
       ],
     }),
     new HtmlPlugin({
+      favicon: './public/img/lotus.svg',
       filename: './index.html',
       template: './src/index.html',
     }),

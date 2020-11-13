@@ -116,6 +116,7 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlPlugin({
+      favicon: './public/img/lotus.svg',
       filename: './index.html',
       template: './src/index.html',
     }),

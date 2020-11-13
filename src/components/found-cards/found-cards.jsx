@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazyload';
 import { useTranslation } from 'react-i18next';
@@ -38,7 +39,7 @@ const FoundCards = ({ cards, lazy }) => {
           `${cards.length} ${t('pages.found-cards.cards-found-quantity')}`
         }
       </p>
-      <ul className={ styles['card-list'] }>
+      <ul className={ cn(styles['card-list'], 'col-12') }>
         {
           cards.map((card, index) => (
             <li className={ styles['card-item'] } key={ index }>
