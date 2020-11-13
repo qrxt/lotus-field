@@ -41,7 +41,7 @@ const CardBody = ({ card, className, displayArt }) => {
         </Suspense>
       }
 
-      <div className={ cn(styles.info, 'col-md-6') }>
+      <div className={ cn(styles.info, 'col-md-6 col-xl-12') }>
         <div className="wrapper">
           <header className="d-flex flex-wrap align-items-center">
             <h3 className={ styles.title }>

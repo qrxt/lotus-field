@@ -105,8 +105,11 @@ const CardFull = (props) => {
             <ArtImage card={ cardFaces[0] } back={ cardFaces[1] } />
           </Suspense>
           <div className={ styles.bodies }>
-            <CardBody card={ cardFaces[0] } displayArt={ false } />
-            { cardFaces[1] && <CardBody card={ cardFaces[1] } displayArt={ false } /> }
+            {
+              cardFaces.map((cardFace, idx) => (
+                <CardBody card={ cardFaces[idx] } displayArt={ false } key={ idx } />
+              ))
+            }
           </div>
         </div>
       )
