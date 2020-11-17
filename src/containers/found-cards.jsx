@@ -19,7 +19,7 @@ export class FoundCardsContainer extends Component {
 
   render() {
     const {
-      cards,
+      searchResult,
       loading,
       failure,
     } = this.props;
@@ -40,12 +40,18 @@ export class FoundCardsContainer extends Component {
       );
     }
 
-    return <FoundCards cards={ cards } cardAddedToWishlist={ this.props.cardAddedToWishlist } />;
+    return (
+      <FoundCards
+        location={ this.props.location }
+        searchResult={ searchResult }
+        cardAddedToWishlist={ this.props.cardAddedToWishlist }
+      />
+    );
   }
 }
 
 FoundCardsContainer.propTypes = {
-  cards: PropTypes.array,
+  searchResult: PropTypes.object,
   loading: PropTypes.bool,
   failure: PropTypes.bool,
   findCards: PropTypes.func.isRequired,
@@ -53,8 +59,8 @@ FoundCardsContainer.propTypes = {
   location: PropTypes.object,
 };
 
-const mapStateToProps = ({ foundCards: { cards, loading, failure } }) => ({
-  cards,
+const mapStateToProps = ({ foundCards: { result: searchResult, loading, failure } }) => ({
+  searchResult,
   loading,
   failure,
 });

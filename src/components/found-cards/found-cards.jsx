@@ -3,6 +3,7 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazyload';
 import { useTranslation } from 'react-i18next';
+import queryString from 'query-string';
 
 import CardBack from '@components/card-back';
 import CardPreview from '@components/card-preview';
@@ -16,8 +17,14 @@ const wrappedWithLazy = (card) => (
   </LazyLoad>
 );
 
-const FoundCards = ({ cards, lazy }) => {
+const FoundCards = (props) => {
   const { t } = useTranslation();
+  const { searchResult, lazy } = props;
+  const { data: cards } = searchResult;
+  const parsedSearch = queryString.parse(props.location.search);
+  const { page } = parsedSearch;
+  const nextPageQueryString = queryString.stringify({ ...parsedSearch, page: Number(page) + 1 });
+  const prevPageQueryString = queryString.stringify({ ...parsedSearch, page: Number(page) - 1 });
 
   if (!cards.length) {
     return (
@@ -32,6 +39,24 @@ const FoundCards = ({ cards, lazy }) => {
     );
   }
 
+  const btnPrev = (
+    <a
+      className={ cn('btn btn-primary mr-3', styles['prev-button']) }
+      href={ `/cards?${prevPageQueryString}` }
+    >
+      { t('buttons.found-cards.previous') }
+    </a>
+  );
+
+  const btnNext = (
+    <a
+      className={ cn('btn btn-primary', styles['next-button']) }
+      href={ `/cards?${nextPageQueryString}` }
+    >
+      { t('buttons.found-cards.next') }
+    </a>
+  );
+
   return (
     <React.Fragment>
       <p>
@@ -42,7 +67,10 @@ const FoundCards = ({ cards, lazy }) => {
       <ul className={ cn(styles['card-list'], 'col-12') }>
         {
           cards.map((card, index) => (
-            <li className={ styles['card-item'] } key={ index }>
+            <li
+              className={ cn(styles['card-item'], 'col-6 col-sm-5 col-md-4 col-lg-3 mb-2') }
+              key={ index }
+            >
               {
                 lazy
                   ? wrappedWithLazy(card)
@@ -52,6 +80,10 @@ const FoundCards = ({ cards, lazy }) => {
           ))
         }
       </ul>
+      <div className={ cn('d-flex', styles['pagination-wrapper']) }>
+      { page && page > 1 && btnPrev }
+      { page && searchResult.hasMore && btnNext }
+      </div>
     </React.Fragment>
   );
 };
@@ -61,6 +93,8 @@ FoundCards.defaultProps = {
 };
 
 FoundCards.propTypes = {
+  location: PropTypes.object,
+  searchResult: PropTypes.object,
   cards: PropTypes.array,
   cardAddedToWishlist: PropTypes.func,
   lazy: PropTypes.bool,

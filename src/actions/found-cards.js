@@ -6,15 +6,15 @@ export const foundCardsLoadFailure = () => ({
   type: 'FOUND_CARDS_FAILURE',
 });
 
-export const foundCardsLoadSuccess = (cards) => ({
+export const foundCardsLoadSuccess = (result) => ({
   type: 'FOUND_CARDS_SUCCESS',
-  payload: cards,
+  payload: result,
 });
 
 export const findCards = (dispatch, scryfallService) => (queryString) => {
   dispatch(foundCardsLoadRequest());
 
   return scryfallService.searchCards(queryString)
-    .then((cards) => dispatch(foundCardsLoadSuccess(cards)))
+    .then((result) => dispatch(foundCardsLoadSuccess(result)))
     .catch(() => dispatch(foundCardsLoadFailure()));
 };

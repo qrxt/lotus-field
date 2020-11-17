@@ -28,11 +28,18 @@ export const cardFetch = (dispatch, scryfallService) => (cardId) => {
 
   dispatch(cardLoadRequest());
   return Promise.all([fetchCardPromise, fetchRulingsPromise, fetchPrintsPromise])
-    .then(([card, rulings, prints]) => ({
-      ...card,
-      rulings,
-      prints: prints.filter((print) => print.id !== card.id),
-    }))
+    .then(([card, rulings, printsSearchResult]) => {
+      const prints = {
+        ...printsSearchResult,
+        data: printsSearchResult.data.filter((print) => print.id !== card.id),
+      };
+
+      return ({
+        ...card,
+        rulings,
+        prints,
+      });
+    })
     .then((card) => dispatch(cardLoadSuccess(card)))
     .catch(() => {
       dispatch(cardLoadFailure());

@@ -3,17 +3,28 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import FoundCards from '@components/found-cards';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import styles from './prints.css';
 
-const Prints = ({ card, prints, className }) => {
+const Prints = (props) => {
+  const {
+    card,
+    printsSearchResult,
+    className,
+    location,
+  } = props;
   const { t } = useTranslation();
+
+  const { data: prints } = printsSearchResult;
 
   if (prints.length > 10) {
     return (
       <div className={ className }>
-        <FoundCards cards={ prints.slice(0, 10) } />
+        <FoundCards
+          location={ location }
+          searchResult={ { ...printsSearchResult, data: prints.slice(0, 10) } }
+        />
         <Link
           className={ cn('btn btn-primary mb-3', styles['more-button']) }
           to={
@@ -26,13 +37,18 @@ const Prints = ({ card, prints, className }) => {
     );
   }
 
-  return <div className={ className }><FoundCards cards={ prints } /></div>;
+  return (
+    <div className={ className }>
+      <FoundCards location={ location } searchResult={ printsSearchResult } />
+    </div>
+  );
 };
 
 Prints.propTypes = {
   card: PropTypes.object,
-  prints: PropTypes.array,
+  printsSearchResult: PropTypes.object,
   className: PropTypes.string,
+  location: PropTypes.object,
 };
 
-export default Prints;
+export default withRouter(Prints);

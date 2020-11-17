@@ -19,7 +19,7 @@ const SearchForm = (props) => {
   const onFormSubmit = (evt) => {
     evt.preventDefault();
 
-    history.push(`/cards?q=${searchFilters.queryString}`);
+    history.push(`/cards?q=${searchFilters.queryString}&page=1`);
   };
 
   return (
