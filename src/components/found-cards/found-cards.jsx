@@ -13,7 +13,7 @@ import IconNotFound from '@images/not-found.svg';
 import styles from './found-cards.css';
 
 const wrappedWithLazy = (card) => (
-  <LazyLoad placeholder={ <CardBack /> } offset={ 568 }>
+  <LazyLoad placeholder={ <CardBack /> } offset={ 568 } className='d-flex align-items-center'>
     <CardPreview card={ card } />
   </LazyLoad>
 );
