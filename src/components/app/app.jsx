@@ -54,7 +54,10 @@ const App = () => {
             render={ ({ location }) => {
               const { search: queryString } = location;
 
-              return <CardsPage queryString={ queryString } />;
+              return <CardsPage
+                queryString={ queryString }
+                key={ window.location.search }
+              />;
             } }
           />
 

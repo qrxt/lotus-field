@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazyload';
 import { useTranslation } from 'react-i18next';
@@ -40,21 +41,21 @@ const FoundCards = (props) => {
   }
 
   const btnPrev = (
-    <a
+    <Link
       className={ cn('btn btn-primary mr-3', styles['prev-button']) }
-      href={ `/cards?${prevPageQueryString}` }
+      to={ `/cards?${prevPageQueryString}` }
     >
       { t('buttons.found-cards.previous') }
-    </a>
+    </Link>
   );
 
   const btnNext = (
-    <a
+    <Link
       className={ cn('btn btn-primary', styles['next-button']) }
-      href={ `/cards?${nextPageQueryString}` }
+      to={ `/cards?${nextPageQueryString}` }
     >
       { t('buttons.found-cards.next') }
-    </a>
+    </Link>
   );
 
   return (

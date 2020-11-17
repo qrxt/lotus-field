@@ -28,7 +28,7 @@ const Prints = (props) => {
         <Link
           className={ cn('btn btn-primary mb-3', styles['more-button']) }
           to={
-            `/cards?order=released\u0026q=oracleid%3A${card.oracleId}\u0026unique=prints`
+            `/cards?order=released\u0026page=1\u0026q=oracleid%3A${card.oracleId}\u0026unique=prints`
           }
         >
           { t('pages.card.prints.link-to-other') }
