@@ -87,12 +87,11 @@ class CardsService {
   async searchCards(queryString) {
     const cardsObjectList = await this.getResource(`/cards/search${queryString}`);
 
-    // pages logic
-
     const normalizedCardsObjectList = cardsObjectList || { data: [] };
-    const result = normalizedCardsObjectList.data.map((card) => transformCardData(card));
+    const cards = normalizedCardsObjectList.data.map((card) => transformCardData(card));
+    const result = { ...normalizedCardsObjectList, data: cards };
 
-    return result;
+    return transformKeysToCamelCase(result);
   }
 }
 

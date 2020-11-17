@@ -1,5 +1,5 @@
 import React from 'react';
-import renderWithI18n from '@root/__setup__/with-i18n';
+import renderWithRouter from '@root/__setup__/with-router';
 import CardFull from '@components/card-full';
 
 // fixtures
@@ -20,13 +20,13 @@ const card = {
       comment: 'Uro’s first ability causes you to sacrifice it if you didn’t cast it...',
     },
   ],
-  prints: [{ ...cardSingle.afterTransformation, prints: [] }],
+  prints: { data: [cardSingle.afterTransformation], prints: [] },
   prices: { usd: '0.87' },
 };
 
 describe('Card Full Container', () => {
   test('should render with loading spinner', () => {
-    const { getByText } = renderWithI18n(
+    const { getByText } = renderWithRouter(
       <CardFull
         cardRemovedFromWishlist={ () => {} }
         cardAddedToWishlist={ () => {} }

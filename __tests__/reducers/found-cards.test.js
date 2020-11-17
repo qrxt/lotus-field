@@ -26,7 +26,7 @@ describe('Found Cards Reducer', () => {
   test('should handle FOUND_CARDS_REQUEST', () => {
     const state = foundCards({ foundCards: initialState }, foundCardsLoadRequest());
 
-    expect(state.cards).toEqual([]);
+    expect(state.result.data).toEqual([]);
     expect(state.loading).toBeTruthy();
     expect(state.failure).toBeFalsy();
   });
@@ -34,20 +34,20 @@ describe('Found Cards Reducer', () => {
   test('should handle FOUND_CARDS_FAILURE', () => {
     const state = foundCards({ foundCards: initialState }, foundCardsLoadFailure());
 
-    expect(state.cards).toEqual([]);
+    expect(state.result.data).toEqual([]);
     expect(state.loading).toBeFalsy();
     expect(state.failure).toBeTruthy();
   });
 
   test('should handle FOUND_CARDS_SUCCESS', () => {
-    const cards = ['card', 'card'];
+    const result = { data: ['card', 'card'] };
 
     const state = foundCards(
       { foundCards: initialState },
-      foundCardsLoadSuccess(cards),
+      foundCardsLoadSuccess(result),
     );
 
-    expect(state.cards).toEqual(cards);
+    expect(state.result).toEqual(result);
     expect(state.loading).toBeFalsy();
     expect(state.failure).toBeFalsy();
   });
@@ -59,7 +59,7 @@ describe('Found Cards Reducer', () => {
 
     const result = await findCards((data) => data.payload, scryfallFake)('query string');
 
-    expect(result)
+    expect(result.data)
       .toEqual([cardSingle.afterTransformation]);
   });
 });

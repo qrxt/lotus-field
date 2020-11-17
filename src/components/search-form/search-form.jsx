@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ColorIdentityInput from '@components/color-identity-input';
 
+import styles from './search-form.css';
+
 const SearchForm = (props) => {
   const {
     onFiltersRefresh,
@@ -17,17 +19,18 @@ const SearchForm = (props) => {
   const onFormSubmit = (evt) => {
     evt.preventDefault();
 
-    history.push(`/cards?q=${searchFilters.queryString}`);
+    history.push(`/cards?q=${searchFilters.queryString}&page=1`);
   };
 
   return (
-    <Form onSubmit={ onFormSubmit }>
+    <Form onSubmit={ onFormSubmit } className={ 'col-12 col-xl-4 col-lg-6 p-0' }>
       <Form.Group controlId="formSearchCardName">
         <Form.Label>{ t('search-form.name-input.title') }</Form.Label>
         <Form.Control
           type="text"
           placeholder={ t('search-form.name-input.placeholder') }
           onInput={ (evt) => onFiltersRefresh('name', evt.target.value) }
+          className={ styles['input-name'] }
         />
         <Form.Check
           custom
@@ -35,6 +38,7 @@ const SearchForm = (props) => {
           id="name-exact"
           label={ t('search-form.exact-checkbox.title') }
           onChange={ (evt) => onFiltersRefresh('nameExact', evt.target.value) }
+          className={ styles.checkbox }
         />
       </Form.Group>
 

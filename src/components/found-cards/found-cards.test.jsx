@@ -9,15 +9,21 @@ import cardSingle from '@root/__fixtures__/card-single';
 import cardSplit from '@root/__fixtures__/card-split';
 import cardDouble from '@root/__fixtures__/card-double';
 
-const cards = [
-  cardSingle.afterTransformation,
-  cardSplit.afterTransformation,
-  cardDouble.afterTransformation,
-];
+const result = {
+  data: [
+    cardSingle.afterTransformation,
+    cardSplit.afterTransformation,
+    cardDouble.afterTransformation,
+  ],
+};
+
+const location = { search: null };
 
 describe('Found Cards', () => {
   test('should render if no cards', () => {
-    const { getByText } = renderWithI18n(<FoundCards cards={ [] } />);
+    const { getByText } = renderWithI18n(
+      <FoundCards searchResult={ { data: [] } } location={ location } />,
+    );
 
     const noCardsText = i18n
       .getDataByLanguage('en').translation.pages['found-cards']['no-cards'];
@@ -26,7 +32,9 @@ describe('Found Cards', () => {
   });
 
   test('should render card backs', () => {
-    const { getAllByAltText } = renderWithI18n(<FoundCards cards={ cards } />);
+    const { getAllByAltText } = renderWithI18n(
+      <FoundCards searchResult={ result } location={ location } />,
+    );
 
     const { alt } = i18n
       .getDataByLanguage('en').translation.cards.placeholder;
@@ -35,7 +43,9 @@ describe('Found Cards', () => {
   });
 
   test('should render cards correctly', () => {
-    const { getByAltText } = renderWithRouter(<FoundCards cards={ cards } lazy={ false } />);
+    const { getByAltText } = renderWithRouter(
+      <FoundCards searchResult={ result } lazy={ false } location={ location } />,
+    );
 
     expect(getByAltText(/Uro/i)).toBeInTheDocument();
     expect(getByAltText(/Dusk/i)).toBeInTheDocument();

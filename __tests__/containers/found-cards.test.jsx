@@ -11,7 +11,7 @@ describe('Found Cards Container', () => {
         findCards={ () => {} }
         cardAddedToWishlist={ () => {} }
 
-        cards={ [] }
+        searchResult={ { data: [] } }
         loading={ false }
         failure={ false }
       />,

@@ -1,5 +1,5 @@
 const initialState = {
-  cards: [],
+  result: { data: [] },
   loading: true,
   failure: false,
 };
@@ -13,7 +13,7 @@ export default (state, action) => {
     FOUND_CARDS_REQUEST: {
       ...state.foundCards,
 
-      cards: [],
+      result: { data: [] },
       loading: true,
       failure: false,
     },
@@ -21,7 +21,7 @@ export default (state, action) => {
     FOUND_CARDS_SUCCESS: {
       ...state.foundCards,
 
-      cards: action.payload,
+      result: action.payload,
       loading: false,
       failure: false,
     },
@@ -29,7 +29,7 @@ export default (state, action) => {
     FOUND_CARDS_FAILURE: {
       ...state.foundCards,
 
-      cards: [],
+      result: { data: [] },
       loading: false,
       failure: true,
     },

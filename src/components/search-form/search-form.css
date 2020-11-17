@@ -1,3 +1,15 @@
 .options-title {
   margin: 0;
 }
+
+/* Inputs */
+
+.input-name {
+  margin-bottom: 10px;
+}
+
+/* Checkboxes */
+
+.checkbox {
+  cursor: pointer;
+}

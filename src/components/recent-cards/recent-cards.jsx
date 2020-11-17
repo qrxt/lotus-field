@@ -12,6 +12,7 @@ const RecentCards = ({ cards }) => {
   const { t } = useTranslation();
   const wrapperClasses = cn(
     'wrapper',
+    'col-12',
     styles.wrapper,
   );
 

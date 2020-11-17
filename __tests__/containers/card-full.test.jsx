@@ -22,7 +22,9 @@ const card = {
       comment: 'Uro’s first ability causes you to sacrifice it if you didn’t cast it...',
     },
   ],
-  prints: [{ ...cardSingle.afterTransformation, prints: [] }],
+  prints: {
+    data: { ...cardSingle.afterTransformation, prints: [] },
+  },
   prices: { usd: '0.87' },
 };
 

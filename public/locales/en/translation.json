@@ -164,6 +164,11 @@
 
     "flip": {
       "description": "Click to flip"
+    },
+
+    "found-cards": {
+      "next": "Next Page",
+      "previous": "Previous Page"
     }
   },
 
