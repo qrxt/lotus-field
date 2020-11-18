@@ -27,7 +27,7 @@ const MyNavbar = () => {
               className={ styles.logo }
               width="48"
               height="48"
-              alt="Logo"
+              alt="Lotus Field"
             />
           </Nav.Link>
         </Navbar.Brand>

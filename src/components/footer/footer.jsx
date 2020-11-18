@@ -27,13 +27,21 @@ const Footer = () => {
           </h3>
           <ul className={ styles.['contacts-list'] }>
             <li className={ styles.contact }>
-              <a className={ styles.['contact-link'] } href="https://vk.com/id106399922">
+              <a
+                className={ styles.['contact-link'] }
+                href="https://vk.com/id106399922"
+                aria-label={ t('footer.contacts.vk') }
+              >
                 <IconVk width="48" height="48" className={ styles.['social-icon'] } />
               </a>
             </li>
 
             <li className={ styles.contact }>
-              <a className={ styles.['contact-link'] } href="https://telegram.me/qrxt357">
+              <a
+                className={ styles.['contact-link'] }
+                href="https://telegram.me/qrxt357"
+                aria-label={ t('footer.contacts.tg') }
+              >
                 <IconTg width="48" height="48" className={ styles.['social-icon'] } />
               </a>
             </li>
