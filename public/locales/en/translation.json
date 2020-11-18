@@ -13,7 +13,9 @@
     },
 
     "contacts": {
-      "title": "Contacts"
+      "title": "Contacts",
+      "vk": "VKontakte",
+      "tg": "Telegram"
     }
   },
 

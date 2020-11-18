@@ -10,34 +10,107 @@
     "rights": {
       "title": "Права",
       "text": "Текстовая и графическая информация, представленная на этом сайте о Magic: The Gathering, включая изображения карт, символы маны, тексты карт принадлежат Wizards of the Coast, LLC, филиалу Hasbro, Inc"
+    },
+
+    "contacts": {
+      "title": "Контакты",
+      "vk": "ВКонтакте",
+      "tg": "Телеграм"
     }
+  },
+
+  "error-indicator": {
+    "text": "Не удалось загрузить этот ресурс :("
   },
 
   "pages": {
     "all": {
-      "h1": "Lotus Field - Список желаемых карт для MTG"
+      "h1": "Lotus Field - Приложение-список желаемого для MTG"
     },
 
     "main": {
       "h2": "Дополнительные возможности",
       "recent": {
-        "title": "Недавние карты"
+        "title": "Недавние карты",
+        "no-cards": "Недавние карты будут отображены здесь"
       }
     },
 
     "card": {
       "h2": "Страница отдельной карты",
       "legalities": "Легальность",
-      "rulings": "Правила"
+      "rulings": "Правила",
+      "prints": {
+        "title": "Принты",
+        "link-to-other": "К другим принтам"
+      },
+      "prices": {
+        "title": "Цены",
+        "currency": "Валюта",
+        "cost": "Стоимость"
+      }
     },
 
     "settings": {
-      "h2": "Настройки",
+      "h2": "Страница настроек",
 
       "language": {
         "title": "Выберите язык"
       }
+    },
+
+    "search": {
+      "h2": "Страница поиска"
+    },
+
+    "found-cards": {
+      "h2": "Найденные карты",
+      "no-cards": "Не найдено карт с такими свойствами :(",
+      "cards-found-quantity": "карт отображено"
+    },
+
+    "wishlist": {
+      "h2": "Список желаемого",
+      "no-cards": "Ваши любимые карты будут отображены здесь"
     }
+  },
+
+  "search-form": {
+    "name-input": {
+      "title": "Поиск карт",
+      "placeholder": "Введите имя карты"
+    },
+
+    "exact-checkbox": {
+      "title": "Точное"
+    },
+
+    "type-input": {
+      "title": "Тип карты",
+      "placeholder": "Существо"
+    },
+
+    "card-text-input": {
+      "title": "Текст карты",
+      "placeholder": "~ выходит на поле битвы повернутым"
+    },
+
+    "rarity-select": {
+      "title": "Редкость",
+      "placeholder": "Выберите редкость"
+    },
+
+    "unique-select": {
+      "title": "Уникальность",
+      "placeholder": "Выберите стратегию поиска"
+    },
+
+    "artist-input": {
+      "title": "Художник",
+      "placeholder": "Введите имя художника"
+    },
+
+    "submit": "Поиск"
   },
 
   "features-nav": {
@@ -45,25 +118,80 @@
   },
 
   "formats": {
-    "standard": "Standard",
+    "standard": "Стандарт",
     "future": "Future",
-    "historic": "Historic",
-    "pioneer": "Pioneer",
-    "modern": "Modern",
-    "legacy": "Legacy",
-    "pauper": "Pauper",
-    "vintage": "Vintage",
+    "historic": "Хисторик",
+    "pioneer": "Пионер",
+    "modern": "Модерн",
+    "legacy": "Легаси",
+    "pauper": "Бедняк",
+    "vintage": "Винтаж",
     "penny": "Penny",
-    "commander": "Commander",
-    "brawl": "Brawl",
-    "duel": "Duel",
+    "commander": "Командир",
+    "brawl": "Схватка",
+    "duel": "Дуэль",
     "oldschool": "Oldschool"
   },
 
+  "rarities": {
+    "any": "Любая",
+    "common": "Обычные",
+    "uncommon": "Необычные",
+    "rare": "Редкие",
+    "mythic": "Мифические"
+  },
+
+  "unique": {
+    "cards": "Карты",
+    "art": "Арты",
+    "prints": "Принты"
+  },
+
   "legalities": {
-    "legal": "Разрешена",
-    "restricted": "Ограничена",
-    "not_legal": "Не разрешена",
-    "banned": "Забанена"
+    "legal": "Разрешено",
+    "restricted": "Ограничено",
+    "not_legal": "Не разрешено",
+    "banned": "Забанено"
+  },
+
+  "buttons": {
+    "wishlist": {
+      "add-to-wishlist": "Добавить в вишлист",
+      "remove-from-wishlist": "Убрать из вишлиста"
+    },
+
+    "up": {
+      "description": "Пролистать до верха страницы"
+    },
+
+    "flip": {
+      "description": "Перевернуть"
+    },
+
+    "found-cards": {
+      "next": "Следующие",
+      "previous": "Предыдущие"
+    }
+  },
+
+  "inputs": {
+    "color-identity": {
+      "disabled": "Включить цвет: ",
+      "enabled": "Выключить цвет: "
+    }
+  },
+
+  "currencies": {
+    "usd": "USD",
+    "usdFoil": "USD Фойл",
+    "eur": "EUR",
+    "eurFoil": "EUR Фойл",
+    "tix": "TIX"
+  },
+
+  "cards": {
+    "placeholder": {
+      "alt": "Задник карты MTG"
+    }
   }
 }

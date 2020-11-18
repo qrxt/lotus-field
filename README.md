@@ -34,6 +34,7 @@ Lotus field (WIP) - простое приложение для просмотр�
 
 ### Гифки
 ![Double card preview](https://user-images.githubusercontent.com/46269438/97426307-4f9ae380-1924-11eb-931e-7601ac63de24.gif) ![Other prints](https://user-images.githubusercontent.com/46269438/97426312-5164a700-1924-11eb-81c5-11d98e79ee4f.gif) ![search](https://user-images.githubusercontent.com/46269438/97431977-4ca3f100-192c-11eb-9684-4aff2e6f6f6d.gif)
+![flip](https://user-images.githubusercontent.com/46269438/99426258-ed2a7700-2914-11eb-8fc0-7f53bc26d0e9.gif)
 
 ### Скриншоты
 ![card-example-1](https://user-images.githubusercontent.com/46269438/97600267-ed240f00-1a19-11eb-8a1b-993a4630f329.JPG) ![card-example-2](https://user-images.githubusercontent.com/46269438/97600271-edbca580-1a19-11eb-98ba-f6e0a148343e.JPG)
@@ -41,6 +42,9 @@ Lotus field (WIP) - простое приложение для просмотр�
 ![prints](https://user-images.githubusercontent.com/46269438/97600275-ee553c00-1a19-11eb-8c15-e8086a0cd22b.JPG) ![prints-2](https://user-images.githubusercontent.com/46269438/97600276-ee553c00-1a19-11eb-830e-43d120053dca.JPG)
 ![prices](https://user-images.githubusercontent.com/46269438/97600278-eeedd280-1a19-11eb-8b1f-d6318f43c983.JPG) ![rulings](https://user-images.githubusercontent.com/46269438/97600274-ee553c00-1a19-11eb-90b1-fc858a76fda6.JPG)
 ![legalities](https://user-images.githubusercontent.com/46269438/97609004-25304f80-1a24-11eb-9ab6-68140d300a34.JPG)
+
+## Прогресс
+[Trello](https://trello.com/b/v2mW0LRI/lotus-field)
 
 ## Контакты
 - [Telegram](https://telegram.me/qrxt357)
