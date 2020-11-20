@@ -2,7 +2,7 @@ const express = require('express');
 const favicon = require('express-favicon');
 const path = require('path');
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 const dirname = path.resolve(path.dirname(''));
 
 const app = express();
