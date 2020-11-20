@@ -14,7 +14,7 @@ const Wishlist = ({ cards }) => {
     return (
       <div className={ styles['no-cards'] }>
         <EmptyIcon />
-        <p>
+        <p className={ styles['no-cards-text'] }>
           {
             t('pages.wishlist.no-cards')
           }

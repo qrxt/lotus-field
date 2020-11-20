@@ -28,3 +28,6 @@ check-all: lint test
 
 test-coverage:
 	npx jest --coverage
+
+server:
+	npm run server

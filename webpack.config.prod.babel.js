@@ -6,6 +6,7 @@ import HtmlPlugin from 'html-webpack-plugin';
 import CompressPlugin from 'compression-webpack-plugin';
 import { CleanWebpackPlugin as CleanPlugin } from 'clean-webpack-plugin';
 
+import customMedia from 'postcss-custom-media';
 import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
 
@@ -53,6 +54,7 @@ module.exports = {
             options: {
               postcssOptions: {
                 plugins: [
+                  customMedia(),
                   autoprefixer,
                   cssnano({ preset: 'default' }),
                 ],
