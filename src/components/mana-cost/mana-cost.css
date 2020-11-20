@@ -1,10 +1,13 @@
 /* stylelint-disable */
 @font-face {
   font-family: 'Mana';
-  src: url('~mana-font/fonts/mana.eot?v=1.9.3');
-  src: url('~mana-font/fonts/mana.eot?#iefix&v=1.9.3') format('embedded-opentype'), url('~mana-font/fonts/mana.woff?v=1.9.3') format('woff'), url('~mana-font/fonts/mana.ttf?v=1.9.3') format('truetype');
   font-weight: normal;
   font-style: normal;
+  src: url("~@public/fonts/mana/mana.woff") format("woff"); /* Modern Browsers */
+  src:
+    local(""),
+    url("~@public/fonts/mana/mana.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("~@public/fonts/mana/mana.eot") format("svg");
 }
 @font-face {
   font-family: 'MPlantin';
