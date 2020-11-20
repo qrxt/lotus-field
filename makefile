@@ -31,3 +31,5 @@ test-coverage:
 
 server:
 	npm run server
+
+heroku: build server
