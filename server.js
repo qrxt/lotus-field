@@ -14,11 +14,7 @@ app.use(express.static(path.join(dirname, 'dist')));
 
 app.get('/*', gzipStatic('./dist/', {
   enableBrotli: true,
-  customCompressions: [{
-    encodingName: 'deflate',
-    fileExtension: 'zz',
-  }],
-  orderPreference: ['br'],
+  orderPreference: ['gz'],
 }));
 
 // (req, res) => {

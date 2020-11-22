@@ -12,8 +12,9 @@ import withScryfallService from '@hoc';
 import './app.css';
 
 // Pages
+import CardPage from '@pages/card-page.jsx';
+
 const MainPage = lazy(() => import('@pages/main-page.jsx'));
-const CardPage = lazy(() => import('@pages/card-page.jsx'));
 const CardsPage = lazy(() => import('@pages/cards-page.jsx'));
 const SettingsPage = lazy(() => import('@pages/settings-page.jsx'));
 const SearchPage = lazy(() => import('@pages/search-page.jsx'));
