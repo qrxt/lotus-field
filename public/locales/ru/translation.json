@@ -141,12 +141,6 @@
     "mythic": "Мифические"
   },
 
-  "unique": {
-    "cards": "Карты",
-    "art": "Арты",
-    "prints": "Принты"
-  },
-
   "legalities": {
     "legal": "Разрешено",
     "restricted": "Ограничено",
