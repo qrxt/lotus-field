@@ -17,8 +17,8 @@ app.get('/*', gzipStatic('./dist/', {
   orderPreference: ['gz'],
 }));
 
-// (req, res) => {
-//   res.sendFile(path.join(dirname, 'dist', 'index.html'));
-// }
+app.get('/wakemydino.txt', (req, res) => {
+  res.sendFile(path.join(dirname, 'wakemydino.txt'));
+});
 
 app.listen(port);
