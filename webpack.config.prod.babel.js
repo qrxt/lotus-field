@@ -101,6 +101,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: 'public/img', to: 'img' },
+        { from: './wakemydyno.txt', to: './dist/wakemydyno.txt' },
       ],
     }),
     new HtmlPlugin({

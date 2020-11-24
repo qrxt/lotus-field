@@ -8,6 +8,10 @@ const dirname = path.resolve(path.dirname(''));
 
 const app = express();
 
+app.get('/wakemydyno.txt', (req, res) => {
+  res.sendFile(path.join(dirname, 'wakemydyno.txt'));
+});
+
 app.get('*.js', (req, res, next) => {
   req.url = `${req.url}.gz`;
   res.set('Content-Encoding', 'gzip');
@@ -37,9 +41,5 @@ app.get('/*', gzipStatic('./dist/', {
   enableBrotli: true,
   orderPreference: ['gz'],
 }));
-
-app.get('/wakemydyno.txt', (req, res) => {
-  res.sendFile(path.join(dirname, 'wakemydyno.txt'));
-});
 
 app.listen(port);
