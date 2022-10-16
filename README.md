@@ -48,7 +48,3 @@ Lotus field (WIP) - простое приложение для просмотр�
 
 ## Демо
 На Heroku: [Тык!](https://lotus-field.herokuapp.com/)
-
-## Контакты
-- [Telegram](https://telegram.me/qrxt357)
-- [VK](https://vk.com/id106399922)
