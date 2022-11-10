@@ -47,4 +47,4 @@ Lotus field (WIP) - простое приложение для просмотр�
 [Trello](https://trello.com/b/v2mW0LRI/lotus-field)
 
 ## Демо
-На Heroku: [Тык!](https://lotus-field.herokuapp.com/)
+На Vercel: [Тык!](https://lotus-field.vercel.app/)
