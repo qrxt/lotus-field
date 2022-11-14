@@ -1,9 +1,9 @@
 # Lotus Field 
 ![alt text](https://github.com/qrxt/lotus-field/blob/master/public/img/lotus.png?raw=true)
 
-![Node.js Build](https://github.com/qrxt/lotus-field/workflows/Node.js%20Build/badge.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/0bf1a80c9b55f49de77a/maintainability)](https://codeclimate.com/github/qrxt/lotus-field/maintainability) ![Dependencies](https://david-dm.org/qrxt/lotus-field.svg) ![Work in Progress](https://img.shields.io/badge/WIP-%20-yellow)
+![Node.js Build](https://github.com/qrxt/lotus-field/workflows/Node.js%20Build/badge.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/0bf1a80c9b55f49de77a/maintainability)](https://codeclimate.com/github/qrxt/lotus-field/maintainability) ![Dependencies](https://david-dm.org/qrxt/lotus-field.svg)
 
-Lotus field (WIP) - простое приложение для просмотра и формирования списка желаемых карт для Magic: The Gathering, построенное на React с использованием Redux.
+Lotus field - простое приложение для просмотра и формирования списка желаемых карт для Magic: The Gathering, построенное на React с использованием Redux.
 
 ![Single card preview](https://user-images.githubusercontent.com/46269438/97425997-e9ae5c00-1923-11eb-95fc-05fcef562579.gif)
 
@@ -42,9 +42,6 @@ Lotus field (WIP) - простое приложение для просмотр�
 ![prints](https://user-images.githubusercontent.com/46269438/97600275-ee553c00-1a19-11eb-8c15-e8086a0cd22b.JPG) ![prints-2](https://user-images.githubusercontent.com/46269438/97600276-ee553c00-1a19-11eb-830e-43d120053dca.JPG)
 ![prices](https://user-images.githubusercontent.com/46269438/97600278-eeedd280-1a19-11eb-8b1f-d6318f43c983.JPG) ![rulings](https://user-images.githubusercontent.com/46269438/97600274-ee553c00-1a19-11eb-90b1-fc858a76fda6.JPG)
 ![legalities](https://user-images.githubusercontent.com/46269438/97609004-25304f80-1a24-11eb-9ab6-68140d300a34.JPG)
-
-## Прогресс
-[Trello](https://trello.com/b/v2mW0LRI/lotus-field)
 
 ## Демо
 На Vercel: [Тык!](https://lotus-field.vercel.app/)
